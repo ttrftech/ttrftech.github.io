@@ -1,0 +1,480 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>DDS AD9859とGNURadioでVNAを作ってみる(1.動作原理解説)</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/2013-02-12-building-vna-vnwa-using-gnuradio-and-dds-ad9859-1/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Tuesday, Feb 12, 2013</time>
+<h2><a href="https://ttrf.tk/posts/2013-02-12-building-vna-vnwa-using-gnuradio-and-dds-ad9859-1/" class="title">DDS AD9859とGNURadioでVNAを作ってみる(1.動作原理解説)</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          <p>DG8SAQによるQEX誌記事&rdquo;A Small, Simple, USB-Powered  Vector Network Analyzer Covering 1 kHz to 1.3 GHz&rdquo;を読み、その構成のシンプルさと強烈なアイデアにある種の感動を覚えました。この記事で取り上げられた自作のVNAは、VNWAという名称でsdr-kit.netから頒布されていました。当初はキット配布で、チャレンジしてみたいと思っていたのですが、途中から完成品の販売のみとなってしまいました。完成品ではおそらく物足りないだろうと思いましたので、いっそのこと自分で作ってみることにしました。(一応念のためですが、VNAとはQEX記事タイトルにもあるように、ベクトルネットワークアナライザのことです)</p>
+
+<p>製作に踏ん切るもうひとつのきっかけはGNURadioです。たとえVNAのハードウェアを作れたとしても、計測の中心は信号処理のソフトウェアで、一から作るのは一筋縄ではいきそうにありません。有り難いことにGNURadioには必要なビルディングブロックがいろいろ揃っているようでしたので、VNAもなんとかなるのではないかと考えました。</p>
+
+<p>ハードウェアについてですが、残念なことにVNWAの回路は公開されていません。キットや製品を購入した人には回路図などの詳細情報が提供されているようです。公開されていない事情は、完成品の販売の兼ね合いもあると考えられます。とはいえ、雑誌QEXは&rdquo;A Forum for Communications Experimenters&rdquo;ですから、読者が記事を読んで実験することは趣旨に合致したことであるはずです。ここはひとつ、QEX記事やマニュアルから読み取れる情報から回路を検討して、適当に使いやすいようアレンジして設計することにしました。</p>
+
+<p>実は回路設計と基板レイアウトは昨年の10月の段階で一段落しており、すでに基板試作ができあがり、実装も開始していたのですが、ちょっとDDSのコントロールに手こずっていたり、RTLSDRなど他のことに時間を費やしていて、VNAの製作について書くのが遅くなってしまいました。忘れる前にすこしずつ書いておきたいと思います。</p>
+
+<p><img src="http://media.tumblr.com/284e4f727410bba5177d28b84da66928/tumblr_inline_mi3y4dXOGa1qz4rgp.jpg" alt="image" /></p>
+
+<p>今回作成したVNAのフロントエンドの構成は以下のようになっています。まずはVNAの基本原理を簡単に説明します。</p>
+
+<p><img src="http://media.tumblr.com/a683c4a9a69130f531d74937db732fc2/tumblr_inline_miaivtWELU1qz4rgp.png" alt="image" /></p>
+
+<p>二つのDDSでRF信号とLO信号を発生させます。RF信号を抵抗ブリッジに与え、TXポートからDUT(Device Under Test)に接続します。TXポートから出たRF信号がDUTで反射して、ブリッジの平衡出力に出てきます。これをDBM SA612で受けて、LO信号で低周波信号に変換します。これが反射信号となります。これと同時に、ブリッジを通さないRF信号をDBMとLO信号で低周波信号に変換します。これが参照信号となります。反射信号の振幅と、参照信号との位相差は、TXポートからDUTを見るインピーダンスに対応しています。SパラメータでいえばS11です。</p>
+
+<p>一方、RXポートにはDUTを通過してきた信号を入力し、同様にDBMでLO信号で低周波信号に変換します。これが通過信号となります。この振幅と、参照信号との位相差を合わせると、SパラメータでいえばS21となります。</p>
+
+<p>このようにして得られた低周波信号はPCのサウンドカードで入力し、GNURadioを使って処理します。このために、LO信号とRF信号の周波数差を、サウンドカードで取得可能な音声帯域になるように設定する必要があります。サウンドカードに入力できるのは同時に2chなので、反射信号と通過信号をアナログスイッチで切り替えて、参照信号と共に取り込みます。</p>
+
+<p>DDSやアナログスイッチの制御は、FT232RLのBitBangモードで制御します。インピーダンスの周波数特性を得るために、発生する周波数をスイープさせるようDDSを制御しますが、その際にRF信号とLO信号が一定の周波数差となるように制御します。これをPCからUSBを介して行います。</p>
+
+<p>ここまではVNAとしての基本原理そのものです。ここからは、VNWAの驚異のエッセンスについて、解説を試みたいと思います。QEX誌記事の本旨でもありますので合わせてご参照ください。</p>
+
+<p>DDSには動作上限周波数があります。例えばAD9859のように400MHzクロックの場合、発生する信号は160MHz程度が実用上の上限周波数となります。ところが、QEX記事には1.3GHzまでカバーするとあるように、この限界を超えています。実は二つの手段で周波数帯域を拡大しています。</p>
+
+<p>一つめは単純で、DDSをオーバークロックで用いることです。AD9859は400MHzが仕様の上限ですが、実際に動作させてみると倍近い800MHz付近で動作させることができます。AD9859はPLLクロック逓倍機能を持っており、次数を最大20まで設定することができます。水晶から40MHz(記事では37MHz)を与えて、800MHz付近まで逓倍動作させることができています。</p>
+
+<p>もう一つの手段が、これが実に驚きなのですが、DDSが発生するスプリアス信号を積極的に利用することです。DDSで信号を発生させた場合、基本波だけではなく、ナイキスト周波数を中心に対称の位置に信号が出ています。例えば800MHzで動作しているDDS(ナイキスト周波数はその半分の400MHz)で、360MHzを発生させた場合は、440MHzの信号も出ています。強度は下がってしまうものの、さらにその上の周波数760MHz, 840MHz, 1160MHz, 1240MHzにも出ています。通常はこれらのスプリアスはLPFで除去してしまいますが、VNWAではLPFを設けず、あえてスプリアスを残したうえで、これらサブナイキストの信号成分を利用しています。</p>
+
+<p>さらに巧妙なことに、二つのDDSのPLL逓倍次数をずらし、DDSクロックに差を設けることで、たくさんのスプリアスから特定の成分のみを、ナイキスト次数で選択的に取り出すことを可能にしています。RFとLOは周波数差をもって信号発生させるため、ナイキスト次数の違いが差成分の周波数の違いとして現れ、FFTまたはフィルタ信号処理で特定の成分を取り出すことができます。</p>
+
+<p>また、DDSで信号を発生させる場合、ナイキスト周波数付近は強度が減衰してしまいます。この強度の変化はsincカーブで示されます。VNWAでは、この信号減衰を避けるためにナイキスト周波数付近の信号発生を避けるようサンプリング周波数を切り替えます。これもシンプルにPLL逓倍次数の切り替えで行います。</p>
+
+<p>このように、VNWAはDDSのクロック逓倍PLL機能を最大限活用して、1.3GHz付近までの計測を可能にしています。理解の一助のため簡単に説明しましたが、詳細はQEX誌記事を参照していただきたいと思います。</p>
+
+<p>解説ばかりで長くなってしまったので今回はここまでにします。</p>
+
+<p>現状動作している様子の写真をちょっとだけ。PythonスクリプトでDDSの周波数をスイープし、GNURadioで信号処理しMAG/ARGを計算しています。それをgnuplotでグラフ表示しています。</p>
+
+<p>先端解放の60cmくらいの同軸ケーブルによる反射が、信号の周波数に対応してケーブル長さで位相が回る様子がグラフからわかります。この写真では0-200MHzの範囲でスイープしており、160MHz付近で位相が一周しています。このことから電気長が90cm強となり、短縮率を考慮すると60cmの同軸ケーブルとして妥当なところかと思います。校正など課題はありますが、それっぽく動作しているようです。</p>
+
+<p><img src="http://media.tumblr.com/dfbaa3b1d60247787efafe04dbed78c0/tumblr_inline_mi3y8dfZNE1qz4rgp.jpg" alt="image" /></p>
+
+<p>今回製作したハードウェアの回路図や基板レイアウトなどの設計情報ですが、VNWAのそれが公開されていないことから、オリジナル作者の意図を尊重して、とりあえず現時点では公開を控えたいと思います。一方、ソフトウェアについては、実験レベルですがご参考として提示していきたいと思います。目標は「美しい」Smith Chartを描くことです。というわけで、以後続く予定です。</p>
+
+<p>リファレンス</p>
+
+<ul>
+<li>QEX誌記事 <a href="http://sdr-kits.net/DG8SAQ/VNWA/Baier_VNWA2_QEX.pdf" target="_blank">http://sdr-kits.net/DG8SAQ/VNWA/Baier_VNWA2_QEX.pdf</a></li>
+<li>SDR-Kits VNWAサイト 現在販売されているVNWA3 <a href="http://sdr-kits.net/VNWA3_Description.html" target="_blank">http://sdr-kits.net/VNWA3_Description.html</a></li>
+<li>参考にしたVNWA2の資料は現在は掲載されていません <a href="http://www.sdr-kits.net/VNWA/VNWA_Documentation.html" target="_blank">http://www.sdr-kits.net/VNWA/VNWA_Documentation.html</a> <a href="http://web.archive.org/web/20090816150847/http://www.sdr-kits.net/VNWA/VNWA_Documentation.html" target="_blank">.</a></li>
+<li>RFワールド No.10 “VNWA２”キットの製作・試用記 <a href="http://www.rf-world.jp/bn/RFW10/samples/p113-114.pdf" target="_blank">http://www.rf-world.jp/bn/RFW10/samples/p113-114.pdf</a></li>
+<li>インターネット上にはVNWAの製作・試用記はたくさんあります</li>
+<li>アイキャス(VNWAの日本の代理店) <a href="http://icas.to/lineup/vnwa-3.htm" target="_blank">http://icas.to/lineup/vnwa-3.htm</a> <a href="http://icas.to/lineup/vnwa-26.htm" target="_blank">http://icas.to/lineup/vnwa-26.htm</a></li>
+<li>VNAについてはアジレントのアプリケーションノートが資料が豊富で参考になります</li>
+<li>ベクトル・ネットワーク解析の基礎 <a href="http://cp.literature.agilent.com/litweb/pdf/5965-7707J.pdf" target="_blank">http://cp.literature.agilent.com/litweb/pdf/5965-7707J.pdf</a></li>
+<li>ネットワーク・アナライザのアーキテクチャ <a href="http://cp.literature.agilent.com/litweb/pdf/5965-7708J.pdf" target="_blank">http://cp.literature.agilent.com/litweb/pdf/5965-7708J.pdf</a></li>
+<li>ネットワーク・アナライザの基礎 <a href="http://cp.literature.agilent.com/litweb/pdf/00-2507.pdf" target="_blank">http://cp.literature.agilent.com/litweb/pdf/00-2507.pdf</a></li>
+</ul>
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Feb 12, 2013</time>
+	<a href="https://ttrf.tk/posts/2013-02-12-building-vna-vnwa-using-gnuradio-and-dds-ad9859-1/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/gnuradio">gnuradio</a>  <a class="category" href="https://ttrf.tk/tags/vna">vna</a>  <a class="category" href="https://ttrf.tk/tags/dds">dds</a>  <a class="category" href="https://ttrf.tk/tags/ad9859">ad9859</a>  <a class="category" href="https://ttrf.tk/tags/gnuplot">gnuplot</a>  <a class="category" href="https://ttrf.tk/tags/python">python</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2013-02-12-building-vna-vnwa-using-gnuradio-and-dds-ad9859-1%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2013-02-12-building-vna-vnwa-using-gnuradio-and-dds-ad9859-1/" data-text="DDS AD9859とGNURadioでVNAを作ってみる(1.動作原理解説)" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2013-02-12-building-vna-vnwa-using-gnuradio-and-dds-ad9859-1/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

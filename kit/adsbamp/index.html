@@ -1,0 +1,527 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>ADS-B SAWアンプキットv1.4</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/kit/adsbamp/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Saturday, Feb 27, 2016</time>
+<h2><a href="https://ttrf.tk/kit/adsbamp/" class="title">ADS-B SAWアンプキットv1.4</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          
+
+<p>ADS-B SAWフィルタプリアンプキットの頒布案内です。</p>
+
+<ul>
+<li>2016/2/27 v1.4改訂版掲載開始</li>
+<li>2018/7/1 継続して在庫しています</li>
+</ul>
+
+<p><img src="https://66.media.tumblr.com/7dc7b9a5d7745b9ddfad8652ed28b276/tumblr_inline_o36tfacTcR1r9hszk_500.jpg" alt="" /></p>
+
+<p>ADS-B受信用のプリアンプです。不要信号を除去するためのSAWフィルタを搭載しました。フィルタとアンプを合わせて20dB前後のゲインとなっています。電源は4~16V、10mAとなっています。レギュレータを搭載し、内部は3.3V動作です。</p>
+
+<p>キットには基板、チップ部品、SAWフィルタ、SMAコネクタが含まれています。CR類のチップは1608サイズを使用しています。</p>
+
+<ul>
+<li><a href="https://www.dropbox.com/s/t2jtkkoetjs22pr/ADS-B-kit-v1.2-20150912.pdf?dl=1" target="_blank">キット説明書(回路図含む)</a> (2015/9/12改訂)</li>
+<li><a href="https://www.dropbox.com/s/0kxu353f8td2q4p/ADS-B-kit-v1.2-sch-20150912.pdf?dl=1" target="_blank">Schematic (回路図)</a></li>
+</ul>
+
+<p><img src="https://66.media.tumblr.com/bfad65c612b487feb355e94c8bb81ced/tumblr_inline_nulf9oyuVn1r9hszk_500.jpg" alt="" /></p>
+
+<p>裏面に給電用のUSB Mini-Bコネクタ用のパタンを追加しました。コネクタ(キットには含まれていません)を付けるとこんな感じになります。</p>
+
+<p><img src="https://66.media.tumblr.com/f646c5faefe14e733d9b7ff33f06c22a/tumblr_inline_o36tlkUZ6V1r9hszk_500.jpg" alt="" /></p>
+
+<p>頒布価格</p>
+
+<ul>
+<li>キット 2500円 (送料込)</li>
+</ul>
+
+<p>ご留意いただきたいこと</p>
+
+<ul>
+<li>あくまで個人が趣味の範疇で行うキット頒布です</li>
+<li>工作を楽しんだり、実験に取り組んで頂くための素材とお考え下さい</li>
+<li>製品ではありませんし、性能の保証もありません</li>
+<li>このキット頒布に参加して生じたいかなる故障や損害についても、頒布者は責を負いません</li>
+<li>ご感想などフィードバックを頂戴できると幸甚です</li>
+</ul>
+
+<p>以上、頒布内容と注意点を了解いただいた上で、下記要領でメール連絡をお願いいたします。</p>
+
+<ul>
+<li>メールの宛先: edy555+kit “at” gmail.com  ”at”をアットマークに置き換えてください。</li>
+<li>表題(Subject)に [ADSBキット] と入れてください</li>
+<li>下記フォームをメール本文にコピーし必要事項を記入願います</li>
+<li><strong>コピー&amp;ペーストでお願いします。フォームの形式を変えないでください。全角半角を変えないでください。</strong></li>
+<li>送金方法をお選びください(ゆうちょ銀行/新生銀行/ジャパンネットバンク)</li>
+<li>折り返し確認とお振込先をご連絡さし上げます</li>
+<li>送料は価格に含まれています。</li>
+<li>発送はメール便(補償無し)を予定していますが、もしご希望があれば可能な限り対応いたします(別途実費)</li>
+</ul>
+
+<pre><code>[お名前]
+[郵便番号]
+[ご住所]
+[電話番号]
+[内容] ADS-Bキット：\_1\_セット
+[送金方法] ゆうちょ銀行/新生銀行/ジャパンネットバンク
+[このキット/blogをお知りになったきっかけ]
+[ブログ/ツイッター/コールサイン等] (もしあればご記入ください
+</code></pre>
+
+<p>以上、ご不明点があればコメントください。</p>
+
+<p>改版履歴</p>
+
+<ul>
+<li>v1.4 電源供給のためUSB mini-B用のパターンを裏面に追加</li>
+<li>v1.2 レギュレータ品種を変更により16Vまで入力可能。同軸給電に逆流防止Diを追加。</li>
+<li>v1.1 LEDを追加。同軸給電可能とした。</li>
+</ul>
+
+<p>リンク</p>
+
+<ul>
+<li>c22738さん。マイクロストリップ版も試してくださっています <a href="http://c22738.blog.fc2.com/blog-entry-3.html" target="_blank">http://c22738.blog.fc2.com/blog-entry-3.html</a></li>
+<li>mars_999さん <a href="http://blog.livedoor.jp/mars_999/archives/1976390.html" target="_blank">http://blog.livedoor.jp/mars_999/archives/1976390.html</a></li>
+<li>pupさん <a href="http://pup.doorblog.jp/archives/40594902.html" target="_blank">http://pup.doorblog.jp/archives/40594902.html</a></li>
+<li>TOSHIさんのβ2レポート <a href="http://ggtoshi.at.webry.info/201502/article_4.html" target="_blank">http://ggtoshi.at.webry.info/201502/article_4.html</a></li>
+</ul>
+
+<hr />
+
+<h2 id="for-international-customer">For International Customer</h2>
+
+<p>International order is acceptable.</p>
+
+<p>The Price of ADS-B Pre-amplifier kit is 22 USD and shipping 6 USD. Paypal is acceptable.</p>
+
+<p>Please fill the following form and email to edy555+kit[at]gmail.com with subject [ADSB Kit]. I’ll send back invoice.</p>
+
+<pre><code>[Name]
+[Zip]
+[Address]
+[City]
+[Country]
+[Phone]
+[Payment] your paypal account
+[Where did you know this kit?]
+[Callsign/Web/SNS]
+</code></pre>
+
+<p>Please consult following materials.</p>
+
+<ul>
+<li>Assembly Guide (en) (pdf) <a href="https://www.dropbox.com/s/m1t4x8mx7ppt0vo/ADS-B-kit-v1.2-20150912-en.pdf?dl=1" target="_blank">Download</a></li>
+<li>Schematic (pdf) <a href="https://www.dropbox.com/s/0kxu353f8td2q4p/ADS-B-kit-v1.2-sch-20150912.pdf?dl=1" target="_blank">Download</a></li>
+</ul>
+
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Feb 27, 2016</time>
+	<a href="https://ttrf.tk/kit/adsbamp/" class="permalink">Permalink ∞</a>
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fkit%2fadsbamp%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/kit/adsbamp/" data-text="ADS-B SAWアンプキットv1.4" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/kit/adsbamp/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

@@ -1,0 +1,496 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>Nucleoを使ってヒルベルト変換信号処理しAD9857 DDS IQ DUCでSSB信号を生成してみる</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/2015-03-22-hilbert-transform-ssb-generation-ad9857-nucleo/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Sunday, Mar 22, 2015</time>
+<h2><a href="https://ttrf.tk/posts/2015-03-22-hilbert-transform-ssb-generation-ad9857-nucleo/" class="title">Nucleoを使ってヒルベルト変換信号処理しAD9857 DDS IQ DUCでSSB信号を生成してみる</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          <p>マイクロコントローラによるRF信号処理の取り組みとして、AD9857を試していました。AD9857は、DDSとしてデジタル的にRF信号を一発で生成するだけに留まらず、その信号をIQ変調できてしまうという優れものです。数MspsのIQデジタル信号の生成が必要ですが、ここを王道のFPGAを使うこと無しに、マイクロコントローラでやろうとしています。数ヶ月前にちょっと実験して、実現可能であることは確認したのですが、手がまわらず放置していました。ようやく手が付けられる状態になったので、作業を再開です。</p>
+
+<p><img src="https://36.media.tumblr.com/d91e722077471d59b301fadb8c92f6cd/tumblr_inline_nllxp3UGFA1r9hszk_500.jpg" alt="image" /></p>
+
+<p>ピン数が多いマイコンボードとして、Nucleoを使っています。14bitのIQ信号をパラレル接続してDDSにデータを供給します。さらにI2SコーデックであるTLV320AIC3204を接続して、音声信号をデジタルで取り込みます。取り込んだ音声データに対して変調処理を実時間で実行し、最終的にAD9857に喰わせてやれば、いきなり数十MHzの変調信号が取り出せるわけです。ちなみに、DUCとはDigital Up Converterのことです。</p>
+
+<p>マイクにはスマートフォン用のものを使っています。ヘッドフォン端子を iphoneと互換の4ピン接続にしていますので、ここにヘッドセットを接続すれば、音声の入力と出力を同時に行うことができます。別の端子に2chのライン入力も設けていますので、テスト信号はこちらから入力することができます。</p>
+
+<p><img src="https://36.media.tumblr.com/b7015fc82e13e0ccb333c8d84c96a746/tumblr_inline_nlmactDW061r9hszk_500.jpg" alt="image" /></p>
+
+<p>以前の実験では、サンプリング周波数スキームを、48kHzから1.5MHzに持ち上げるために、FIRで25/4倍という非整数のインターポーレーションを行っていました。そこからCICで5倍し、1.5MHzでDDSに入力、あとはDDSの内部で、ハーフバンドフィルタで4倍、そしてCICで32倍し、最終的には192MHzで駆動しました。勘違いでCICの変換比が2のベキでなければならない気がしていたのと、1.5Mspsでインターフェースすることが目標だったので、これに囚われていたのですが、実際試したところまだ動作に余裕があることが判ったので、構成を考え直しました。</p>
+
+<p>新しいアップサンプリングスキームは、48kHzからFIRで4倍、さらにCICで10倍することで1.92Mspsとします。これをAD9857に喰わせて、4倍、そしてCICで25倍することで192MHzに持ち上げます。192kHzを通るので、ハイレゾな実験も可能かもしれません。</p>
+
+<p>FIRの係数はPythonで計算しました。48kHzの4倍、192kHzのサンプリングレートにおいてカットオフ周波数13kHzで、ちょっと肩の鈍った60タップのフィルタの係数列を計算し、それをポリフェーズフィルタ用に4分割して、15タップで計算します。実際の処理ではSIMD命令の都合上データは2サンプルづつ扱いますので、16タップの8分割で計算を行います。</p>
+
+<p><img src="https://40.media.tumblr.com/2a07c825b1cd3f554a7cc167eacad22a/tumblr_inline_nlm2q1J8Ee1r9hszk_500.png" alt="image" /></p>
+
+<p>CICは1段ですが変換比は10倍。すなわち一度、微分処理した後、積分処理を10回繰り返して、積分毎に結果のサンプル値を得ます。この処理により、サンプル数を10倍に増やすわけです。あとはバッファに蓄積し、DMAがIQ DDSへ送り込みます。</p>
+
+<p>さて変調ですが、まずは、変調モードとしてSSBを試してみます。SSBを生成するためには、音声の実信号を、複素信号に変換します。このとき、正または負いずれか片側の周波数成分だけを取り出すようにします。この変換をするのがヒルベルト変換です。まずは普通にヒルベルト変換を実装してみました。素直に48kHzのサンプリングに対して、127タップのヒルベルト変換を行うようにしました。係数列は、Webサイトで提供されていた計算ツールを使ってみました[2]。ヒルベルト変換の計算はFIRと同様ですが、係数列は中心から前後で符号を反対にした対称な形をしています。また交互に0になっています。これらの性質を使って計算量を減らすようにします。実信号から、ヒルベルト変換でIQ信号になり、以後のFIRやCICはすべてIQ両方に適用します。</p>
+
+<p>うまく動作するようになった結果です。オーディオ信号として、200,400,600,800Hz、そして1000Hzから16000Hzまで1000Hzステップの複数のトーンを重ねた信号を生成し、それを入力として変調動作を行わせてみました。そのスペクトラムが下です。アップサンプリングのFIRフィルタの形がそのまま綺麗に出ています。</p>
+
+<p><img src="https://41.media.tumblr.com/12b4a43d9738728477f4f1f5b8810568/tumblr_inline_nlm3vnnUFd1r9hszk_500.png" alt="image" /></p>
+
+<p>USB(upper side band)の信号としておおむねいい感じでしょう。0Hz付近の振幅の飛び出しはRBWとの兼ね合いで生じています。気になるのは0Hz付近で反対側に若干はみ出ているようです。拡大してみます。</p>
+
+<p><img src="https://36.media.tumblr.com/fdb956cad76832f7257835d3bef0f44d/tumblr_inline_nlm4psuPZ31r9hszk_500.png" alt="image" /></p>
+
+<p>200Hzと400Hzのトーンが、反対側に漏れ出ているようです。</p>
+
+<p>やってみて判ったのですが、ヒルベルト変換は、タップを途中で打ち切っている関係上、0Hzで完全にカットされるわけではなく、少々逆サイドへ信号がはみ出てしまうようです。これはタップ数の少ないFIRフィルタの肩が鈍っているのと同様です。</p>
+
+<p>(追記)考えてみれば当然の話で、127タップで、サンプリングレートが48kHzであれば、48000/127でおよそ400Hzですから、それ以下はFIRで素通りになるのは当たり前の話でした。50Hzまで欲しければあと8倍タップを増やすか、レートを下げるかのいずれかです。(追記終)</p>
+
+<p>これを完全なものに近づけるためには、タップ数を増やすのが一つの方法です。現在の処理能力ではまだ余裕があるので、タップ数を増やすのは可能です。ただ、一つ言えるのは、SSBの変調のためにヒルベルト変換を48kHzで行うのは、サンプリングレートが高過ぎということです。今回は16kHz程度まで出ていますが、無線用であれば3kHz程度で切るのが適切です。そうであれば、サンプリングレートは8kHzで十分です。サンプリングレートが低ければ、同じタップ数でも相対的に切れが良いフィルタになります。</p>
+
+<p>もう一つの手段としては、複素化をヒルベルトフィルタを使わず、複素係数のBPFを使用して、下を0Hzではなく100Hzあたりでカットしてしまうことです。または、周波数シフトと実係数LPFを使用するかです。いずれの方法も、ヒルベルト変換の係数のように良い性質があるわけではないので、負荷が増えそうです。どうするのが最適かは、もうちょっと考えてみたいと思います。</p>
+
+<p>ちなみにLSBはこんな感じです。虚実のいずれかの符号を変えるだけですから簡単です。</p>
+
+<p><img src="https://36.media.tumblr.com/36f7be4176271ae4f155d9feeb0c020a/tumblr_inline_nlm8jimN0c1r9hszk_500.png" alt="image" /></p>
+
+<p>ちなみに、冒頭の写真にあるように、マイクを接続して信号を発生させて、電波は空中には出さずATT経由で直結したドングルで受信してみました。</p>
+
+<p>マイクを接続するとノイズが入るのでノイズで通過域の形が見えます。発生した周波数は51.5MHzです。</p>
+
+<p><img src="https://40.media.tumblr.com/29b4f59a4fa52cbee83ce85f4ff9ab0b/tumblr_inline_nllwrucRkK1r9hszk_500.png" alt="image" /></p>
+
+<p>マイクを抜くと通過域のノイズが下がります。キャリアリークがありますが、どこかにオフセットが残っているようです。</p>
+
+<p><img src="https://36.media.tumblr.com/38bd2757dfe063413fbb1d677dceed6f/tumblr_inline_nllws8lOoN1r9hszk_500.png" alt="image" /></p>
+
+<p>反対のLSBです。この白帯が標準的な通過帯域なので、無駄に広いですね。</p>
+
+<p><img src="https://40.media.tumblr.com/d0495675a2640f40084ef6e7393c936f/tumblr_inline_nllwssy4ID1r9hszk_500.png" alt="image" /></p>
+
+<p>以上、信号処理を見直し、ヒルベルト変換を動作させてみました。フィルタを修正すれば、いきなり電波にしても良さそうな信号が得られています。ただし、課題もあり、入力が過大になった時にスプラッターが出てしまいます。特に息がマイクに直接掛かったような時、盛大にスペクトラムが広がります。アップサンプリングの計算途中でオーバーフローが起きているようです。飽和演算をうまく使うなど対策が必要です。</p>
+
+<p>AMやNB-FMの実験もしているのですが、まだ思うような綺麗な信号にはなっていません。おそらく、ステレオFMの変調も可能だと考えています。引き続き実験してみたいと思っています。</p>
+
+<p>アップサンプリングスキームを見直したので、AD9857では1.92MHzの帯域を取り扱うことができています。この帯域を使えば何か面白いことができそうな気がしています。自明ではない使い方を工夫してみたいところです。</p>
+
+<p>ご参考に回路図とNucleo用のコードを晒しておきます。</p>
+
+<p>リファレンス</p>
+
+<ul>
+<li>今回の実験のソース <a href="http://developer.mbed.org/users/edy555/code/Nucleo_IQDDS/" target="_blank">http://developer.mbed.org/users/edy555/code/Nucleo_IQDDS/</a></li>
+<li>ヒルベルト変換の係数計算Webフォーム <a href="http://hs-soft.exout.net/hilbert.php" target="_blank">http://hs-soft.exout.net/hilbert.php</a></li>
+<li>アナデバAD9857製品ページ <a href="http://www.analog.com/jp/rfif-components/direct-digital-synthesis-dds/ad9857/products/product.html" target="_blank">http://www.analog.com/jp/rfif-components/direct-digital-synthesis-dds/ad9857/products/product.html</a></li>
+<li>STMicroelectronics Nucleo <a href="http://www.st.com/web/catalog/tools/FM116/SC959/SS1532/LN1847" target="_blank">http://www.st.com/web/catalog/tools/FM116/SC959/SS1532/LN1847</a></li>
+<li>TI TLV320AIC3204 <a href="http://www.tij.co.jp/product/jp/tlv320aic3204" target="_blank">http://www.tij.co.jp/product/jp/tlv320aic3204</a></li>
+<li><a href="../2014-12-27-dds-iq-modulation-with-ad9857-and-nucleo">前回の記事 AD9857とNucleo F401REとI2S Codec TLV320AIC3204によるDDS IQ変調実験</a></li>
+</ul>
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Mar 22, 2015</time>
+	<a href="https://ttrf.tk/posts/2015-03-22-hilbert-transform-ssb-generation-ad9857-nucleo/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/ad9857">ad9857</a>  <a class="category" href="https://ttrf.tk/tags/dds">dds</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2015-03-22-hilbert-transform-ssb-generation-ad9857-nucleo%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2015-03-22-hilbert-transform-ssb-generation-ad9857-nucleo/" data-text="Nucleoを使ってヒルベルト変換信号処理しAD9857 DDS IQ DUCでSSB信号を生成してみる" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2015-03-22-hilbert-transform-ssb-generation-ad9857-nucleo/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

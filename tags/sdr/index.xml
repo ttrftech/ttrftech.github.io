@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sdr on Computer &amp; RF Technology</title>
+    <link>https://ttrf.tk/tags/sdr/</link>
+    <description>Recent content in Sdr on Computer &amp; RF Technology</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Sun, 04 Feb 2018 15:06:08 +0000</lastBuildDate>
+    
+	<atom:link href="https://ttrf.tk/tags/sdr/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CentSDRでFMラジオが受信できるようになりました</title>
+      <link>https://ttrf.tk/posts/2018-02-04-centsdr-fm-broadcasting-reception/</link>
+      <pubDate>Sun, 04 Feb 2018 15:06:08 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2018-02-04-centsdr-fm-broadcasting-reception/</guid>
+      <description>&lt;p&gt;CentSDRでFM放送を受信することができるようになりました。コーデックを192kHzで動作させることにより、150kHz程度の帯域幅のあるFM放送をカバーし、復調できています。この写真は82.5MHzの放送を受信している様子です。広がった放送波のスペクトラムがカバーされているのがわかります。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CentSDRでスペクトラムに加えて波形も表示するようにしてみた</title>
+      <link>https://ttrf.tk/posts/2017-11-04-centsdr-spectrum-and-waveform-display/</link>
+      <pubDate>Sat, 04 Nov 2017 19:00:03 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2017-11-04-centsdr-spectrum-and-waveform-display/</guid>
+      <description>&lt;p&gt;スペクトラムやウォーターフォールの表示は、最近の受信機では珍しくなくなりました。スペクトラムが表示できるなら、波形を表示することも可能なはずですが、あまり実例をみたことがありません。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CentSDRの信号処理におけるDCオフセット補償</title>
+      <link>https://ttrf.tk/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/</link>
+      <pubDate>Mon, 09 Oct 2017 03:38:10 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/</guid>
+      <description>&lt;p&gt;CentSDRの実験をしている過程で、DCオフセット由来の不要信号の対策をしています。原因は2箇所あり、それぞれ違った要因で生じていました。参考になるかもしれませんので、少し解説しておきます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CentSDRを組み立ててみました</title>
+      <link>https://ttrf.tk/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/</link>
+      <pubDate>Tue, 15 Aug 2017 16:51:32 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/</guid>
+      <description>&lt;p&gt;オーダーしていたCentSDRの基板が到着しました。いつものようにElecrowに発注し、7/24発注、29日出荷で8/7に到着しました。さっそく組み立てて見ました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>LimeSDRをケースにいれてみました</title>
+      <link>https://ttrf.tk/posts/2017-02-19-limesdr-in-the-aluminium-box/</link>
+      <pubDate>Sun, 19 Feb 2017 11:51:18 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2017-02-19-limesdr-in-the-aluminium-box/</guid>
+      <description>&lt;p&gt;LimeSDRをケースに入れてみました。使ったケースはタカチのEXH8-3-12です。U.FLとSMAの変換ケーブルを用意してパネルに出しました。SMAコネクタが沢山並ぶと、何だかスゴそうな感じになりました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>LimeSDRをGQRXで使ってみる</title>
+      <link>https://ttrf.tk/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/</link>
+      <pubDate>Thu, 09 Feb 2017 18:54:10 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/</guid>
+      <description>昨年クラウドファンディングCloudSupplyでキャンペーンをしていたLimeSDRをBackしていましたが、1月末に出荷されました。よう</description>
+    </item>
+    
+    <item>
+      <title>Maker Faire Tokyo 2016に展示します</title>
+      <link>https://ttrf.tk/posts/2016-07-31-seeyou-at-mft2016-exhibition/</link>
+      <pubDate>Sun, 31 Jul 2016 02:02:33 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2016-07-31-seeyou-at-mft2016-exhibition/</guid>
+      <description>&lt;p&gt;告知を出すのが遅くなってしまいましたが、8/6と8/7のMaker Faire Tokyo 2016に出展します。今回の展示内容のメインはこれまで試作してきたマイコンベースのSDR受信機です。LPC-Link2を使ったSDRの実験を雑誌記事として紹介してきましたが、なかなか実物をご覧いただく機会がありません。実はこれまでMaker Faireに数回出展したときに、さりげなく置いてあったのですが、今年はソフトウェア受信機をメインに出展の申込をしてみました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Si5351Aを使った超小型SDR: FriskSDR</title>
+      <link>https://ttrf.tk/posts/2016-07-23-frisksdr-using-si5351a-stm32-sdr/</link>
+      <pubDate>Sat, 23 Jul 2016 09:06:38 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2016-07-23-frisksdr-using-si5351a-stm32-sdr/</guid>
+      <description>&lt;p&gt;FriskSDRは、主要なパーツに汎用MCUのSTM32F303、コーデックにTLV320AIC3204、ローカル発振器にSi5351Aを使った0-50MHz程度までカバーするダイレクトコンバージョンな広帯域受信機です。復調はソフトウェアにより信号処理。ミキサにアナログスイッチを使っているので歪みも少ないという特徴があります。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>NanoVNA(仮称)を製作予定です</title>
+      <link>https://ttrf.tk/posts/2016-06-10-nanovna-with-si5351a-and-stm32-in-design/</link>
+      <pubDate>Fri, 10 Jun 2016 14:07:42 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2016-06-10-nanovna-with-si5351a-and-stm32-in-design/</guid>
+      <description>&lt;p&gt;先日クロックジェネレータチップSi5351Aを試していましたが、ふとこれを使ってVNA (ベクトルネットワークアナライザ)を作れるんじゃね、と思いついてしまいました。以前試したVNWAのクローンではDDSチップを二つ使っていましたが、Si5351Aなら個別に周波数を設定できる出力が3つもあります。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>FriskSDRにUIを実装してみました</title>
+      <link>https://ttrf.tk/posts/2016-05-30-frisksdr-user-interface/</link>
+      <pubDate>Mon, 30 May 2016 13:23:44 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2016-05-30-frisksdr-user-interface/</guid>
+      <description>&lt;p&gt;製作していたFriskSDRですが、当初の予定通りLCDとレバースイッチを付けて操作できるようにしてみました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>FriskSDRが動き始めました</title>
+      <link>https://ttrf.tk/posts/2016-04-29-frisksdr-nanosdr-project/</link>
+      <pubDate>Fri, 29 Apr 2016 02:53:29 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2016-04-29-frisksdr-nanosdr-project/</guid>
+      <description>&lt;p&gt;FriskSDRプロジェクトはオシレータSi5351Aが動作するようになったところで中断していましたが、ようやく時間が取れるようになったので作業再開しています。I2Sが全二重で動作するようになったので、音が出るようになりました。アンテナを繋げばちゃんとAM放送が聞こえてきます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>インターフェース誌ソフトウェア無線記事のまとめ</title>
+      <link>https://ttrf.tk/posts/2016-04-27-interface-magazine-software-radio-article/</link>
+      <pubDate>Wed, 27 Apr 2016 13:36:31 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2016-04-27-interface-magazine-software-radio-article/</guid>
+      <description>&lt;p&gt;昨年、CQ出版社の雑誌インターフェースの7月号に特集、そして10月号以後連載を寄稿してきました。こちらではほとんど紹介してこなかったのですが、作ろうと思っていたものがなんとか動作するようになったので、ここらでまとめておきたいと思います。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>FriskSDR組み立て開始しました</title>
+      <link>https://ttrf.tk/posts/2016-03-26-building-frisk-sdr/</link>
+      <pubDate>Sat, 26 Mar 2016 13:45:06 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2016-03-26-building-frisk-sdr/</guid>
+      <description>&lt;p&gt;FriskSDRですが、部品が揃ってきたので組み立てを開始しました。組み立ては段階を踏んで動作確認しながら行います。実際には時間のかかる作業はソフトウェアですので、今回はその手前まで行います。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>FRISKケースサイズのSDRを製作開始しました</title>
+      <link>https://ttrf.tk/posts/2016-03-06-frisksdr-tiny-standalone-sdr-receiver/</link>
+      <pubDate>Sun, 06 Mar 2016 09:39:24 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2016-03-06-frisksdr-tiny-standalone-sdr-receiver/</guid>
+      <description>&lt;p&gt;先日Si5351Aを試用してみましたが、RF用途に十分使えそうな発振器であることが判りましたので、これを使って受信機を製作してみたいと思っていました。QSD(Quadrature Sampling Detector)方式が良さそうでしたので、回路を引いて実装を検討していました。最初は実験基板を作ってみるだけのつもりだったのですが、なんとなく勢いが付いて、MCUもボードに載せてスタンドアロン化。そしてレイアウトしていると、かなり小型に作れそうな感じになってきたので、FRISKケースサイズを目標にして、なんとか納めることに成功しました。先日基板を発注すると、あっという間に試作基板ができてきてしまいました。実装はまだこれからですがちょっと紹介します。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>HF受信機用フィルタバンクを試作してみる</title>
+      <link>https://ttrf.tk/posts/2016-02-27-hf-filter-bank-with-smd-parts/</link>
+      <pubDate>Sat, 27 Feb 2016 06:09:08 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2016-02-27-hf-filter-bank-with-smd-parts/</guid>
+      <description>&lt;p&gt;サンプリング方式のソフトウェア受信機では、エイリアスが生じるのを防ぐためにフィルタが必須です。地味にインターフェース誌に掲載しているダイレクトサンプリング受信機では、7MHzのモノバンドのフィルタを用いていました。このフィルタを複数用意して切り替えるようにすれば広帯域化が計れます。その試みとしてフィルタバンクを試作してみました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Si5351Aクロックジェネレータを試用してみる</title>
+      <link>https://ttrf.tk/posts/2016-01-29-si5351a-spectrum-with-arduino-pro-micro/</link>
+      <pubDate>Fri, 29 Jan 2016 17:13:33 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2016-01-29-si5351a-spectrum-with-arduino-pro-micro/</guid>
+      <description>&lt;p&gt;Sillicon LaboratoryのSi5351を使ったクロックジェネレータモジュールがStrawberry Linuxから販売されていました。Adafruitでも取り扱いがあり、無線への応用例も散見していましたので、どのくらいの性能を持つのか以前より気になっていました。今回ようやく試してみました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Google HackFair Tokyoで展示します</title>
+      <link>https://ttrf.tk/posts/2015-12-04-exhibit-rtl-sdr-3d-spectrum-at-google-hackfair-tokyo/</link>
+      <pubDate>Fri, 04 Dec 2015 15:02:37 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2015-12-04-exhibit-rtl-sdr-3d-spectrum-at-google-hackfair-tokyo/</guid>
+      <description>&lt;p&gt;以前RTLドングルとChromeブラウザで、スペクトラムの3次元表示を試みました。このたびm3331 Arts Chiyodaで12/6に開催される&lt;a href=&#34;http://googledevjp.blogspot.jp/2015/11/google-hackfair-tokyo_20.html&#34; target=&#34;_blank&#34;&gt;Google HackFair Tokyo&lt;/a&gt;に出展する機会をいただきました。Google社のテクノロジーを利用した ものであれば対象になるとのことでしたので、Chormeブラウザを使ったこのデモをネタに応募してみました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ソフトウェアによるFMラジオ実装についてインターフェース誌に寄稿しました</title>
+      <link>https://ttrf.tk/posts/2015-05-22-interface-magazine-article-fm-sdr-lpc4370-lpc-link2-lpcx/</link>
+      <pubDate>Fri, 22 May 2015 13:51:39 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2015-05-22-interface-magazine-article-fm-sdr-lpc4370-lpc-link2-lpcx/</guid>
+      <description>&lt;p&gt;ARMマイコンによるSDR実装について、CQ出版社のインターフェース誌2015年7月号に寄稿しました。昨年夏にこちらで紹介したソフトウェアだけで実装したFMラジオの仕組みを紹介しています。Cortex-M4をぎりぎりまで使ったRF信号処理の実践について解説しました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>LPC-Link2にアンテナとスピーカを直結してAMラジオにしてみる</title>
+      <link>https://ttrf.tk/posts/2015-02-21-lpclink2-lpc4370-minimal-sdr-receiver/</link>
+      <pubDate>Sat, 21 Feb 2015 20:33:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2015-02-21-lpclink2-lpc4370-minimal-sdr-receiver/</guid>
+      <description>&lt;p&gt;最小ハードウェアによるSDRの試みとして、LPC-Link2にアンテナとスピーカを直結してAMラジオにしてみました。マイクロコントローラの機能だけを使用して、RF信号の受信から、スピーカの出力まで、アンプも何も無しに放送を受信できています。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AD9857とNucleo F401REとI2S Codec TLV320AIC3204によるDDS IQ変調実験</title>
+      <link>https://ttrf.tk/posts/2014-12-27-dds-iq-modulation-with-ad9857-and-nucleo/</link>
+      <pubDate>Sat, 27 Dec 2014 17:21:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2014-12-27-dds-iq-modulation-with-ad9857-and-nucleo/</guid>
+      <description>&lt;p&gt;Maker Faireからここしばらくイベントが続いて、積み基板ならぬ積みプロジェクトが多数放置状態でしたが、年末年始にかけて消化していきたいところです。DDS IQ AD9857をNucleoで変調する実験をしてみたところ、うまくいきました。以下詳細です。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>直交変調DDS AD9857をNucleo F401から使ってみる</title>
+      <link>https://ttrf.tk/posts/2014-11-16-nucleo-f401re-ad9857-dds-iq-modulator/</link>
+      <pubDate>Sun, 16 Nov 2014 12:58:48 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2014-11-16-nucleo-f401re-ad9857-dds-iq-modulator/</guid>
+      <description>&lt;p&gt;最近作っているもの第３弾です。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>LPC4370 LPC-Link2でFMラジオの実装に成功しました!</title>
+      <link>https://ttrf.tk/posts/2014-11-16-lpc4370-lpc-link2-sdr-fm-receiver/</link>
+      <pubDate>Sun, 16 Nov 2014 06:30:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2014-11-16-lpc4370-lpc-link2-sdr-fm-receiver/</guid>
+      <description>&lt;p&gt;最近作っているもの紹介第２弾です。LPC-Link2でFM受信機の作成にチャレンジしていたのですが成功しました。MCUのソフトウェアのみの実装によるダイレクトコンバージョンで、FM放送を受信できているのは、もしかしたら世界初かもしれないと思っています(Loとミキサ無しのSDRでという意味です)。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>コンバータ統合型RTL-SDR受信機を試作中です</title>
+      <link>https://ttrf.tk/posts/2014-11-16-hf-converter-integrated-rtl-sdr-receiver/</link>
+      <pubDate>Sun, 16 Nov 2014 05:16:12 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2014-11-16-hf-converter-integrated-rtl-sdr-receiver/</guid>
+      <description>&lt;p&gt;最近作っているものをご紹介します。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ADS-B用1090MHzフィルタ＆プリアンプのキット化</title>
+      <link>https://ttrf.tk/posts/2014-10-03-saw-filter-preamplifier-for-ads-b/</link>
+      <pubDate>Fri, 03 Oct 2014 03:53:09 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2014-10-03-saw-filter-preamplifier-for-ads-b/</guid>
+      <description>&lt;p&gt;ADS-B用のSAWフィルタ付きプリアンプを試作して、キット化に向けてテストしていました。当初は8月に案内する予定だったのですが、アンプの比較等をしてみました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RFワールド誌特別評価版のLabVIEWをRTLドングルで試してみる</title>
+      <link>https://ttrf.tk/posts/2014-08-26-labview-trial-from-rfworld-magazine-and-rtl-sdr/</link>
+      <pubDate>Tue, 26 Aug 2014 16:36:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2014-08-26-labview-trial-from-rfworld-magazine-and-rtl-sdr/</guid>
+      <description>&lt;p&gt;CQ出版社の雑誌RFワールドはLabVIEWとUSRPによるSDRの特集でした。LabVIEWの名はよく耳にし、展示会等でも見かけていましたが使ったことはありませんでした。今回特別評価版ということでダウンロードサービスが提供されていますので試してみることにしました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>組み立て済みのHFコンバータが販売になります</title>
+      <link>https://ttrf.tk/posts/2014-08-01-assembled-hfconv-for-rtlsdr-is-ready/</link>
+      <pubDate>Fri, 01 Aug 2014 08:38:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2014-08-01-assembled-hfconv-for-rtlsdr-is-ready/</guid>
+      <description>&lt;p&gt;HFコンバータは昨年の頒布開始以来ずっと&lt;a href=&#34;https://ttrf.tk/kit/hfconv&#34;&gt;キット&lt;/a&gt;の形で供給してきました。これは部品調達の都合と表面実装の経験をしてみていただきたいという心づもりでした。幸い多くの方に興味を持っていただき、皆さん完成に至っているようです。ところが、ご興味を持っていただいた中には、キットの部品が小さく細かいために視力や工具の都合で挑戦を躊躇われたり、残念ながら完成/完動に至らない方もいらっしゃいました。完成品を提供することは、長く懸案だったのですが、この度さまざまなご協力を得ることができ、販売開始の運びとなりました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>HFコンバータの入力にカップリングコンデンサ追加を推薦</title>
+      <link>https://ttrf.tk/posts/2014-05-24-add-coupling-c-hfconv-input-port/</link>
+      <pubDate>Sat, 24 May 2014 03:26:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2014-05-24-add-coupling-c-hfconv-input-port/</guid>
+      <description>&lt;p&gt;キットとして頒布してきたHFコンバータですが、おかげさまで好評をいただいております。最近ではQEX Japan No11でも紹介していただきました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>フロントエンド基板を使ってダイレクトサンプリング受信してみる</title>
+      <link>https://ttrf.tk/posts/2014-04-30-direct-sampling-frontend-board-in-use/</link>
+      <pubDate>Wed, 30 Apr 2014 14:30:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2014-04-30-direct-sampling-frontend-board-in-use/</guid>
+      <description>&lt;p&gt;前回から少し間が開いてしまいました。気がつくと4月が終わってしまいそうです。4月の投稿が0なのに気がつきあわてて書き始めました。すいません。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RTLドングル用ダイプレクサーフィルタアンプ基板を作ってみる</title>
+      <link>https://ttrf.tk/posts/2014-03-13-diplexer-filter-amplifier-board-for-rtlsdr-direct-sampli/</link>
+      <pubDate>Thu, 13 Mar 2014 16:58:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2014-03-13-diplexer-filter-amplifier-board-for-rtlsdr-direct-sampli/</guid>
+      <description>&lt;p&gt;RTLドングルダイレクトサンプリング用のダイプレクサーフィルタとアンプ試作の続きです。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>LPC-Link2とLabToolを試してみる</title>
+      <link>https://ttrf.tk/posts/2014-01-10-try-nxp-lpc-link2-and-labtool-with-macosx/</link>
+      <pubDate>Fri, 10 Jan 2014 16:53:27 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2014-01-10-try-nxp-lpc-link2-and-labtool-with-macosx/</guid>
+      <description>&lt;p&gt;RTLドングルに関するニュースサイトrtl-sdr.comに、SDR#の作者が新しいSDR向けのハードウェアAirSpyをデザインしているという記事が掲載されました。興味が出たので読んで見てみると、Cortex-M4F(204MHz)、12bit-ADCという記述が目につきました。このスペックをマイコンと内蔵ペリフェラルで実装しているようです。記事にチップの型番など詳細について記載はありませんでしたが、スペックを頼りにネットを検索してみると、クロック速度やアーキテクチャ(M4F)からLPCシリーズのチップが該当するようです。LPC43xxというシリーズのLPC4370というチップには12bit-最大80MSPSのADCが2ch搭載されており、どうやらAirSpyはこのチップを使っているようです。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>gnuradio 3.7をHomebrewでMac OSXにインストールする</title>
+      <link>https://ttrf.tk/posts/2014-01-08-install-gnuradio-and-bladerf-with-homebrew-on-macosx/</link>
+      <pubDate>Wed, 08 Jan 2014 17:12:23 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2014-01-08-install-gnuradio-and-bladerf-with-homebrew-on-macosx/</guid>
+      <description>&lt;p&gt;さて、gqrxをソースからビルドしたいのですが、gqrxは内部でgnuradioを使用しています。最初インストール済だったgnuradio 3.6でgqrxをビルドしようとしたのですが、エラーで失敗してしまいました。最新のgqrxはgnuradio 3.7が必須なようです。これを機会にgnuradioのバージョンを3.7に上げることにしました。現在の最新版gnuradio-3.7.2.1を使用することにします。せっかくなのでbrewのFormulaを修正して、gnuradio 3.7をbrewでインストールできるようにしてみます。さらにbladerfの対応も付け加えたいと思います。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>gqrxの新しいバージョン2.2をMac OSXで試してみる</title>
+      <link>https://ttrf.tk/posts/2014-01-06-update-gqrx-official-release-on-macosx/</link>
+      <pubDate>Mon, 06 Jan 2014 15:48:19 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2014-01-06-update-gqrx-official-release-on-macosx/</guid>
+      <description>&lt;p&gt;これまでMacで動作するSDRソフトウェアとしてgqrxを使用してきました。&lt;a href=&#34;../2012-11-03-gqrx-is-easiest-way-to-op-sdr-on-macosx&#34;&gt;以前の記事&lt;/a&gt;で書いたように一度Mac用に移植を試みたもののあっさり挫折し、Dekarさんのblogで配布されていたMac用バイナリを愛用していました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>bladeRFとGNURadioをMac OSX用に構築する</title>
+      <link>https://ttrf.tk/posts/2013-09-02-setup-bladerf-and-gnuradio-on-macosx/</link>
+      <pubDate>Mon, 02 Sep 2013 14:07:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-09-02-setup-bladerf-and-gnuradio-on-macosx/</guid>
+      <description>&lt;p&gt;引き続きbladeRFを試していますが、Macでも使えるようになりましたのでメモしておきます。以前OSX 10.6でGNURadioをセットアップしましたが、最新のMountain Lion 10.8でもセットアップできました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>bladeRFをgnuradioとgr-osmocomで使ってみる</title>
+      <link>https://ttrf.tk/posts/2013-09-01-trying-bladerf-with-gnuradio-and-gr-osmocom/</link>
+      <pubDate>Sun, 01 Sep 2013 01:28:41 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-09-01-trying-bladerf-with-gnuradio-and-gr-osmocom/</guid>
+      <description>&lt;p&gt;先日bladeRF用のライブラリをビルドした際ソースの構成が変わっていて、gr-osmosdr側ではビルドできなくなっていましたが、8/28に入った修正により対応したようです。なのでgr-osmosdrをビルドする方法の続きです。すでにbladeRFのライブラリがインストール済であることが前提です(前の記事参照)。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>bladeRF用のツールとライブラリをLinuxでビルドする</title>
+      <link>https://ttrf.tk/posts/2013-08-26-building-bladerf-tools-on-linux/</link>
+      <pubDate>Mon, 26 Aug 2013 17:47:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-08-26-building-bladerf-tools-on-linux/</guid>
+      <description>&lt;p&gt;bladeRFのホスト用のソフトウェアはソースからビルドする必要があります。8/25に開発バージョンがマージされて若干手順が変わりました。アップデートされたバージョンではlibusbがサポートされました。デフォルトではこちらが有効になり、カーネルドライバが不要になりました。新しいバージョン向けに手順をまとめておきます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>bladeRFが到着したので早速試してみる</title>
+      <link>https://ttrf.tk/posts/2013-08-24-received-bladerf-today-try-it/</link>
+      <pubDate>Sat, 24 Aug 2013 17:56:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-08-24-received-bladerf-today-try-it/</guid>
+      <description>&lt;p&gt;2月にkickstarterで申し込んでから半年以上が経過してしまいましたが、ようやくbladeRFが到着しました。7月末から出荷開始されていたようなのですが、海外組は後回しにされたせいか、今回のbladeRFが出荷されたのは8月半ばでした。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Raspberry PiでRTL-SDRをビルドして使うrevised</title>
+      <link>https://ttrf.tk/posts/2013-08-09-build-rtl-sdr-with-raspberry-pi-raspbian/</link>
+      <pubDate>Fri, 09 Aug 2013 17:28:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-08-09-build-rtl-sdr-with-raspberry-pi-raspbian/</guid>
+      <description>&lt;p&gt;以前Raspberry Piでrtl-sdrを使ってリモート受信サーバに仕立てる件について記しましたが、先日追加でもう一台購入してセットアップしてみましたので、最近の状況について書いておきます。今回購入したRaspberry Piは、メモリが512Mbyteと倍増しています。前回は紙箱でしたが、今回はケースに入っていました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>HFコンバータ製作レポート一覧</title>
+      <link>https://ttrf.tk/posts/2013-08-05-list-of-hfconv-construction-report/</link>
+      <pubDate>Mon, 05 Aug 2013 17:00:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-08-05-list-of-hfconv-construction-report/</guid>
+      <description>&lt;p&gt;HFコンバータのキット配布を始めてから半年が経ちました。有り難いことにたくさんのお申し込みをいただきまして、多くの方が製作にチャレンジ、無事完成されているようです。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RTL2832Uダイレクトサンプリングのスプリアス</title>
+      <link>https://ttrf.tk/posts/2013-07-28-spurs-with-rtl2832u-direct-sampling/</link>
+      <pubDate>Sun, 28 Jul 2013 02:20:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-07-28-spurs-with-rtl2832u-direct-sampling/</guid>
+      <description>&lt;p&gt;ダイレクトサンプリングで信号を受信しているとたくさんのスプリアスが見えてしまいます。どんなふうにスプリアスが出るのかをまとめておきます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ダイレクトサンプリングとアップコンバータの感度を比較してみる</title>
+      <link>https://ttrf.tk/posts/2013-07-25-compare-hf-sensitivity-direct-sampling-vs-up-converter-f/</link>
+      <pubDate>Thu, 25 Jul 2013 17:11:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-07-25-compare-hf-sensitivity-direct-sampling-vs-up-converter-f/</guid>
+      <description>&lt;p&gt;ダイレクトサンプリングとアップコンバータを使った場合に感度の違いがあることを感じていましたが、定量的にどの程度かを確認してみました。SGで発生させた信号を、それぞれの方式で受信し、SGの出力レベルを絞っていき、ぎりぎりトーンが聞こえる信号強度を比較してみます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RTL-SDR(RTL2832U/R820T)ドングルをダイレクトサンプリング改造してみる</title>
+      <link>https://ttrf.tk/posts/2013-07-23-rtlsdr-rtl2832u-r820t-dongle-direct-sampling-mod/</link>
+      <pubDate>Tue, 23 Jul 2013 14:47:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-07-23-rtlsdr-rtl2832u-r820t-dongle-direct-sampling-mod/</guid>
+      <description>&lt;p&gt;(2014/5/12訂正) &lt;/p&gt;
+
+&lt;p&gt;RTL2832UドングルでHF帯を受信する方法として、ダイレクトサンプリングと呼ばれる方法があります。ドングルを改造することにより、R820TやE4000といったチューナチップをバイパスして、直接RTL2832UにRF信号を入力します。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RTL2832UドングルでGPS受信を試みる(失敗編)</title>
+      <link>https://ttrf.tk/posts/2013-05-24-trying-receive-gps-with-rtl2832u-and-macosx/</link>
+      <pubDate>Fri, 24 May 2013 15:55:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-05-24-trying-receive-gps-with-rtl2832u-and-macosx/</guid>
+      <description>&lt;p&gt;RTL2832UドングルでGPSを受信する試みについての記事を読み実験してみたいと思っていました。その準備として安価なアクティブアンテナをebayで購入してあったのですが放置していました。SDRによるGPS受信が盛り上がっているようだったので、まずはキャリアを受信できるかどうかを試してみました。結論からいうと失敗だったのですが、一応メモとして載せておきます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>HFアップコンバータキット第３弾を準備中</title>
+      <link>https://ttrf.tk/posts/2013-05-10-preparing-hf-upconverter-v1-2-for-rtl2832u-dongle/</link>
+      <pubDate>Fri, 10 May 2013 16:34:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-05-10-preparing-hf-upconverter-v1-2-for-rtl2832u-dongle/</guid>
+      <description>&lt;p&gt;HFアップコンバータキット第３弾の準備を進めています。今回は若干の基板レイアウト変更があります。簡単に変更点と状況を記しておきたいと思います。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>HFアップコンバータ第２弾の製作</title>
+      <link>https://ttrf.tk/posts/2013-03-15-hfconv-revision2/</link>
+      <pubDate>Fri, 15 Mar 2013 16:07:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-03-15-hfconv-revision2/</guid>
+      <description>&lt;p&gt;HFアップコンバータ(HFCONV)のキット第２弾の準備を進めていたのですが、先週ようやく資材が整い、希望されていた方にアナウンスしたところすぐに配布完了してしまいました(ご希望に添えなかった方申し訳ありません)。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>R820T/RTL2832Uドングルの感度を測ってみる</title>
+      <link>https://ttrf.tk/posts/2013-01-02-r820t-rtl2832u-dongle-and-up-converter-sensitibity/</link>
+      <pubDate>Wed, 02 Jan 2013 11:55:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-01-02-r820t-rtl2832u-dongle-and-up-converter-sensitibity/</guid>
+      <description>&lt;p&gt;RTL2832Uドングルは受信機としてどの程度の感度なのか気になっていました。ドングルにはいくつか種類がありますが、チューナチップの種類や個体によっても差があるようです。今回HF用アップコンバータを作ってみたのを機に、計測をしてみることにしました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RTLSDRドングル用にHF Up Converterを作る</title>
+      <link>https://ttrf.tk/posts/2012-12-25-rtl-sdr-hf-up-converter-for-rtl2832u-dongle/</link>
+      <pubDate>Tue, 25 Dec 2012 23:21:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2012-12-25-rtl-sdr-hf-up-converter-for-rtl2832u-dongle/</guid>
+      <description>&lt;p&gt;以前RTL2832UドングルでHFを受信するためにダイレクトサンプリングを試してみました。受信はできたものの、感度やスプリアスの点で満足できませんでした。もう一つの方法として、アップコンバータを検討をしていましたが、基板をオーダーで作って動作させてみましたのでそのメモです。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Webブラウザで144MHzのアマチュア無線を受信してみる</title>
+      <link>https://ttrf.tk/posts/2012-12-15-receiving-amature-radio-using-rtl2832u-and-browser/</link>
+      <pubDate>Sat, 15 Dec 2012 23:11:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2012-12-15-receiving-amature-radio-using-rtl2832u-and-browser/</guid>
+      <description>&lt;p&gt;RTL2832Uドングルで使うrtl-sdrには、rtl_tcpのほかにもいくつかコマンドが含まれています。そのなかでもrtl_fmというコマンドはその名から予想されるとおり、FMを受信することができます。これはFM放送だけではなく、アマチュア無線のような狭帯域NBFMも復調できます。実はヘルプを見てみるとAMやSSB(LSB/USB)、果てはCWの復調やI/Q信号を取り出すことまで可能なようです。復調周波数や復調モードなどはすべてコマンドライン引数で指定することができます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RTL2832UドングルにHF受信用プラグインフィルタを付けてみる</title>
+      <link>https://ttrf.tk/posts/2012-11-10-attach-hf-bpf-plugin-to-rtl2832u-dongle/</link>
+      <pubDate>Sat, 10 Nov 2012 00:39:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2012-11-10-attach-hf-bpf-plugin-to-rtl2832u-dongle/</guid>
+      <description>&lt;p&gt;先日RTL2832Uドングルをダイレクトサンプリングで使ってHFを受信してみましたが、混変調(特にFM放送の)があるのが観察されました。HF受信にはフィルタがあったほうがいいかなと感じましたので、何か良い方法はないかと考えていたのですが、SDRのキットとして著名なSoftRock RXTX 6.3のプラグインの受信フィルタが目的に合うのではと思いつきました。さっそく試してみたのでその内容を書いておきます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MacでSDRするならgqrxがとても簡単</title>
+      <link>https://ttrf.tk/posts/2012-11-03-gqrx-is-easiest-way-to-op-sdr-on-macosx/</link>
+      <pubDate>Sat, 03 Nov 2012 08:36:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2012-11-03-gqrx-is-easiest-way-to-op-sdr-on-macosx/</guid>
+      <description>&lt;p&gt;gqrxというGUI付きのSDRソフトウェアがあるとのことなので、試してみることにしました。ところがソースをダウンロードしてビルドしようとしたのですが、OSXには無いlibpulseが必要とのことで引っかかっていました。ググってみたところ、なんとMac OS用にポーティングしビルド済みのバイナリがDekarさんのblogで配布されていました。これを試してみたところなんとも簡単にRTLドングルを使っていろいろ受信することができましたので、紹介したいと思います。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>GNURadioとSoft66で7MHz SSBのアマチュア無線を受信する(LPF方式編)</title>
+      <link>https://ttrf.tk/posts/2012-11-02-rx-7mhz-ssb-lpf-with-gnuradio-soft66-sdr-macosx/</link>
+      <pubDate>Fri, 02 Nov 2012 23:49:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2012-11-02-rx-7mhz-ssb-lpf-with-gnuradio-soft66-sdr-macosx/</guid>
+      <description>&lt;p&gt;先日7MHz SSB復調をBPFで試してみましたが、今回はそのバリエーションをやってみました。LPFと周波数オフセットでSSBを復調します。フロントエンドはSoft66、環境はGNURadio＋MacOSXです。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RTL2832UをDirect Sampling Modeで使いGNURadioで中波AMラジオを受信する</title>
+      <link>https://ttrf.tk/posts/2012-11-01-receiving-am-broadcasting-with-rtl2832u-direct-sampling/</link>
+      <pubDate>Thu, 01 Nov 2012 23:09:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2012-11-01-receiving-am-broadcasting-with-rtl2832u-direct-sampling/</guid>
+      <description>&lt;p&gt;RTL2832Uドングルはその小ささからは信じられないほどの広帯域な受信が可能ですが、下限の周波数が30~50MHzということでHFやMFを受信することができません。ところがなんと若干の部品追加の改造することでHFやMFを受信する方法があるとのことなのでさっそく試してみました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>GNURadioとSoft66で7MHz SSBのアマチュア無線を受信する(BPF方式編)</title>
+      <link>https://ttrf.tk/posts/2012-10-30-rx-7mhz-ssb-with-gnuradio-soft66-sdr-macosx/</link>
+      <pubDate>Tue, 30 Oct 2012 15:01:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2012-10-30-rx-7mhz-ssb-with-gnuradio-soft66-sdr-macosx/</guid>
+      <description>&lt;p&gt;RTL2832Uドングルが不調のため、他のフロントエンドをgnuradioで試してみます。ちょっと懐かしいSoft66を棚から引っ張りだしてきました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>GNURadioでACARSを受信してみる(ハンディ機VX-2編)</title>
+      <link>https://ttrf.tk/posts/2012-10-27-rx-acars-with-gnuradio-macosx/</link>
+      <pubDate>Sat, 27 Oct 2012 14:06:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2012-10-27-rx-acars-with-gnuradio-macosx/</guid>
+      <description>&lt;p&gt;ACARSのGNURadioでの受信にチャレンジしてみました。先に結果を言ってしまうとあまり満足な結果を得ることはできませんでした。しかしながらgnuradioの柔軟性は確認できたと思います。何かの参考になるかもしれませんので過程を書いておきます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RTL2832U USBドングルが不調に</title>
+      <link>https://ttrf.tk/posts/2012-10-27-become-less-sensitive-rtl2832u/</link>
+      <pubDate>Sat, 27 Oct 2012 06:48:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2012-10-27-become-less-sensitive-rtl2832u/</guid>
+      <description>&lt;p&gt;[この記事は当初はPAL端子にアンテナをつなぐ方法を書くつもりだったのですが、ドングルを壊してしまったようなので、先にこの件を書きます。]&lt;/p&gt;
+
+&lt;p&gt;gnuradioが使えるようになったので、放送波だけでなくいろいろ受信してみようと、RTL2832Uドングルに外部アンテナをつないで、いろいろ試していました。ところが二日目にして、なんだか調子が悪くなったことに気がつきました。実験を始めた最初にくらべて、明らかに感度が下がっています。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>GNURadio&#43;rtl2832u&#43;Macで2mのアマチュア無線を受信する</title>
+      <link>https://ttrf.tk/posts/2012-10-27-receiving-2m-fm-amature-radio-with-rtl2832u-gnuradio-mac/</link>
+      <pubDate>Sat, 27 Oct 2012 05:05:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2012-10-27-receiving-2m-fm-amature-radio-with-rtl2832u-gnuradio-mac/</guid>
+      <description>&lt;p&gt;1500円で買ったDVB-Tドングルとgnuradioでアマチュア無線の受信をやってみます。受信対象は144MHz(2m)のFMです。放送波とちがってNarrow Band FMなので、これに合う受信機をgnuradioのブロックで構成します。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>GNURadio&#43;rtl2832u&#43;Macでエアバンドを受信する</title>
+      <link>https://ttrf.tk/posts/2012-10-21-receiving-airband-with-gnuradio-rtl2832u-macosx/</link>
+      <pubDate>Sun, 21 Oct 2012 01:41:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2012-10-21-receiving-airband-with-gnuradio-rtl2832u-macosx/</guid>
+      <description>&lt;p&gt;FM放送波が受信できたので、次はエアバンドを試してみます。さすがに室内の簡易アンテナでは受からないと思われたので、アンテナを屋上に設置しました。以前使っていた144MHz/430MHz共用GPを半分にしたような簡易な自作品です。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RTL2832U USBドングルをGNURadioで使う</title>
+      <link>https://ttrf.tk/posts/2012-10-20-rtl2832u-gnuradio-macosx/</link>
+      <pubDate>Sat, 20 Oct 2012 04:05:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2012-10-20-rtl2832u-gnuradio-macosx/</guid>
+      <description>&lt;p&gt;デジタルTV放送(DVB-T)受信用として安価に販売されているUSBドングルが、SDRのフロントエンドとして使えるらしいことを知りました。これは試してみなければと思い、さっそくebayで注文してみました。この手のガジェットは中国から販売されるものが多く、ebayで購入したとしても販売元は中国だったります。送料無料の出品もたくさんあります。今回は$19(1500円ちょい)で購入しました。支払いはpaypal。注文から15日ほどで香港(HK)から届きました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>GNURadioをOSXでビルドする</title>
+      <link>https://ttrf.tk/posts/2012-10-20-building-gnuradio-with-homebrew-macosx/</link>
+      <pubDate>Sat, 20 Oct 2012 01:21:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2012-10-20-building-gnuradio-with-homebrew-macosx/</guid>
+      <description>&lt;p&gt;GNURadioをOSXで動作させることができることを知ったので試してみました。これまでSDRのソフトウェアとして、WinSDRなどをVMware Fusionで使っていましたが、ネイティブで使いたいのと、GNURadioは自由度が高そうなのでいろいろ遊べそうです。RTL2832Uを使ったDVB-T用のUSBドングルを使ってみるのが最初の目標です。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

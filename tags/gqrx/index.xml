@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gqrx on Computer &amp; RF Technology</title>
+    <link>https://ttrf.tk/tags/gqrx/</link>
+    <description>Recent content in Gqrx on Computer &amp; RF Technology</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Thu, 09 Feb 2017 18:54:10 +0000</lastBuildDate>
+    
+	<atom:link href="https://ttrf.tk/tags/gqrx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>LimeSDRをGQRXで使ってみる</title>
+      <link>https://ttrf.tk/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/</link>
+      <pubDate>Thu, 09 Feb 2017 18:54:10 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/</guid>
+      <description>昨年クラウドファンディングCloudSupplyでキャンペーンをしていたLimeSDRをBackしていましたが、1月末に出荷されました。よう</description>
+    </item>
+    
+    <item>
+      <title>フロントエンド基板を使ってダイレクトサンプリング受信してみる</title>
+      <link>https://ttrf.tk/posts/2014-04-30-direct-sampling-frontend-board-in-use/</link>
+      <pubDate>Wed, 30 Apr 2014 14:30:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2014-04-30-direct-sampling-frontend-board-in-use/</guid>
+      <description>&lt;p&gt;前回から少し間が開いてしまいました。気がつくと4月が終わってしまいそうです。4月の投稿が0なのに気がつきあわてて書き始めました。すいません。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>gqrxをMac OSX用にソースからビルドしてみる</title>
+      <link>https://ttrf.tk/posts/2014-01-09-build-gqrx-from-source-code-for-macosx/</link>
+      <pubDate>Thu, 09 Jan 2014 13:32:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2014-01-09-build-gqrx-from-source-code-for-macosx/</guid>
+      <description>&lt;p&gt;SDR用のソフトウェアは、WindowsプラットフォームではSDR#やHDRなど優秀なものがいくつもありますが、Windows以外のプラットフォーム、特にUnixベースで動作するものは殆ど無く、知る限りGqrxが唯一かと思います。Windowsベースのものに比べると、機能は限られていますが、比較的良い使い勝手を提供しているソフトウェアだと思います。有り難いことにGqrxはMac OSXでも動作し、バイナリも配布されています。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>gqrxの新しいバージョン2.2をMac OSXで試してみる</title>
+      <link>https://ttrf.tk/posts/2014-01-06-update-gqrx-official-release-on-macosx/</link>
+      <pubDate>Mon, 06 Jan 2014 15:48:19 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2014-01-06-update-gqrx-official-release-on-macosx/</guid>
+      <description>&lt;p&gt;これまでMacで動作するSDRソフトウェアとしてgqrxを使用してきました。&lt;a href=&#34;../2012-11-03-gqrx-is-easiest-way-to-op-sdr-on-macosx&#34;&gt;以前の記事&lt;/a&gt;で書いたように一度Mac用に移植を試みたもののあっさり挫折し、Dekarさんのblogで配布されていたMac用バイナリを愛用していました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>bladeRFとアップコンバータで300MHz以下の受信を試してみる</title>
+      <link>https://ttrf.tk/posts/2013-12-30-receive-low-frequency-with-bladerf/</link>
+      <pubDate>Mon, 30 Dec 2013 05:39:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-12-30-receive-low-frequency-with-bladerf/</guid>
+      <description>&lt;p&gt;bladeRFはカバー範囲が300M~3.8Gと広いのですが、RTLドングルでHFが受信できないのと同様に、bladeRFではVHF以下をカバーしていない弱点があります。そこでアップコンバータによる受信を試してみました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Raspberry PiでRTL-SDRをビルドして使うrevised</title>
+      <link>https://ttrf.tk/posts/2013-08-09-build-rtl-sdr-with-raspberry-pi-raspbian/</link>
+      <pubDate>Fri, 09 Aug 2013 17:28:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-08-09-build-rtl-sdr-with-raspberry-pi-raspbian/</guid>
+      <description>&lt;p&gt;以前Raspberry Piでrtl-sdrを使ってリモート受信サーバに仕立てる件について記しましたが、先日追加でもう一台購入してセットアップしてみましたので、最近の状況について書いておきます。今回購入したRaspberry Piは、メモリが512Mbyteと倍増しています。前回は紙箱でしたが、今回はケースに入っていました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RTL2832Uダイレクトサンプリングのスプリアス</title>
+      <link>https://ttrf.tk/posts/2013-07-28-spurs-with-rtl2832u-direct-sampling/</link>
+      <pubDate>Sun, 28 Jul 2013 02:20:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-07-28-spurs-with-rtl2832u-direct-sampling/</guid>
+      <description>&lt;p&gt;ダイレクトサンプリングで信号を受信しているとたくさんのスプリアスが見えてしまいます。どんなふうにスプリアスが出るのかをまとめておきます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ダイレクトサンプリングとアップコンバータの感度を比較してみる</title>
+      <link>https://ttrf.tk/posts/2013-07-25-compare-hf-sensitivity-direct-sampling-vs-up-converter-f/</link>
+      <pubDate>Thu, 25 Jul 2013 17:11:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-07-25-compare-hf-sensitivity-direct-sampling-vs-up-converter-f/</guid>
+      <description>&lt;p&gt;ダイレクトサンプリングとアップコンバータを使った場合に感度の違いがあることを感じていましたが、定量的にどの程度かを確認してみました。SGで発生させた信号を、それぞれの方式で受信し、SGの出力レベルを絞っていき、ぎりぎりトーンが聞こえる信号強度を比較してみます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RTL-SDR(RTL2832U/R820T)ドングルをダイレクトサンプリング改造してみる</title>
+      <link>https://ttrf.tk/posts/2013-07-23-rtlsdr-rtl2832u-r820t-dongle-direct-sampling-mod/</link>
+      <pubDate>Tue, 23 Jul 2013 14:47:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-07-23-rtlsdr-rtl2832u-r820t-dongle-direct-sampling-mod/</guid>
+      <description>&lt;p&gt;(2014/5/12訂正) &lt;/p&gt;
+
+&lt;p&gt;RTL2832UドングルでHF帯を受信する方法として、ダイレクトサンプリングと呼ばれる方法があります。ドングルを改造することにより、R820TやE4000といったチューナチップをバイパスして、直接RTL2832UにRF信号を入力します。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RTL2832UドングルでGPS受信を試みる(失敗編)</title>
+      <link>https://ttrf.tk/posts/2013-05-24-trying-receive-gps-with-rtl2832u-and-macosx/</link>
+      <pubDate>Fri, 24 May 2013 15:55:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-05-24-trying-receive-gps-with-rtl2832u-and-macosx/</guid>
+      <description>&lt;p&gt;RTL2832UドングルでGPSを受信する試みについての記事を読み実験してみたいと思っていました。その準備として安価なアクティブアンテナをebayで購入してあったのですが放置していました。SDRによるGPS受信が盛り上がっているようだったので、まずはキャリアを受信できるかどうかを試してみました。結論からいうと失敗だったのですが、一応メモとして載せておきます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>R820T/RTL2832Uドングルの感度を測ってみる</title>
+      <link>https://ttrf.tk/posts/2013-01-02-r820t-rtl2832u-dongle-and-up-converter-sensitibity/</link>
+      <pubDate>Wed, 02 Jan 2013 11:55:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-01-02-r820t-rtl2832u-dongle-and-up-converter-sensitibity/</guid>
+      <description>&lt;p&gt;RTL2832Uドングルは受信機としてどの程度の感度なのか気になっていました。ドングルにはいくつか種類がありますが、チューナチップの種類や個体によっても差があるようです。今回HF用アップコンバータを作ってみたのを機に、計測をしてみることにしました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RTLSDRドングル用にHF Up Converterを作る</title>
+      <link>https://ttrf.tk/posts/2012-12-25-rtl-sdr-hf-up-converter-for-rtl2832u-dongle/</link>
+      <pubDate>Tue, 25 Dec 2012 23:21:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2012-12-25-rtl-sdr-hf-up-converter-for-rtl2832u-dongle/</guid>
+      <description>&lt;p&gt;以前RTL2832UドングルでHFを受信するためにダイレクトサンプリングを試してみました。受信はできたものの、感度やスプリアスの点で満足できませんでした。もう一つの方法として、アップコンバータを検討をしていましたが、基板をオーダーで作って動作させてみましたのでそのメモです。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Raspberry PiとRTL2832Uドングルを受信サーバとして使うためにrtl_tcpを修正した</title>
+      <link>https://ttrf.tk/posts/2012-12-13-raspberry-pi-remote-rtl2832u-sdr-server-and-rtl-tcp/</link>
+      <pubDate>Thu, 13 Dec 2012 15:27:40 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2012-12-13-raspberry-pi-remote-rtl2832u-sdr-server-and-rtl-tcp/</guid>
+      <description>&lt;p&gt;前回Raspberry PiをRTL2832Uドングル用受信サーバとして使う方法を紹介しました。しかしながら実際に使用しようとした場合、安定して使用することができていませんでした。gqrxやgnuradioで構成したクライアントを使用して、rtl_tcpに接続したのち、一度切断、そして再接続しようとした時に、rtl_tcpが不正終了してしまい、いちいちコマンドを起動しなおす必要がありました。せっかく便利そうなリモート受信サーバなのですが、このままではちょっと残念な感じでした。そこで不具合の原因調査と修正を行いました。結果うまく安定して動作させることができるようになりました。また、受信サーバとして運用するには、マシンを起動したときに自動的にサービスが起動して欲しいものです。そのための起動スクリプトを作成しましたので、こちらもあわせて紹介します。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RTLSDRドングルのダイレクトサンプリングで7MHzのアマチュア無線を受信する</title>
+      <link>https://ttrf.tk/posts/2012-11-22-rtlsdr-mods-for-7mhz-reception-with-gqrx/</link>
+      <pubDate>Thu, 22 Nov 2012 14:52:07 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2012-11-22-rtlsdr-mods-for-7mhz-reception-with-gqrx/</guid>
+      <description>&lt;p&gt;RTL2832Uドングルを改造することでHFやMFを受信することができます。ドングルに載っているチューナチップをバイパスしてRTL2832Uチップに直接アンテナからの信号を入力して受信します。これをダイレクトサンプリングと呼んでいます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ミニサイズのE4000&#43;RTL2832Uドングルを入手しました</title>
+      <link>https://ttrf.tk/posts/2012-11-21-rtl2832u-e4k-mini-dongle/</link>
+      <pubDate>Wed, 21 Nov 2012 15:53:58 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2012-11-21-rtl2832u-e4k-mini-dongle/</guid>
+      <description>&lt;p&gt;一番最初に入手したRTL2832UドングルはチューナチップにE4000を使用したものだったのですが、おそらく雷の鳴るなかに屋外設置の外部アンテナをつないだことが原因であっさりと故障させてしまいました。なかなか性能が良さそうだったのに、故障させてしまったのは残念でした。その後２つドングルを入手したのですが、E4000ではありませんでした。ebayを眺めていたところ、E4000の小さなドングルを見つけたので購入してみました。価格は$19.9。11/2に注文し、11/18に香港から到着しました。内容物は本体とアンテナ、カードが一枚です。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RTL2832UドングルにHF受信用プラグインフィルタを付けてみる</title>
+      <link>https://ttrf.tk/posts/2012-11-10-attach-hf-bpf-plugin-to-rtl2832u-dongle/</link>
+      <pubDate>Sat, 10 Nov 2012 00:39:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2012-11-10-attach-hf-bpf-plugin-to-rtl2832u-dongle/</guid>
+      <description>&lt;p&gt;先日RTL2832Uドングルをダイレクトサンプリングで使ってHFを受信してみましたが、混変調(特にFM放送の)があるのが観察されました。HF受信にはフィルタがあったほうがいいかなと感じましたので、何か良い方法はないかと考えていたのですが、SDRのキットとして著名なSoftRock RXTX 6.3のプラグインの受信フィルタが目的に合うのではと思いつきました。さっそく試してみたのでその内容を書いておきます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MacでSDRするならgqrxがとても簡単</title>
+      <link>https://ttrf.tk/posts/2012-11-03-gqrx-is-easiest-way-to-op-sdr-on-macosx/</link>
+      <pubDate>Sat, 03 Nov 2012 08:36:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2012-11-03-gqrx-is-easiest-way-to-op-sdr-on-macosx/</guid>
+      <description>&lt;p&gt;gqrxというGUI付きのSDRソフトウェアがあるとのことなので、試してみることにしました。ところがソースをダウンロードしてビルドしようとしたのですが、OSXには無いlibpulseが必要とのことで引っかかっていました。ググってみたところ、なんとMac OS用にポーティングしビルド済みのバイナリがDekarさんのblogで配布されていました。これを試してみたところなんとも簡単にRTLドングルを使っていろいろ受信することができましたので、紹介したいと思います。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

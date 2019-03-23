@@ -1,0 +1,505 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>GPSのPPS信号でOCXOの周波数を制御してGPSDOの実験をしてみる</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/2015-10-12-gpsdo-experiment-gps-ublox-6t-pps-control-oxco/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Monday, Oct 12, 2015</time>
+<h2><a href="https://ttrf.tk/posts/2015-10-12-gpsdo-experiment-gps-ublox-6t-pps-control-oxco/" class="title">GPSのPPS信号でOCXOの周波数を制御してGPSDOの実験をしてみる</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          <p>GPSDOの試作ですが、OCXOを触ってみて感触がわかったので、いよいよ周波数制御をしてみます。もちろん制御はMCUからソフトウェアで行います。実際に制御をしてみることで、いくつか課題が明確になりました。</p>
+
+<p><img src="https://40.media.tumblr.com/1dbccbaf434ad6a5e7cb6a6589a72cf9/tumblr_inline_nw367xQb8e1r9hszk_540.png" alt="image" />
+<!-- more --></p>
+
+<p>OCXO (Morion MV85)の周波数制御は、コントロールピンに0~5Vの電圧を与えることで行います。使用した個体は、0Vでおよそ9,999,996Hz、5Vで10,000,010Hzを発振出力するようです。ここに適切な電圧を与えれば10MHzちょうどに合わせ込むことができることになります。</p>
+
+<p>この電圧をD/Aコンバータによって生成します。GPSのPPS信号を基準に、OCXOの周波数を測定をMCUで常時行い、10MHzとのずれを修正するようにフィードバック制御を行うわけです。</p>
+
+<p>ここで問題になるのが電源電圧です。制御電圧は5V幅ですので、DACも5Vで動作させたいのです。もう一つの理由として、OCXOから温度制御された環境で生成された基準電圧(5V)が出ているので、これをDACにVrefとして供給します。Vrefに5Vを供給できるようにするには、DACも5Vで動作させる必要があります。一方、MCUの電源はGPSモジュールに合わせて3.3Vとしていました。</p>
+
+<p>DACには、12bit I2C接続でSOT23-6パッケージで小型のMCP4726(Microchip)を使ってみました。秋月でも売っています。そして、間にI2CレベルコンバータPCA9306(TI)を挟んで5Vと3.3Vのインターフェースすることにしました。MCP4726はEEPROMを内蔵しているので、最後にセットした値が電源を切っても保存されるので、前回の設定値で制御電圧が出力されます。もしGPSによる制御ができなくとも、およそ正しく周波数を維持することが期待できます。</p>
+
+<p>実装ですが、基板の設計時には、電圧の問題を見落としていた(MCUを5Vにするか3.3Vにするか未確定だった)ので、レベルコンバータ用のパターンがありません。またDAC用のパッケージサイズも間違ってレイアウトしていたので、基板上にチップを置き、既存のパターンを活用しながらウレタン線を使って配線しました。チップのピン間は0.8mmや0.65mm間隔なので余裕です。</p>
+
+<p><img src="https://40.media.tumblr.com/d76edd2ef8cdca58503892826c8f60e8/tumblr_inline_nw34i7A1bm1r9hszk_540.png" alt="image" /></p>
+
+<p>肝心の周波数制御ですが、いくつか考慮すべきことがあります。</p>
+
+<ul>
+<li>平均化した観測値を使う必要があること</li>
+<li>1カウントの量子誤差があること</li>
+<li>制御電圧を短期的に揺らさないようにすること</li>
+<li>上記を満たした上で、できるだけ高速に収束すること</li>
+</ul>
+
+<p>10MHz付近への制御が動作している場合、1秒毎に観測されるのは、ほとんどが10000000プラスマイナス1です。プラスマイナス1は量子誤差なのでどうしても消せません。10MHzに合わせるとは、プラス1とマイナス1の個数が短期的にも長期的にも安定してバランスさせるということが目標なります。このバランス状態を数百〜数千秒(30分から数時間)維持するよう制御するようにします。</p>
+
+<p>収束の高速性と両立させるために、観測期間を2のベキ乗で変化させることとしました。まず1秒の観測期間でおおまかに周波数を合わせたら、続いて2秒、次は4秒8秒16秒と観測期間を倍々で延ばしながら周波数を合わせていきます。カウントは常時行っていますが、それを1PPSでサンプリングし、その差分値(すなわち周波数)の、10000000カウントからのずれ＝周波数エラーを観測期間で累積(積分)していくようにします。この情報は周波数エラーの積分なので位相エラーです。</p>
+
+<p>2のベキ乗の観測期間において、位相エラーがゼロになるよう、DACに与える設定値を増減します。観測期間が短い場合は、エラー値に係数を乗算、すなわちループゲインを上げて収束を早めます。さらに位相エラーの積分値もエラーに加えることで収束を早めています。観測期間が長くなれば係数を減らし、128秒以上の場合は設定値をプラスマイナス1に留めてゲインを下げ、じっくりと調整をするようにします。ループゲインはOCXOの制御電圧の感度(Hz/V)に依存するのと、挙動がちょっと複雑なのでループの安定性は明確に示すことができませんが、多分大丈夫です。とりあえず現物合わせで調整してみました。</p>
+
+<p>カウント誤差についての配慮として、位相エラーがプラスマイナス1の場合は、DAC設定値を変更しません。位相エラーが2を越えたときにDACを変更するようにします。このように不感帯を設けることで、カウント誤差による振動を引き起こさないようにしています。</p>
+
+<p>下のグラフが動作の様子です。横軸は秒、上の青線はDACの制御値、下の緑の三角波は制御期間のデクリメントカウンタです。デクリメント中は制御値を変更していません。およそ200秒くらいでおおよそ収束し、その後は分単位で微調整動作に入っています。収束した後は制御期間が倍々で伸びていくのが判ります。
+<img src="https://41.media.tumblr.com/b9790de30ecb8993300eea0eb13a1f00/tumblr_inline_nw34laY8Kh1r9hszk_540.png" alt="image" /></p>
+
+<p>このままずっと二日程動作させてみました。デクリメントカウンタの挙動はこんな感じになりました。最低でも1024秒(＝16分位)、長い時は4096〜8192秒すなわち1~2.5時間程度の間、DACを修正せずに動作していることがわかります。途中で間隔が短くなっているいるのは周波数誤差の修正を行おうとした際に過修正で振動が生じ安定性が損なわれたことによります。
+<img src="https://41.media.tumblr.com/4193353c96743a119c386d66d527d3c8/tumblr_inline_nw34slopnV1r9hszk_540.png" alt="image" /></p>
+
+<p>同期間におけるDAC設定値の変化です。
+<img src="https://40.media.tumblr.com/ac2ec4bfe78575de040745ee6b3080ae/tumblr_inline_nw34riSwsY1r9hszk_540.png" alt="image" /></p>
+
+<p>DAC設定値がプラマイ1で揺れているのがわかります。この時の周波数の観測値です(600秒の移動平均を2重に施している)。</p>
+
+<p><img src="https://41.media.tumblr.com/dcdd48381fcb16320b797d3331ea0a2b/tumblr_inline_nw34t48yHC1r9hszk_540.png" alt="image" /></p>
+
+<p>プラマイ1のDAC設定値修正で、周波数がおよそ3mHzの幅で変動しており、これが過修正になって、その次の修正タイミングで戻るということを繰り返し、振動になっています。OCXOもしくはPPS信号のドリフトで周波数がわずかに揺れ動いており、これが位相エラーの不感帯を越えてしまうとフィードバックが掛かるのですが、修正所要量は1LSBに満たないので過修正になっています。DACの解像度による制約です。</p>
+
+<p>酷いグラフに見えますが、振動の周期は最短でも16分、二日間全体で7mHzすなわち1ppb以下の幅ですので、そう酷いわけではありません。しかしもう少しじっと我慢させて落ち着いた動作をさせたいところで、もう一工夫必要なようです。</p>
+
+<p>予想できていたいことではあるのですが、12bitのDACで可変幅全体を制御しようとすると解像度(レゾリューション)が足りていません。このOCXOは14Hz程度の可変幅を持っているので、12bitだと4096で割って1lsb当たりおよそ3mHz弱になります。DACの品種を代えてビット数を上げてもせいぜい16bitで高価でになります。それよりも、粗調整を別のDACもしくは手動調整のVRで行い、精密制御は1/10~1/50の感度でフィードバックするようにしたほうが良いかもしれません。</p>
+
+<p>別途DOCXOについても試してみたのですが、ドリフトが大きく制御が追いつかない(感度が下がりすぎる)という状態です。やはり小さいOCXOよりも安定性が良くないようです。別なOCXOも入手して試してみたいと考えていますが、しばらくは結果の良好なこの小さいOCXOで試していこうと思います。</p>
+
+<p>制御部分のソフトウェア実装についてですが、このような動作を小さなMCUで実現するのは正直厳しいです。本当なら制御電圧感度のキャリブレーション等も実現したいのですが、現時点でもメモリがキツいので記憶出来る容量が足りず、制御の方法が制約されています。現状は、10バイト程度のSRAM使用の割には、なかなか良い動作ができているとは思っています。参考に制御部分の抜粋を示します。(あくまで現行のセッティング向けの試行錯誤の結果です)</p>
+
+<script src="https://gist.github.com/edy555/c71d0256e6aaebee49e6.js"></script>
+
+<p>こんな感じでGPSによるOCXOの調律は、なんとか動作させることができました。課題として、</p>
+
+<ul>
+<li>DACの解像度不足</li>
+<li>10MHz出力バッファ</li>
+</ul>
+
+<p>がありますが、次回は、もうちょっとリッチなMCUを使って、改良を目指したいと考えています。できればOCXOの各品種に対応できるよう、制御電圧感度のキャリブレーションもやりたいと思っています。</p>
+
+<p>それから現状ではカウンタ値を使用しているので、制御の仕方としてはFLL(Frequency Lock Loop)となっています。できれば位相も制御してPLLとしてみたいのです。ただ、PPS信号と10MHzでは周波数比が大きいのと、PPS信号のジッタもあるので難しいかもしれません。実はあるものを位相比較器として使えないかアイデアがあり試してみたいと思っています。次回の試作時に盛り込みたいと考えています。10MHz同士の比較であればDMTD(Dual Mixer Time Difference)法など精密な方法が工夫されているところを興味深く見ています。</p>
+
+<p>リファレンス</p>
+
+<ul>
+<li><a href="../2015-10-08-gps-ocxo-stability-trial">前回の記事</a></li>
+<li><a href="../2015-09-21-gps-based-ocxo-stability-measurement">前々回の記事</a></li>
+<li><a href="../2014-10-22-ublox-lea-6t-gps-breakout-board">前々々回の記事</a></li>
+<li>ublox LEA-6T <a href="https://www2.u-blox.com/lea-6t.html" target="_blank">https://www2.u-blox.com/lea-6t.html</a></li>
+<li>PIC18F14K50 16KB+768B <a href="http://www.microchip.com/wwwproducts/Devices.aspx?product=PIC18F14K50" target="_blank">http://www.microchip.com/wwwproducts/Devices.aspx?product=PIC18F14K50</a></li>
+<li>使ったDAC MCP4726 <a href="http://www.microchip.com/wwwproducts/Devices.aspx?product=MCP4726" target="_blank">http://www.microchip.com/wwwproducts/Devices.aspx?product=MCP4726</a></li>
+<li>秋月で売っています <a href="http://akizukidenshi.com/catalog/g/gK-07995/" target="_blank">http://akizukidenshi.com/catalog/g/gK-07995/</a></li>
+<li>I2Cレベルコンバータ PCA9306 <a href="http://m.ti.com/product/jp/pca9306" target="_blank">http://m.ti.com/product/jp/pca9306</a></li>
+<li>これも秋月でモジュールが売っています <a href="http://akizukidenshi.com/catalog/g/gM-05452/" target="_blank">http://akizukidenshi.com/catalog/g/gM-05452/</a></li>
+<li>DMTD法が紹介されているNICTの資料 <a href="http://www.nict.go.jp/publication/shuppan/kihou-journal/kihou-vol56no3_4/kihou-vol56no3_4_0201.pdf" target="_blank">http://www.nict.go.jp/publication/shuppan/kihou-journal/kihou-vol56no3_4/kihou-vol56no3_4_0201.pdf</a></li>
+</ul>
+
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Oct 12, 2015</time>
+	<a href="https://ttrf.tk/posts/2015-10-12-gpsdo-experiment-gps-ublox-6t-pps-control-oxco/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/ocxo">ocxo</a>  <a class="category" href="https://ttrf.tk/tags/gps">gps</a>  <a class="category" href="https://ttrf.tk/tags/gpsdo">gpsdo</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2015-10-12-gpsdo-experiment-gps-ublox-6t-pps-control-oxco%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2015-10-12-gpsdo-experiment-gps-ublox-6t-pps-control-oxco/" data-text="GPSのPPS信号でOCXOの周波数を制御してGPSDOの実験をしてみる" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2015-10-12-gpsdo-experiment-gps-ublox-6t-pps-control-oxco/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

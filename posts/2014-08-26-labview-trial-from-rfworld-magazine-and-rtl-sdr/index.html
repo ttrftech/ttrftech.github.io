@@ -1,0 +1,523 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>RFワールド誌特別評価版のLabVIEWをRTLドングルで試してみる</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/2014-08-26-labview-trial-from-rfworld-magazine-and-rtl-sdr/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Tuesday, Aug 26, 2014</time>
+<h2><a href="https://ttrf.tk/posts/2014-08-26-labview-trial-from-rfworld-magazine-and-rtl-sdr/" class="title">RFワールド誌特別評価版のLabVIEWをRTLドングルで試してみる</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          <p>CQ出版社の雑誌RFワールドはLabVIEWとUSRPによるSDRの特集でした。LabVIEWの名はよく耳にし、展示会等でも見かけていましたが使ったことはありませんでした。今回特別評価版ということでダウンロードサービスが提供されていますので試してみることにしました。</p>
+
+<p>本来ならUSRPのハードウェアがあればもっと色々試せるのでしょうけれども、今回の特集ではハードウェア無しでも試せるように、サンプルデータが添付されていたり、疑似的に無線パスのエミュレーションするよう構成されています。ですので、ソフトウェアのみでも一通り試せるよう工夫されているのですが、ちょっと残念でもありますので、少し調べてみたところLabVIEWとRTLドングルを組み合わせて受信機を構成している実例がありましたのでこれもあわせて紹介します。</p>
+
+<p>LabVIEWを実行するにはWindows環境が必要ですが、残念ながら手元にはPCがありません。そのため今回はVMwareで試してみることにします。LabVIEWは現在ではWindows専用のソフトウェアですが、実は80年代当初にはMac OSで開発されていたことを記事を読んで知りました。このへんの事情はExcelと似ているようですね。</p>
+
+<p>さっそくRFワールド誌のサイトからファイルをダウンロードします。その際に若干のフォームへの記入が必要なようです(^^;。</p>
+
+<p><img src="https://78.media.tumblr.com/5ddce05c0a83a72c0b9398806964ab97/tumblr_inline_p8uv1nuM1k1r9hszk_540.png" alt="image" /></p>
+
+<p>RFワールドのサイトでフォームを記入すると、National Instrumentsのサイトに移動し、またそこでもフォームの記入を求められます(^^;。NIからダウンロードするファイルは、本体のダウンローダに加えて、追加するツールキットとサンプルなどです。このサンプルには、3章、4章のサンプルが含まれています。ダウンローダを実行すると追加でさらに1.5Gほどをダウンロードします。トータルで3GB程度になります。</p>
+
+<ul>
+<li>LabVIEWインストーラのダウンローダ (154k + 1.4G)</li>
+<li>NI_LabVIEW_Modulation_Toolkit (667M)</li>
+<li>NI_Spectral_Measurements_Toolkit (950M)</li>
+<li>SampleVI.zip (15M)</li>
+</ul>
+
+<p><img src="https://78.media.tumblr.com/c3e50ec7c7a1591c0d1511e6414ae922/tumblr_inline_p8uv1oC36g1r9hszk_540.png" alt="image" /></p>
+
+<p>RFワールドのサイトからダウンロードしておくファイルがもう一つあります。5章、6章のサンプルと図表が入ったzipファイルです。ここでもフォームの記入が必要です(^^;。</p>
+
+<ul>
+<li>RFW27A.zip (5M)</li>
+</ul>
+
+<p>インストールの手順は、念のため記事を参照したほうが良いと思います。インストールの最後には再起動が要求されます。またLabVIEWのインストール後には、OSの起動時に自動でLabVIEWのアップデートの確認を行うようになります(^^;。いろいろとインストールされてしまうようですので、どうもLabVIEWは専用のPCを用意して使うことが想定されているような気がします。</p>
+
+<p>さて、準備が整ったら起動してみます。ライセンスの確認画面が表示されたのち、こんな画面が現れます。ライセンスは当初7日間有効で、延長には登録が必要とのことです(^^;。</p>
+
+<p><img src="https://78.media.tumblr.com/45754eb4480f4655078685641b7041c1/tumblr_inline_p8uv1oIrq61r9hszk_540.png" alt="image" /></p>
+
+<p>サンプルのフォルダを開いて、まずは3章FM復調のサンプルを開いてみます。llbという拡張子のファイルを開きます。</p>
+
+<p><img src="https://78.media.tumblr.com/a3643f9641ce954b167ee8e552244dbf/tumblr_inline_p8uv1oQYmY1r9hszk_540.png" alt="image" /></p>
+
+<p>そうすると、こんなウィンドウが現れます。いくつか選択肢がありますが、まずは動かしてみたいのでPlaybackRecordedFMRadioMT.viをダブルクリックします。</p>
+
+<p><img src="https://78.media.tumblr.com/e569a94366935c2ef8bac366fe1c2e80/tumblr_inline_p8uv1pqamp1r9hszk_540.png" alt="image" /></p>
+
+<p>そうすると部品が並んだウィンドウが現れます。さっそく実行してみたいところですが、動作させるためにはIQデータファイルを読み込ませる必要があります。パスの欄に、同フォルダにあったFMRadioIQData200k_Short.binファイルを指定します。そして上の矢印ボタンを押して実行します。そうすると波形とスペクトラムが画面に表示され、ファイルに記録されていたFM変調されていた音楽が聞こえてきます。無事動作しました。最初パスを指定しないとうんともすんともいわず、エラーも表示されません(^^;。最初はあれ？と思いました。それから、聞こえてくる音声ですが、VMwareを使用している関係上スムーズに再生されません。これはあくまでVMwareが原因です。</p>
+
+<p><img src="https://78.media.tumblr.com/e052243808da2d9e47e7625c546d5c3f/tumblr_inline_p8uv1pdWk21r9hszk_540.png" alt="image" /></p>
+
+<p>Ctrl-Eを入力(またはメニューからウィンドウ＞ブロックダイアグラムを表示を選択)すると、中身の構成が表示されます。いろんな部品が接続されていますが、思ったよりも細かな要素がたくさん必要なようです。</p>
+
+<p><img src="https://78.media.tumblr.com/a7328a9fc2f0d76785dc3442e4018d28/tumblr_inline_p8uv1pnUAq1r9hszk_540.png" alt="image" /></p>
+
+<p>続いて、4章のサンプルも試してみます。同様にファイルを開くと、こんなフロントパネルが現れます。こちらのサンプルは、テキストデータを送るというものです。適当にHelloWorldと入力してみると、それが変調波になり、途中ノイズ等の影響を受け、復調処理を行いテキストに戻る動作が実現されています。スペクトラムとコンステレーションも表示されています。</p>
+
+<p><img src="https://78.media.tumblr.com/7bbc74868df569edaa7f7da42880a3fc/tumblr_inline_p8uv1rocKM1r9hszk_540.png" alt="image" /></p>
+
+<p>これの中身です。なんとなくはわかりますが、一見しただけでは細かい部品の存在理由がすぐには判断つきません。このダイアグラムを編集操作できるようになるまでには特に語彙を習得するのに慣れが必要そうです。</p>
+
+<p><img src="https://78.media.tumblr.com/eacdca007c7ede1c2b005e178e508840/tumblr_inline_p8uv1r3YsS1r9hszk_540.png" alt="image" /></p>
+
+<p>同様に5章のQAMのサンプルです。同様にテキストを、変調、外乱、復調してデコードしているようです。</p>
+
+<p><img src="https://78.media.tumblr.com/742c1d6fbc51b8de4b5d732a0042f95f/tumblr_inline_p8uv1rKtjk1r9hszk_540.png" alt="image" /></p>
+
+<p>6章はOFDMの例です。スペクトラムが角張っているのがOFDMらしいです。</p>
+
+<p><img src="https://78.media.tumblr.com/959435783d6604a45634b6ea8a3bc9e2/tumblr_inline_p8uv1sKhlL1r9hszk_540.png" alt="image" /></p>
+
+<p>記事では、未完成のものを完成させる手順も解説されています。記事でも言及されていますが、理論だけでは動く物は作れないので、このような実例があることで良い入り口になるのではないでしょうか。</p>
+
+<p>さて、USRPがあれば実際の実験も可能なはずですが、残念ながら手近にはありません。既に皆さんがお持ちであるはずのRTLドングルを使った方法を探してみたところ、SDRLabというLabVIEWでの実装例がありました。これはlibrtlsdrのrtl_tcpを使い、TCP接続を介してドングルからデータを受け取り、後の復調処理をLabVIEWで行っています。</p>
+
+<p>さっそくダウンロードして試してみます。まずはドングルを接続したホストでrtl_tcpを動作させておきます。LinuxでもWindowsでもかまいませんが、私はMacを使いました。別のホストから接続可能なように、待ち受けアドレスとしてINADDR_ANY(0.0.0.0)を指定しておきます。</p>
+
+<pre><code class="language-bash">$ rtl\_tcp -a 0.0.0.0
+Found 1 device(s).
+Found Rafael Micro R820T tuner
+Using Generic RTL2832U
+Tuned to 100000000 Hz.
+listening...
+Use the device argument 'rtl\_tcp=0.0.0.0:1234' in OsmoSDR (gr-osmosdr) source
+to receive samples in GRC and control rtl\_tcp parameters (frequency, gain, ...).
+</code></pre>
+
+<p>ダウンロードしてきた sdrlab-rtl_tcp-interface-v0.1.zip を展開し、sdrlab.lvprojをLabVIEWで開きます。プロジェクトの中の sdrlab.lvlpsを開くと下のウィンドウが表示されます。rtl_tcpが動いているホストのIPアドレスを指定する必要があります。周波数を指定するフィールドがあるので、ここに適当にFM放送の周波数を入れ開始ボタンを押します。</p>
+
+<p>ところがここでエラーが発生してしまいました。なぜかtask idという部品の接続がうまくいっていないようです。あれこれやってみると、ダイアグラムの画面でtask idをクリックしての選択し直しを２箇所すると正常に実行できるようになりました。バージョンに差異があったのかもしれません。</p>
+
+<p>Playボタンを押すと若干遅れて復調されたFM放送の音声が聞こえてきます。バッファが大きいようで若干遅延が大きいです。各段階でバッファに蓄積されているかが表示されるのが特徴的です。</p>
+
+<p><img src="https://78.media.tumblr.com/9d7e26b782d938d805d94d5f0633aa0e/tumblr_inline_p8uv1s4j8t1r9hszk_540.png" alt="image" /></p>
+
+<p>中身はちょっと複雑です。rtl_tcpとのTCP接続もダイアグラムで実装しています。</p>
+
+<p><img src="https://78.media.tumblr.com/27a12f513caea204c0a2e51099eba36a/tumblr_inline_p8uv1sFd1k1r9hszk_540.png" alt="image" /></p>
+
+<p>チューニングの操作性など実用的とはちょっと言いにくいですが、SDR受信ソフトウェアをLabVIEWで構成する試みとしては、まとまった形になっていると思います。このプロジェクトはBSDライセンスで公開されています。下のリファレンスにあるサイトからダウンロードすることができます。</p>
+
+<p>以上、RFワールド誌特別版LabVIEWを試してみましたが、簡単ではないテーマですので、記事の内容やサンプルには苦労が伺い知れます。初めて使ってみてツールの雰囲気をつかむことはできました。グラフィカルな環境とはいえ、なかなか「誰でも使える」というわけにはなかなかいかないと思いますが、大学や研究機関などで既に利用できる環境やコード資産があったり、ソリューションやサポートが必要なのであれば良い環境なのだと思います。それから、LabVIEWは、FPGAで実装されたSDR受信機のプログラミングも可能と聞いたことがありますが、このあたりの状況についても伺い知りたかったところです。</p>
+
+<p>リファレンス</p>
+
+<ul>
+<li>CQ出版社RFワールド No27特集ダウンロード・サービス <a href="http://www.rf-world.com/x/RFW27DLS/USRP/RFW27USRP.htm" target="_blank">http://www.rf-world.com/x/RFW27DLS/USRP/RFW27USRP.htm</a></li>
+<li>SDRLab <a href="http://ha5kfu.sch.bme.hu/sdrlab" target="_blank">http://ha5kfu.sch.bme.hu/sdrlab</a></li>
+</ul>
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Aug 26, 2014</time>
+	<a href="https://ttrf.tk/posts/2014-08-26-labview-trial-from-rfworld-magazine-and-rtl-sdr/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/rf-world">rf world</a>  <a class="category" href="https://ttrf.tk/tags/sdr">sdr</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2014-08-26-labview-trial-from-rfworld-magazine-and-rtl-sdr%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2014-08-26-labview-trial-from-rfworld-magazine-and-rtl-sdr/" data-text="RFワールド誌特別評価版のLabVIEWをRTLドングルで試してみる" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2014-08-26-labview-trial-from-rfworld-magazine-and-rtl-sdr/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

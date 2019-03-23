@@ -1,0 +1,506 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>RTL2832UドングルとRTLSDR-Scannerでスペクトルを広帯域で観察する</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/2013-02-05-viewing-widespan-spectrum-with-rtl2832u-rtlsdr-scanner/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Tuesday, Feb 5, 2013</time>
+<h2><a href="https://ttrf.tk/posts/2013-02-05-viewing-widespan-spectrum-with-rtl2832u-rtlsdr-scanner/" class="title">RTL2832UドングルとRTLSDR-Scannerでスペクトルを広帯域で観察する</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          <p>RTL2832Uドングルは最大で3MHz程度でサンプリングすることが可能ですので、SDRソフトウェアを使った場合その帯域幅で信号を観察することができました。そこそこ広い帯域幅ではあるものの、信号がどこにあるのかわからない場合、周波数を手動でスキャンするなどの操作が必要でした。</p>
+
+<p>スペアナのように広い周波数をいっぺんに観察できたらと思っていたのですが、そんな時librtlsdrメーリングリストにRTLSDR-Scannerについて投稿されていたのでこれを試してみました。</p>
+
+<p>READMEを読むとLinuxとWindowsではテストされているとのことでしたが、構成を見るとpythonで実装されているようですので特にOS依存性は無さそうです。いつも通りMac OSXで試してみることにしました。</p>
+
+<p>依存ライブラリは以下のとおりです。</p>
+
+<ul>
+<li><a href="http://www.python.org/" target="_blank">Python 2.6</a> or greater</li>
+<li><a href="http://www.wxpython.org/" target="_blank">wxPython</a></li>
+<li><a href="http://matplotlib.org/" target="_blank">matplotlib</a></li>
+<li><a href="http://www.numpy.org/" target="_blank">numpy</a></li>
+<li><a href="http://sdr.osmocom.org/trac/wiki/rtl-sdr" target="_blank">rtlsdr</a></li>
+<li><a href="https://github.com/roger-/pyrtlsdr" target="_blank">pyrtlsdr</a></li>
+</ul>
+
+<p>既にGNURadioをインストールしてあれば殆どのものはカバーされているようですが、librtlsdrのpythonバインディングであるpyrtlsdrが足りなかったので、これを追加インストールする必要がありました。pipではインストールできなかったので、githubからソースを持ってきてsetupします。</p>
+
+<pre><code class="language-bash">$ git clone git@github.com:roger-/pyrtlsdr.git
+$ cd pyrtlsdr
+$ pyton setup.py install
+</code></pre>
+
+<p>RTLSDR-Scannerのコードはgithubからgit cloneしておきます。</p>
+
+<pre><code class="language-bash">$ git clone git@github.com:EarToEarOak/RTLSDR-Scanner.git
+</code></pre>
+
+<p>コードはpythonソース一つだけです。実行してみると、エラーが発生してしまいました。</p>
+
+<pre><code class="language-bash">$ cd RTLSDR-Scanner/src
+$ python rtlsdr_scan.py
+Traceback (most recent call last):
+  File &quot;rtlsdr_scan.py&quot;, line 29, in 
+    from matplotlib.backends.backend_wxagg import \\
+  File &quot;/usr/local/Cellar/python/2.7.3/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/matplotlib/backends/backend_wxagg.py&quot;, line 23, in 
+    import backend_wx    # already uses wxversion.ensureMinimal('2.8')
+  File &quot;/usr/local/Cellar/python/2.7.3/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/matplotlib/backends/backend_wx.py&quot;, line 47, in 
+    raise ImportError(missingwxversion)
+ImportError: Matplotlib backend_wx and backend_wxagg require wxversion, which was not found.
+</code></pre>
+
+<p>wxpythonをbrewでインストールしている場合、以下のようにレシピを修正し、再インストールしておきます。</p>
+
+<pre><code class="language-bash">$ brew edit wxwidgets
+    &quot;INSTALL_MULTIVERSION=1&quot;,
+$ brew uninstall wxwigets
+$ brew install wxwidgets
+</code></pre>
+
+<p>改めて起動してみます。</p>
+
+<pre><code class="language-bash">$ python rtlsdr_scan.py
+</code></pre>
+
+<p>起動に成功するとこのようなウインドウが現れます。</p>
+
+<p><img src="http://media.tumblr.com/64173199b99784a08f8affe362c242a7/tumblr_inline_mhr27k21u91qz4rgp.png" alt="image" /></p>
+
+<p>Range(MHz)の欄に、Start/Stopの周波数をセットして、Startボタンを押します。スキャンの進行につれてプログレスバーが表示され、完了するとスペクトルが表示されます。この例ではFM放送波が三つ見えます。</p>
+
+<p><img src="http://media.tumblr.com/b24a107a3c3156db625990fc3c0e51d9/tumblr_inline_mhr29pqcUs1qz4rgp.png" alt="image" /></p>
+
+<p>若干のノイズが見られます。スキャンは帯域幅が広ければそれだけ時間を要します。また、Dwellの設定によっても変化します。</p>
+
+<p>マウスでエリアを選択することでスペクトルを拡大することが可能です。ホームボタンで全領域表示に戻ります。</p>
+
+<p>RTL2832Uドングルは数十ppm程度の誤差がありますが、既知の周波数の信号を入れ、メニューからAuto Calibrationを選ぶことで、周波数を校正することができるようです。</p>
+
+<p>以上、RTLSDR-ScannerをMac OSXで使うことができました。OSXで動作した旨報告したところ、テスト済環境としてOSXを追記してくれました。</p>
+
+<p>SDRソフトウェアを使った場合はリアルタイムで信号を観察することが可能でしたが、RTLSDR-Scannerによるスキャンには帯域幅により十数秒から数分の時間がかかります。目的に応じて使い分けるのが良いと思われます。</p>
+
+<p>以下は800-1000MHzを観察した例です。携帯電話の電波が見えます。変調方式でスペクトルの形が異なるのがわかります。</p>
+
+<p><img src="http://media.tumblr.com/6786014ef32f025f143a6374f5b65c20/tumblr_inline_mhr3ffuQhm1qz4rgp.png" alt="image" /></p>
+
+<p>リファレンス</p>
+
+<ul>
+<li>Alさんのosmocom-sdrへの投稿 <a href="http://lists.osmocom.org/pipermail/osmocom-sdr/2013-January/000446.html" target="_blank">http://lists.osmocom.org/pipermail/osmocom-sdr/2013-January/000446.html</a></li>
+<li>RTLSDR-Scanner <a href="http://eartoearoak.com/software/rtlsdr-scanner" target="_blank">http://eartoearoak.com/software/rtlsdr-scanner</a></li>
+<li>github<a href="https://github.com/EarToEarOak/RTLSDR-Scanner" target="_blank"> https://github.com/EarToEarOak/RTLSDR-Scanner</a></li>
+<li>wxpythonの修正方法@StackOverflow <a href="http://stackoverflow.com/a/10660785" target="_blank">http://stackoverflow.com/a/10660785</a></li>
+</ul>
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Feb 5, 2013</time>
+	<a href="https://ttrf.tk/posts/2013-02-05-viewing-widespan-spectrum-with-rtl2832u-rtlsdr-scanner/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/rtlsdr">rtlsdr</a>  <a class="category" href="https://ttrf.tk/tags/python">python</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2013-02-05-viewing-widespan-spectrum-with-rtl2832u-rtlsdr-scanner%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2013-02-05-viewing-widespan-spectrum-with-rtl2832u-rtlsdr-scanner/" data-text="RTL2832UドングルとRTLSDR-Scannerでスペクトルを広帯域で観察する" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2013-02-05-viewing-widespan-spectrum-with-rtl2832u-rtlsdr-scanner/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

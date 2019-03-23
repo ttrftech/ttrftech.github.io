@@ -1,0 +1,491 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>NanoVNAの信号から反射係数を計算し周波数特性をプロットする</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/2016-09-16-nanovna-calculating-reflection-coefficient-and-plot/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Friday, Sep 16, 2016</time>
+<h2><a href="https://ttrf.tk/posts/2016-09-16-nanovna-calculating-reflection-coefficient-and-plot/" class="title">NanoVNAの信号から反射係数を計算し周波数特性をプロットする</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          <p>ベクトルネットワークアナライザNanoVNAの実験の続きです。ネットワークアナライザでは、発生したRF信号に対する被測定物(DUT)の応答を、振幅と位相で計測するのですが、結果は反射係数として複素数で得られます。反射係数を波形の信号から求めるのが今回の目的です。反射係数が得られるようになったら、周波数をスキャンさせながらこれを実行することで、周波数特性が得られることになります。プロットすると見慣れたグラフが得られるはずです。</p>
+
+<p><img src="https://66.media.tumblr.com/0936d358cbcec42e56efd278d0f98f3e/tumblr_inline_odlk929t6I1r9hszk_540.jpg" alt="image" /></p>
+
+<p>前回こんな波形を取得できていました。ブリッジから得られた信号をミキサーでIFに変換し、オーディオコーデックでサンプリングしたものです。緑が基準となる参照波、青が測定対象の反射波です。コーデックで48kHz, 16bitステレオ2chに変換され、その信号の5ms分240サンプルをプロットしたものです。</p>
+
+<p><img src="https://66.media.tumblr.com/5382d0d5ed2ff71ef3616ad5e7a1bb1a/tumblr_inline_odjm6fwmIy1r9hszk_540.png" alt="image" /></p>
+
+<p>反射係数を求めるとは、参照波の位相を基準として、目的信号の位相と振幅を計算することになります。見た目は面倒そうですが、Pythonで実装してみると、驚くほど程簡単にできてしまいました。これを理解できると便利だと思いますので、少し解説します。</p>
+
+<p>まずは5msのステレオの信号を、長さ240の二つの配列に分けます。それぞれをref, sampとします。これらをそのままプロットしたものが上の波形です。ほぼ5kHzのみのスペクトラムとなっています。中身は符号付き16ビット整数で、こんな感じです。</p>
+
+<p><img src="https://66.media.tumblr.com/d086738bbf7bf102f62dba8debe76690/tumblr_inline_odkkt4M4091r9hszk_540.png" alt="image" /></p>
+
+<p>このうち、refをヒルベルト変換します。すなわち90度位相のずれた信号を作るのですが、実はscipy.signal.hilbertという関数がscipy.signalに用意されています。この関数に与えるだけでいきなり複素化してくれます。結果の実部と虚部をプロットすると以下のようなグラフが得られます。90度ずれているのがわかります。(わかりやすいよう48サンプルのみ表示しています)</p>
+
+<p><img src="https://67.media.tumblr.com/5dca8d010bfc2730dd6bd54f6c1ab6b2/tumblr_inline_odkks5C0TH1r9hszk_540.png" alt="image" /></p>
+
+<p>この複素化した参照波refhについて、目的の信号波sampとの相関(内積)を取ります。相関を取るとは、二つの信号それぞれのサンプルを乗じて、全部を加算する操作になります。二つの正弦波の相関を取ると、同じ周波数であれば、同位相なら最大、逆位相で最小、90度ずれていれば0、位相がずれていれば位相ズレに応じた値となります。この処理を、参照波refの正弦と余弦それぞれについて、信号波sampに対して行うのですが、参照波は既に正弦と余弦が実部虚部の複素数になっていますので、複素化された参照波を、実数である信号波に単に乗じて全加算するだけで、複素反射係数が得られます。</p>
+
+<p>式にすると下記となりました。ヒルベルト変換を含めてたった2行で書けます。numpy/scipyによって配列の各サンプルへの操作は、単なる乗除算や関数の適用として記述できるので簡単に書けるのです。説明を加えますと、参照波の振幅には情報がありませんので、正規化するために振幅(複素数のabs)で割っておきます。さらに16ビットの数値を、最大1とするため1^15で割っています。そして、全サンプルの和を取ってサンプル数で割る操作、すなわち平均(average)を使っています。</p>
+
+<p><img src="https://66.media.tumblr.com/7b7a149f299b4a1fca0e95109b7e6d65/tumblr_inline_odkkxqqPSt1r9hszk_540.png" alt="image" /></p>
+
+<p>このように反射係数を得る方法がわかったら、今度は周波数を変えながら、それぞれの周波数でこの処理を繰り返すことで、周波数特性が得られるはずです。USB(中身はシリアルと同じ)経由でコマンドを送って周波数を設定、バッファからサンプル値を取得し、反射係数を計算することを繰り返します。いくつか簡単な関数を作ってこの処理を実装します。linspaceで周波数の列を作って、これに対して反射係数の取得を繰り返すようにします。1MHzから300MHzまでをスキャンしてみます。繰り返しの部分はPythonのリスト包摂表記を使っています。</p>
+
+<p><img src="https://66.media.tumblr.com/0d1e0fa29710e27347d36dc2d0a6daa2/tumblr_inline_odklszywqh1r9hszk_540.png" alt="image" /></p>
+
+<p>スキャンには6秒程度を要しています。無事、反射係数の配列が得られました。</p>
+
+<p>いよいよプロットしてみます。横軸を周波数、縦軸として反射係数の振幅(絶対値abs)を取ると周波数特性となります。縦軸は対数としています。</p>
+
+<p><img src="https://66.media.tumblr.com/525a4ba1aa95fb795acb8ee342015439/tumblr_inline_odklv62NhC1r9hszk_540.png" alt="image" /></p>
+
+<p>おおむね横なグラフが得られています。理想的には周波数に依らず全反射で一定となるはずですが、実際には周波数が上がると振幅が下がってきます。これはミキサ等の周波数特性に依るものです。これは後で行う校正操作でキャンセルすることができます。</p>
+
+<p>反射係数を複素平面上にプロットすると位相が回転する様子が見えます。</p>
+
+<p><img src="https://67.media.tumblr.com/9c302d6b7d1e5c6b0f45bd5a8b1c34b4/tumblr_inline_odklzpYgfa1r9hszk_540.png" alt="image" /></p>
+
+<p>円弧を描いているのが判ります。原点中心の円を描くはずですが、高い周波数で振幅が減って行っているので原点へ近づいています。この回転や振幅の減少も校正でキャンセルされることになります。</p>
+
+<p>さて、全反射が見えるようになったら、何か測定してみます。測定対象(DUT:Device Under Test)として100MHzのLPFを用意してみました。チップ部品を組み合わせて作ったものです。基板は秋月の16穴基板です。</p>
+
+<p><img src="https://66.media.tumblr.com/54a5aca5a82e0840c579adb46c29be35/tumblr_inline_odlkoi4WRc1r9hszk_540.jpg" alt="image" /></p>
+
+<p>回路とシミュレーションです。</p>
+
+<p><img src="https://66.media.tumblr.com/eac559456dd80181d667483730147f47/tumblr_inline_odkm4mNEQT1r9hszk_540.png" alt="image" /></p>
+
+<p>NanoVNAで反射特性、ついでに通過特性を取るとこんな感じになります。通過特性を取得するのは、ポートを切り替えるコマンドを送るだけで、あとは反射係数の処理とまったく同じす。</p>
+
+<p><img src="https://67.media.tumblr.com/205edd93485348cc7a2c4a284cfd07db/tumblr_inline_odkmhovHZu1r9hszk_540.png" alt="image" /></p>
+
+<p>緑色の通過特性がLPFになっていることがわかります。カットオフが100MHz付近になっています。通過と反射で振幅が違っていますが、これはTX側とRX側で特性が違っているためです。この違いは校正で消えますが、ダイナミックレンジを確保するためにPGAでゲインを調整しても良さそうです。</p>
+
+<p>以上のように、LPFの反射と通過の周波数特性を得ることができました。まだ校正をしていない状態でのグラフですがそれっぽい特性が得られています。こんな感じで信号処理の方法を検討したのち、この処理の中身を実機のファームウェアへと移し替えていく予定です。このようにやると試行錯誤やデバッグが効率的に行うことができると思います。</p>
+
+<p>今回300MHzまでスキャンさせていますが、実はこれには少々工夫があります。当初は上限112.5MHzと想定していたのですが、PLL上限900MHzの1/8の周波数です。Si5351Aを使って、3つの周波数を生成させていますが、うち二つはRF信号とLo信号で一定の周波数差で同時に周波数を可変する必要があります。もう一つの出力はTLV320AIC3204のクロックでこちらは8MHz固定です。前回説明したように112.5MHz以上の周波数を可変して使うには、PLL側を可変する必要があります。PLLは二つしか無いので、両方を可変に使ってしまうと、8MHz固定の信号を出せなくなってしまいます。そのため、112.5MHzが上限となると考えていました。さもなくば、別に水晶を用意する必要があると。しかし、よくよく考えると、両方のPLLを可変したとしても、合わせて同時にMultiSync側も調整して、8MHz一定の周波数を出力するようにしてやれば大丈夫ではないかと。実際試したらOKでした。整数比でない分周をつかうことになるため信号純度の点で少々不利になりますが、許容範囲内でしょう。この方法でPLLの個数に由来する周波数上限の制約が無くなり、しかも仕様外ながらSi5351Aの上限が300MHzを越えることが判ったので、思いがけず予定以上の広い測定範囲が得られることになりました。</p>
+
+<p>次回は校正の予定です。</p>
+
+<p>リファレンス</p>
+
+<ul>
+<li><a href="../2016-09-11-si5351a-configuration-how-to-and-signal-quality">Si5351Aの設定方法</a></li>
+<li><a href="../2016-09-03-nanovna-mini-vector-network-analyzer-in-development">NanoVNAの実験</a></li>
+<li><a href="../2016-06-10-nanovna-with-si5351a-and-stm32-in-design">NanoVNAの検討</a></li>
+<li>scipy.signal.hilbert <a href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.hilbert.html" target="_blank">http://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.hilbert.html</a><br /></li>
+<li>numpy <a href="http://www.numpy.org/" target="_blank">http://www.numpy.org/</a></li>
+</ul>
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Sep 16, 2016</time>
+	<a href="https://ttrf.tk/posts/2016-09-16-nanovna-calculating-reflection-coefficient-and-plot/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/nanovna">nanovna</a>  <a class="category" href="https://ttrf.tk/tags/vna">vna</a>  <a class="category" href="https://ttrf.tk/tags/python">python</a>  <a class="category" href="https://ttrf.tk/tags/si5351">si5351</a>  <a class="category" href="https://ttrf.tk/tags/stm32">stm32</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2016-09-16-nanovna-calculating-reflection-coefficient-and-plot%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2016-09-16-nanovna-calculating-reflection-coefficient-and-plot/" data-text="NanoVNAの信号から反射係数を計算し周波数特性をプロットする" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2016-09-16-nanovna-calculating-reflection-coefficient-and-plot/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

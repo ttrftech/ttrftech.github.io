@@ -1,0 +1,586 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Monday, Sep 18, 2017</time>
+<h2><a href="https://ttrf.tk/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/" class="title">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          <p>少し前になりますが、2017/6/3-4にレッドブルエアレース千葉が開催されていました。レース機がダイナミックに飛行するさまは、観ていてとてもエキサイティングです。しかも室屋選手の勝利という嬉しい結果でした。ところで、Flightradar24を見ていたところ、エアレース機の位置情報が表示されていることを知りました。エアレース機にはADS-Bの機材が搭載されているようです。今年のエアレースの期間中はたまたま関東に滞在していたので、RTL-SDRドングルを使ってデータのロギングを試みました。そして得られたデータを変換してプロットしてみたましたので紹介します。
+<!-- more -->
+<img src="https://68.media.tumblr.com/46af71d22d7015ab2b93750430f48a8c/tumblr_inline_owh2knsLWX1r9hszk_540.png" alt="" /></p>
+
+<p>機材のセットアップですが、受信機にはいつものRTL2832UドングルをノートPC(Mac Book Pro)に接続しています。受信用ソフトウェアはdump1090をコマンドラインから使います。dump1090は受信したADS-Bメッセージをデコードした結果をTCPのポート30003で出力する機能があります。これを活用してロギングしてみることにします。
+UNIX系のOSでは、nc(NetCat)というコマンドで、任意のホスト、ポートにTCP接続をし、受け取ったデータをそのまま標準出力に出すことができます。これをリダイレクトすることでファイルに記録できます。この出力フォーマットはCSVのテキスト形式ですので、データの処理は難しくありません。</p>
+
+<p><img src="https://68.media.tumblr.com/9d11de7af06c9c3b89aebd89e3a6708d/tumblr_inline_os2b7hVtRy1r9hszk_540.jpg" alt="" /></p>
+
+<p>MacOSの場合、dump1090コマンドはソースからビルドする必要があります。準備として、RTL2832U用のライブラリを用意しておく必要があります。ライブラリはbrewでインストールしておくのが簡単です。あとはdump1090のソースコードをgithubから落としてきて、makeするだけでOKです。Linux(Raspberry Piなど)の場合もbrewの代わりにapt-get等を使うことで同様にビルドできます。</p>
+
+<pre><code class="language-bash">$ brew install rtl-sdr
+$ git clone https://github.com/MalcolmRobb/dump1090
+$ cd dump1090
+$ make
+</code></pre>
+
+<p>RTL-SDRドングルをPCに接続し、dump1090コマンドを起動します。アンテナは付属のものをつかいます。受信に成功したらログメッセージが流れていきます。次にやるTCPでデータを取れるように&ndash;netオプションを付けて起動しておきます。</p>
+
+<pre><code class="language-bash">$ ./dump1090 --net
+</code></pre>
+
+<p>この状態で別のターミナルを開いて、ローカルホスト(127.0.0.1)、ポート30003からデータを読むため、下記のコマンドを入力します。</p>
+
+<pre><code class="language-bash">$ nc 127.0.0.1 30003
+</code></pre>
+
+<p>そうすると、テキストでCSV形式のデータが表示されるはずです。デコードできたメッセージが、1メッセージ=1行で出力されます。あとは、これをリダイレクトでファイルに落とせば記録できることになります。</p>
+
+<pre><code class="language-bash">$ nc 127.0.0.1 30003 &gt; adsb.csv
+</code></pre>
+
+<p>ところでdump1090には、いくかバリエーションがあります。検索で最初に引っかかる <a href="https://github.com/antirez/dump1090" target="_blank">https://github.com/antirez/dump1090</a> で公開されているバージョンでは、30003ポートから下記のような出力が得られます。</p>
+
+<pre><code class="language-bash">MSG,8,,,84BB74,,,,,,,,,,,,,,,,,
+MSG,8,,,84B79C,,,,,,,,,,,,,,,,,
+MSG,3,,,D9E098,,,,,,,40325,,,,,,,0,0,0,0
+MSG,5,,,84B79C,,,,,,,2400,,,,,,,,,,
+MSG,8,,,84BB74,,,,,,,,,,,,,,,,,
+MSG,5,,,84B79C,,,,,,,2450,,,,,,,,,,
+MSG,5,,,84B79C,,,,,,,2475,,,,,,,,,,
+MSG,5,,,84B79C,,,,,,,2500,,,,,,,,,,
+MSG,6,,,84B79C,,,,,,,,,,,,,7301,0,0,0,0
+MSG,5,,,84B79C,,,,,,,2525,,,,,,,,,,
+MSG,8,,,84B79C,,,,,,,,,,,,,,,,,
+</code></pre>
+
+<p>カンマの連続が目立ちます。空のフィールド多いようです。</p>
+
+<p>このバージョンの他に、<a href="https://github.com/MalcolmRobb/dump1090" target="_blank">https://github.com/MalcolmRobb/dump1090</a> にも公開されています。こちらは種々の改良が加えられており、CSV出力の形式形式が違っています。こんな出力が得られます。</p>
+
+<pre><code class="language-bash">MSG,7,111,11111,8675BC,111111,2017/06/04,10:18:14.261,2017/06/04,10:18:14.252,,7375,,,,,,,,,,0
+MSG,4,111,11111,8675BC,111111,2017/06/04,10:18:14.316,2017/06/04,10:18:14.254,,,271,217,,,3968,,,,,0
+MSG,7,111,11111,86752C,111111,2017/06/04,10:18:14.356,2017/06/04,10:18:14.318,,11025,,,,,,,,,,0
+MSG,7,111,11111,862248,111111,2017/06/04,10:18:14.530,2017/06/04,10:18:14.514,,22525,,,,,,,,,,0
+MSG,5,111,11111,86752C,111111,2017/06/04,10:18:14.538,2017/06/04,10:18:14.515,,11025,,,,,,,0,,0,0
+MSG,8,111,11111,8675BC,111111,2017/06/04,10:18:15.106,2017/06/04,10:18:15.104,,,,,,,,,,,,0
+MSG,8,111,11111,8675BC,111111,2017/06/04,10:18:15.115,2017/06/04,10:18:15.104,,,,,,,,,,,,0
+MSG,8,111,11111,8675BC,111111,2017/06/04,10:18:15.124,2017/06/04,10:18:15.105,,,,,,,,,,,,0
+MSG,7,111,11111,85D7C0,111111,2017/06/04,10:18:15.195,2017/06/04,10:18:15.170,,2550,,,,,,,,,,0
+MSG,8,111,11111,8675BC,111111,2017/06/04,10:18:15.195,2017/06/04,10:18:15.170,,,,,,,,,,,,0
+MSG,3,111,11111,8675BC,111111,2017/06/04,10:18:15.226,2017/06/04,10:18:15.172,,7425,,,35.44315,139.86805,,,,,,0
+</code></pre>
+
+<p>こちらは埋められたフィールドが増えています(一部のフィールドはダミーのようです)。重要なのは日時についての情報が入っていることです。航跡を時系列データとして記録するためには、MalcolmRobb版を使った方が良さそうです。</p>
+
+<p>以上のような準備をしたえうえで、当日現地で、屋外でノートPC(MBP)を広げて、データを記録しました。日差しが強く、ノートPCの画面が見えにくく少し難儀しました。</p>
+
+<p>さて、得られたデータを観察してみると、行によって内容が違っています。データフォーマットは<a href="http://woodair.net/sbs/Article/Barebones42_Socket_Data.htm" target="_blank">こちら</a>に解説がありました。2
+番目のフィールド2=Transmission Typeでメッセージの種別が区別されているようです。フィールド5にAircraftIDがあり、機体(メッセージの発信者)を識別するようです。</p>
+
+<p>緯度経度はTransmission Typeすなわちタイプ3メッセージのカラム15,16に記録されています。また、
+高度はタイプ2,3,5,6,7のいずれか、カラム12のようです。これらを取り出せば軌跡が得られるはずです。</p>
+
+<p>さてこの手順でデータを処理して、プロットすることが目標です。何かツールがあるかもしれませんが、テキストファイルですので、自力で処理してみます。時系列データですので、PythonとPandasを使ってみます。最終的にGeoJSONに変換することで、Google Mapをはじめ、いろんなツールで取り扱えるはずです。</p>
+
+<p>まずはpandasをimportし、CSVファイルを読み込みます。</p>
+
+<pre><code class="language-bash">import pandas as pd
+dat = pd.read_csv('20170604-1252.csv', header=None, index_col=9)
+</code></pre>
+
+<p>フィールド9にある時刻をインデックスに指定しています。こうすることで取り扱い易く易くなります。</p>
+
+<p>読み込んだデータはJupyter notebookのうえではこんなふうに表示されます。
+<img src="https://68.media.tumblr.com/d88422fcbb73b72680977cd36529dbea/tumblr_inline_owgwacayVz1r9hszk_540.png" alt="" /></p>
+
+<p>NaNが多く、意外とスカスカであることがわかります。</p>
+
+<p>メッセージタイプ=3のレコードから、AirCraft IDと、時間、高度、緯度、経度を取り出してみます。</p>
+
+<p><img src="https://68.media.tumblr.com/563d4a05779269751674ac8128b1b57d/tumblr_inline_owgwekbkii1r9hszk_540.png" alt="" /></p>
+
+<p>メッセージタイプ5を取り出します。Aircraft ID,時刻,コールサイン,高度(FT)のフィールドだけを表示しています。これでコールサイン=便名とAircraft IDの対応がわかります。</p>
+
+<p><img src="https://68.media.tumblr.com/04eb6a9084bd95cadc2053c9b7f9ddff/tumblr_inline_owgwlaGe1a1r9hszk_540.png" alt="" /></p>
+
+<p>高い高度で飛んでいるのは商用機です。羽田の近くなので飛行機はたくさん飛んでいます。</p>
+
+<p>エアレース機は低空を飛んでいますので、1000FT以下のメッセージだけを取り出してみます。NaNになっているレコードが多いのでそれも取り除きます。
+<img src="https://68.media.tumblr.com/d798249baef03630e329b626394b7b51/tumblr_inline_owgxc7UkSv1r9hszk_540.png" alt="" /></p>
+
+<p>エアレース機らしいコールサインが見つかります。このうち、N31YMというのがFalken室屋機です。Aircraft IDが A346AA ということがわかります。</p>
+
+<p>Aircraft ID(フィールド4)が’A346AA’のレコードを取り出します。
+<img src="https://68.media.tumblr.com/33d90c3ff148c944ae6dc667b7b8cf48/tumblr_inline_owgxs5JyZI1r9hszk_540.png" alt="" /></p>
+
+<p>結構たくさん出てきます。930行ありました。これならプロットできそうです。</p>
+
+<p>matplotlibでグラフ化してみます。jupyter notebookの中で%matplotlibディレクティブでinlineを指定します。
+<img src="https://68.media.tumblr.com/db1774d93bf75b8225b6c42621e1cf92/tumblr_inline_owgy01deI61r9hszk_540.png" alt="" /></p>
+
+<p>見事グラフになりました。上下に大きく変化しているのがわかります。</p>
+
+<p>プロットがブツ切れになっているのは、NaNが混じっているせいです。dropna関数を使って取り除きます。
+<img src="https://68.media.tumblr.com/489bd61c1f526f723449089bee98bb65/tumblr_inline_owgy22Jndz1r9hszk_540.png" alt="" /></p>
+
+<p>いい感じになりました。途中怪しげなジャンプがありますが、何かあるのかもしれません。</p>
+
+<p>さて次は緯度と経度です。メッセージタイプ3の、フィールド14,15に入っています。
+<img src="https://68.media.tumblr.com/fa26571a6e02af7b662d6308801e369a/tumblr_inline_owgy8qNhzL1r9hszk_540.png" alt="" /></p>
+
+<p>こちらは186個取れてました。軌跡は描けそうです。</p>
+
+<p>さて、このデータをgeojsonに変化してみます。まずはpandasから緯度経度を普通のデータに直します。イテレータとリスト包括表記で、経度緯度のタプルの配列に変換します。
+<img src="https://68.media.tumblr.com/a90bb4059a716f3cbe20174cdcce2498/tumblr_inline_owgzkttn0y1r9hszk_540.png" alt="" /></p>
+
+<p>うまくいったら、今度はgeojsonというモジュールを使ってgeojson形式に変換します。緯度経度の配列からLineStringを生成、それをFeatureとしてgeojsonに追加します。geojsonのデータができたら、こんどはjsonモジュールを使って、jsonファイルを生成します。
+<img src="https://68.media.tumblr.com/ea66ecca2d52e7bd07fe42e4dd445a09/tumblr_inline_owgzrkok7j1r9hszk_540.png" alt="" /></p>
+
+<p>ファイルの冒頭を見ると、それらしいデータが入っています。</p>
+
+<p>このgeojsonファイルを地図の上にプロットしてみます。今回は簡単のためgeojson.io というWebサイトを利用します。ブラウザで <a href="http://geojson.io/" target="_blank">http://geojson.io/</a> を開き、geojsonファイルをアップロードするだけで表示させることができます。
+<img src="https://68.media.tumblr.com/46af71d22d7015ab2b93750430f48a8c/tumblr_inline_owh15ifk6G1r9hszk_540.png" alt="" /></p>
+
+<p>稲毛海岸で待機旋回している様子や、会場前で競技の折り重なった飛跡、そして終わった後、浦安方面を戻る様子が記録できていました。</p>
+
+<p>手順は省略しますが、他機や商用機もすべて含めたgeojsonを作ってみました。geojson.ioは、GITHub/Gistに置いたデータを開くことができます。置いておきましたので興味があればご覧ください。こちらのgeojsonには高度情報も含めています。
+<img src="https://68.media.tumblr.com/944d0be4c36ba59cb57f7373cf46e7ca/tumblr_inline_owh1dkYmT21r9hszk_540.png" alt="" /></p>
+
+<p>本来であれば、Jupyterの上で表示させると良かったのですが、ごにょごにょと面倒なので、ここではGeoJsonファイルを作ってWebサイトで表示させてみました。コードの断片をスクリプトファイルにまとめることも可能です。是非お試しください。</p>
+
+<p>ちなみにGeoPandasという地理情報用のPandasパッケージもあります。geojsonファイルを直接扱うことができ、簡単なプロットも可能です。shapelyというモジュールで、いきなりセルの上でプロットされてしまいます。こちらも便利そうです。</p>
+
+<p><img src="https://68.media.tumblr.com/c5e4766a8787cc1dd44b701515e0a296/tumblr_inline_owh2xrX56C1r9hszk_540.png" alt="" /></p>
+
+<p>補足</p>
+
+<p>Jupyterを使える環境にある場合は問題ないと思いますが、pandasやgeojsonはモジュールとして追加が必要です。pipでインストールすることが可能です。</p>
+
+<pre><code class="language-bash">pip install pandas
+pip install geojson
+</code></pre>
+
+<p>参考</p>
+
+<ul>
+<li>使用したdump1090(ADS-Bデコーダ)  <a href="https://github.com/MalcolmRobb/dump1090" target="_blank">https://github.com/MalcolmRobb/dump1090</a></li>
+<li>ADS-Bメッセージの解説 <a href="http://woodair.net/sbs/Article/Barebones42_Socket_Data.htm" target="_blank">http://woodair.net/sbs/Article/Barebones42_Socket_Data.htm</a></li>
+<li>Jupyter <a href="http://jupyter.org/" target="_blank">http://jupyter.org/</a></li>
+<li>Pandas <a href="http://pandas.pydata.org/" target="_blank">http://pandas.pydata.org/</a></li>
+<li>GeoPandas <a href="http://geopandas.org/" target="_blank">http://geopandas.org/</a></li>
+<li>geojson.io  <a href="http://geojson.io/#map=2/20.0/0.0" target="_blank">http://geojson.io/</a></li>
+<li>受信したデータをプロットしたもの<a href="http://geojson.io/#id=gist:/91a831b32253595ff02777cee42cbb1e" target="_blank">http://geojson.io/#id=gist:/91a831b32253595ff02777cee42cbb1e</a></li>
+</ul>
+
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Sep 18, 2017</time>
+	<a href="https://ttrf.tk/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/rtlsdr">rtlsdr</a>  <a class="category" href="https://ttrf.tk/tags/ads-b">ads-b</a>  <a class="category" href="https://ttrf.tk/tags/flightradar24">flightradar24</a>  <a class="category" href="https://ttrf.tk/tags/python">python</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2017-09-18-plotting-airrace-tracklog-with-rtl-sdr%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/" data-text="RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

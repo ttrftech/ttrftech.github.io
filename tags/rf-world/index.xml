@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rf World on Computer &amp; RF Technology</title>
+    <link>https://ttrf.tk/tags/rf-world/</link>
+    <description>Recent content in Rf World on Computer &amp; RF Technology</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Sun, 28 Oct 2018 01:38:34 +0000</lastBuildDate>
+    
+	<atom:link href="https://ttrf.tk/tags/rf-world/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</title>
+      <link>https://ttrf.tk/posts/2018-10-28-gnuradio-grc-rfworld-no44/</link>
+      <pubDate>Sun, 28 Oct 2018 01:38:34 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2018-10-28-gnuradio-grc-rfworld-no44/</guid>
+      <description>&lt;p&gt;CQ出版社の季刊誌「RFワールド」最新刊No.44に、特集記事を寄稿させていただきました。GNU Radioの解説記事「GRCで広がるSDRの世界」です。計85ページもの分量です。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://66.media.tumblr.com/4ff8021b2c128a5a920e51b3478487e2/tumblr_inline_phabdfcUBT1r9hszk_540.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RFワールド Workshop&amp;Meeting 2018で話します</title>
+      <link>https://ttrf.tk/posts/2018-01-20-rfworld-workshop-meeting-2018/</link>
+      <pubDate>Sat, 20 Jan 2018 01:29:33 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2018-01-20-rfworld-workshop-meeting-2018/</guid>
+      <description>&lt;p&gt;いつも愛読させてもらっている雑誌RFワールドの10周年記念イベントとして、「RFワールド Workshop&amp;amp;Meeting 2018」が、再来月の3月10日に開催されます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RFワールド誌特別評価版のLabVIEWをRTLドングルで試してみる</title>
+      <link>https://ttrf.tk/posts/2014-08-26-labview-trial-from-rfworld-magazine-and-rtl-sdr/</link>
+      <pubDate>Tue, 26 Aug 2014 16:36:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2014-08-26-labview-trial-from-rfworld-magazine-and-rtl-sdr/</guid>
+      <description>&lt;p&gt;CQ出版社の雑誌RFワールドはLabVIEWとUSRPによるSDRの特集でした。LabVIEWの名はよく耳にし、展示会等でも見かけていましたが使ったことはありませんでした。今回特別評価版ということでダウンロードサービスが提供されていますので試してみることにしました。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

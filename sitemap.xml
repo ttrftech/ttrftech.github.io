@@ -1,0 +1,1088 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2018-10-28-gnuradio-grc-rfworld-no44/</loc>
+    <lastmod>2018-10-28T01:38:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2018-07-27-centsdr-lcd-panel/</loc>
+    <lastmod>2018-07-27T22:19:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2018-07-01-centsdr-kit-2nd-lot/</loc>
+    <lastmod>2018-07-01T01:58:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2018-04-23-gnuradio-osx-with-homebrew/</loc>
+    <lastmod>2018-04-23T17:33:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/kit/centsdr/</loc>
+    <lastmod>2018-02-11T13:32:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/</loc>
+    <lastmod>2018-02-11T13:32:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2018-02-04-centsdr-fm-broadcasting-reception/</loc>
+    <lastmod>2018-02-04T15:06:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2018-01-20-rfworld-workshop-meeting-2018/</loc>
+    <lastmod>2018-01-20T01:29:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2018-01-17-centsdr-rf-power-meter/</loc>
+    <lastmod>2018-01-17T13:59:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2018-01-11-centsdr-parts-kit/</loc>
+    <lastmod>2018-01-11T15:35:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2017-11-19-makerfaireshenzhen2017/</loc>
+    <lastmod>2017-11-19T03:37:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2017-11-04-centsdr-spectrum-and-waveform-display/</loc>
+    <lastmod>2017-11-04T19:00:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/</loc>
+    <lastmod>2017-10-09T03:38:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/</loc>
+    <lastmod>2017-09-18T11:12:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/</loc>
+    <lastmod>2017-08-15T16:51:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/</loc>
+    <lastmod>2017-08-04T14:53:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/</loc>
+    <lastmod>2017-02-25T08:46:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2017-02-19-limesdr-in-the-aluminium-box/</loc>
+    <lastmod>2017-02-19T11:51:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/</loc>
+    <lastmod>2017-02-09T18:54:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/</loc>
+    <lastmod>2017-02-05T14:59:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2017-01-15-measure-crystal-filter-with-nanovna/</loc>
+    <lastmod>2017-01-15T01:27:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2017-01-14-stripline-directional-coupler-experiment/</loc>
+    <lastmod>2017-01-14T11:24:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/kit/nanovna/</loc>
+    <lastmod>2017-01-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2016-12-19-micro-vector-network-analyzer-nanovna-touch-operation/</loc>
+    <lastmod>2016-12-19T14:55:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2016-12-03-luaradio-trial-on-macosx/</loc>
+    <lastmod>2016-12-03T03:00:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2016-11-12-tiny-vector-network-analyzer-nanovna-get-work-with-lcd/</loc>
+    <lastmod>2016-11-12T17:31:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2016-11-08-calibration-process-in-python-for-nanovna/</loc>
+    <lastmod>2016-11-08T12:20:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2016-09-30-dir-calkit-for-vector-network-analyzer/</loc>
+    <lastmod>2016-09-30T15:56:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2016-09-16-nanovna-calculating-reflection-coefficient-and-plot/</loc>
+    <lastmod>2016-09-16T13:18:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2016-09-11-si5351a-configuration-how-to-and-signal-quality/</loc>
+    <lastmod>2016-09-11T05:22:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2016-09-03-nanovna-mini-vector-network-analyzer-in-development/</loc>
+    <lastmod>2016-09-03T03:45:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2016-07-31-seeyou-at-mft2016-exhibition/</loc>
+    <lastmod>2016-07-31T02:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2016-07-23-frisksdr-using-si5351a-stm32-sdr/</loc>
+    <lastmod>2016-07-23T09:06:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2016-06-10-nanovna-with-si5351a-and-stm32-in-design/</loc>
+    <lastmod>2016-06-10T14:07:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2016-05-30-frisksdr-user-interface/</loc>
+    <lastmod>2016-05-30T13:23:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2016-04-29-frisksdr-nanosdr-project/</loc>
+    <lastmod>2016-04-29T02:53:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2016-04-27-interface-magazine-software-radio-article/</loc>
+    <lastmod>2016-04-27T13:36:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2016-03-26-building-frisk-sdr/</loc>
+    <lastmod>2016-03-26T13:45:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2016-03-06-frisksdr-tiny-standalone-sdr-receiver/</loc>
+    <lastmod>2016-03-06T09:39:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2016-02-27-hf-filter-bank-with-smd-parts/</loc>
+    <lastmod>2016-02-27T06:09:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/kit/adsbamp/</loc>
+    <lastmod>2016-02-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2016-02-04-diy-gpsdo-might-observe-gps-anomaly/</loc>
+    <lastmod>2016-02-04T15:58:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2016-01-29-si5351a-spectrum-with-arduino-pro-micro/</loc>
+    <lastmod>2016-01-29T17:13:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2016-01-15-noise-source-and-rtlsdr-scanner/</loc>
+    <lastmod>2016-01-15T11:32:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2015-12-27-liftup-gps-antenna-to-keep-on-snow-pile/</loc>
+    <lastmod>2015-12-27T08:17:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2015-12-04-exhibit-rtl-sdr-3d-spectrum-at-google-hackfair-tokyo/</loc>
+    <lastmod>2015-12-04T15:02:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2015-11-01-gpsdo-experiment/</loc>
+    <lastmod>2015-11-01T03:53:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2015-10-12-gpsdo-experiment-gps-ublox-6t-pps-control-oxco/</loc>
+    <lastmod>2015-10-12T06:12:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2015-10-08-gps-ocxo-stability-trial/</loc>
+    <lastmod>2015-10-08T17:34:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2015-09-21-gps-based-ocxo-stability-measurement/</loc>
+    <lastmod>2015-09-21T05:35:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2015-09-12-lpc-link2-breakout-board-revised/</loc>
+    <lastmod>2015-09-12T00:04:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/kit/lpclink2bb/</loc>
+    <lastmod>2015-09-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2015-08-18-raspberrypi2-fm-transmitter/</loc>
+    <lastmod>2015-08-18T11:34:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2015-07-28-makelsi-ring-oscillator-vco/</loc>
+    <lastmod>2015-07-28T22:45:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2015-06-14-lpc-link2-break-out-board/</loc>
+    <lastmod>2015-06-14T04:52:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2015-05-22-interface-magazine-article-fm-sdr-lpc4370-lpc-link2-lpcx/</loc>
+    <lastmod>2015-05-22T13:51:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2015-05-03-microstripline-ads-b-filter/</loc>
+    <lastmod>2015-05-03T02:56:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2015-03-24-nucleo-ad9857-iq-dds-am-fm-modulation/</loc>
+    <lastmod>2015-03-24T15:29:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2015-03-22-hilbert-transform-ssb-generation-ad9857-nucleo/</loc>
+    <lastmod>2015-03-22T14:04:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2015-02-21-lpclink2-lpc4370-minimal-sdr-receiver/</loc>
+    <lastmod>2015-02-21T20:33:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/kit/hfconv/</loc>
+    <lastmod>2015-01-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-12-27-dds-iq-modulation-with-ad9857-and-nucleo/</loc>
+    <lastmod>2014-12-27T17:21:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-12-24-shenzhen-tour-report-sz1208/</loc>
+    <lastmod>2014-12-24T03:25:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-11-16-nucleo-f401re-ad9857-dds-iq-modulator/</loc>
+    <lastmod>2014-11-16T12:58:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-11-16-lpc4370-lpc-link2-sdr-fm-receiver/</loc>
+    <lastmod>2014-11-16T06:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-11-16-hf-converter-integrated-rtl-sdr-receiver/</loc>
+    <lastmod>2014-11-16T05:16:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-10-22-ublox-lea-6t-gps-breakout-board/</loc>
+    <lastmod>2014-10-22T14:16:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-10-12-plot-impedance-chart-using-adf4351-ad8302-and-ipython-no/</loc>
+    <lastmod>2014-10-12T09:12:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-10-03-saw-filter-preamplifier-for-ads-b/</loc>
+    <lastmod>2014-10-03T03:53:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-08-26-labview-trial-from-rfworld-magazine-and-rtl-sdr/</loc>
+    <lastmod>2014-08-26T16:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-08-22-receiving-ads-b-using-raspberry-pi-and-feed-flightradar2/</loc>
+    <lastmod>2014-08-22T00:54:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-08-14-hfconv-performance-mesurement-for-rtl-sdr/</loc>
+    <lastmod>2014-08-14T03:47:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-08-12-building-preamp-for-ads-b-receiver/</loc>
+    <lastmod>2014-08-12T13:03:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-08-09-ads-b-reception-on-mac-osx-and-dump1090/</loc>
+    <lastmod>2014-08-09T07:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-08-01-assembled-hfconv-for-rtlsdr-is-ready/</loc>
+    <lastmod>2014-08-01T08:38:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-07-26-threejs-spectrum-display-using-rtl2832u-and-chrome-exten/</loc>
+    <lastmod>2014-07-26T00:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-07-21-sensing-streams-and-watching-spectrum/</loc>
+    <lastmod>2014-07-21T21:26:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-06-28-fm-transmitter-using-pifm-and-raspberry-pi/</loc>
+    <lastmod>2014-06-28T22:45:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-06-17-designed-colorful-pcbs-and-its-plan/</loc>
+    <lastmod>2014-06-17T22:51:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-06-14-contribute-with-macosx-support-for-labtool-software/</loc>
+    <lastmod>2014-06-14T04:27:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-05-25-measuring-frequency-response-using-adf4351-and-ad8307-on/</loc>
+    <lastmod>2014-05-25T15:01:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-05-24-add-coupling-c-hfconv-input-port/</loc>
+    <lastmod>2014-05-24T03:26:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-04-30-direct-sampling-frontend-board-in-use/</loc>
+    <lastmod>2014-04-30T14:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-03-13-diplexer-filter-amplifier-board-for-rtlsdr-direct-sampli/</loc>
+    <lastmod>2014-03-13T16:58:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-03-09-rtlsdr-direct-sampling-diplexer-and-amplifier-frontend/</loc>
+    <lastmod>2014-03-09T03:50:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-03-07-hfconv-kit-is-ready/</loc>
+    <lastmod>2014-03-07T15:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-02-27-dso-quad-update-and-alternate-oscilloscope-and-frequency/</loc>
+    <lastmod>2014-02-27T03:04:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-02-13-lpc-link2-lpcexpresso-first-trial/</loc>
+    <lastmod>2014-02-13T15:03:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-02-08-lpc-link2-lpc4370-labtool-software-for-mac-osx/</loc>
+    <lastmod>2014-02-08T13:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-01-10-try-nxp-lpc-link2-and-labtool-with-macosx/</loc>
+    <lastmod>2014-01-10T16:53:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-01-09-build-gqrx-from-source-code-for-macosx/</loc>
+    <lastmod>2014-01-09T13:32:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-01-08-install-gnuradio-and-bladerf-with-homebrew-on-macosx/</loc>
+    <lastmod>2014-01-08T17:12:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2014-01-06-update-gqrx-official-release-on-macosx/</loc>
+    <lastmod>2014-01-06T15:48:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-12-30-receive-low-frequency-with-bladerf/</loc>
+    <lastmod>2013-12-30T05:39:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-11-25-building-scalar-network-analyzer-with-rtl2832u-dongle/</loc>
+    <lastmod>2013-11-25T16:01:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-11-01-join-mft2013-maker-faire-tokyo-laser-projector/</loc>
+    <lastmod>2013-11-01T00:18:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-10-12-replace-rtlsdr-xtal-to-tcxo/</loc>
+    <lastmod>2013-10-12T00:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-10-02-adf4351-pll-synthesizer-with-pic18f14k50-hid-controlled/</loc>
+    <lastmod>2013-10-02T17:53:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-09-20-using-mplabx-and-pic18f14k50-on-mac-osx/</loc>
+    <lastmod>2013-09-20T17:58:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-09-02-setup-bladerf-and-gnuradio-on-macosx/</loc>
+    <lastmod>2013-09-02T14:07:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-09-01-trying-bladerf-with-gnuradio-and-gr-osmocom/</loc>
+    <lastmod>2013-09-01T01:28:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-08-26-building-bladerf-tools-on-linux/</loc>
+    <lastmod>2013-08-26T17:47:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-08-24-received-bladerf-today-try-it/</loc>
+    <lastmod>2013-08-24T17:56:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-08-23-chip-lump-filter-trials-for-rtl2832u-dongle/</loc>
+    <lastmod>2013-08-23T14:03:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-08-09-build-rtl-sdr-with-raspberry-pi-raspbian/</loc>
+    <lastmod>2013-08-09T17:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-08-05-list-of-hfconv-construction-report/</loc>
+    <lastmod>2013-08-05T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-07-28-spurs-with-rtl2832u-direct-sampling/</loc>
+    <lastmod>2013-07-28T02:20:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-07-25-compare-hf-sensitivity-direct-sampling-vs-up-converter-f/</loc>
+    <lastmod>2013-07-25T17:11:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-07-23-rtlsdr-rtl2832u-r820t-dongle-direct-sampling-mod/</loc>
+    <lastmod>2013-07-23T14:47:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-07-14-measure-hf-converter-with-homebrew-vna/</loc>
+    <lastmod>2013-07-14T17:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-06-25-hf-upconveter-filter-response-report/</loc>
+    <lastmod>2013-06-25T11:51:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-05-24-trying-receive-gps-with-rtl2832u-and-macosx/</loc>
+    <lastmod>2013-05-24T15:55:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-05-18-receiving-hf-with-wideband-magnetic-loop-for-rtl-sdr/</loc>
+    <lastmod>2013-05-18T09:07:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-05-11-hfconv-kit-is-available-now/</loc>
+    <lastmod>2013-05-11T05:01:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-05-10-preparing-hf-upconverter-v1-2-for-rtl2832u-dongle/</loc>
+    <lastmod>2013-05-10T16:34:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-04-12-small-magnetic-loop-antenna-for-hf-dongle-receiver/</loc>
+    <lastmod>2013-04-12T15:25:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-03-30-vna-plot-smith-chart-and-calibrate-with-scikit-rf/</loc>
+    <lastmod>2013-03-30T08:02:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-03-26-building-vna-by-dds-ad9859-and-gnuradio-subnyquist-freq/</loc>
+    <lastmod>2013-03-26T04:07:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-03-25-building-vna-by-dds-ad9859-and-gnuradio-rx/</loc>
+    <lastmod>2013-03-25T18:42:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-03-15-hfconv-revision2/</loc>
+    <lastmod>2013-03-15T16:07:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-02-28-building-vna-by-dds-ad9859-and-gnuradio-signal-processin/</loc>
+    <lastmod>2013-02-28T15:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-02-20-building-vna-by-dds-ad9859-and-gnuradio/</loc>
+    <lastmod>2013-02-20T03:29:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-02-12-building-vna-vnwa-using-gnuradio-and-dds-ad9859-1/</loc>
+    <lastmod>2013-02-12T13:31:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-02-05-viewing-widespan-spectrum-with-rtl2832u-rtlsdr-scanner/</loc>
+    <lastmod>2013-02-05T14:14:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-01-26-controling-ad9859-dds-by-python-script-and-ft232rl-bitba/</loc>
+    <lastmod>2013-01-26T04:40:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-01-24-ad9859-dds-controlled-with-ft232rl-and-ruby-on-mac-osx/</loc>
+    <lastmod>2013-01-24T15:59:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-01-24-ruby-controls-ftdi-ft232rl-bitbang-mode-on-mac-osx/</loc>
+    <lastmod>2013-01-24T03:53:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-01-22-gnuradio-nbfm-am-ssb-modulation-with-macosx-mg3660a/</loc>
+    <lastmod>2013-01-22T04:06:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-01-19-repairing-anritsu-signal-generator-mg3660a-using-rtl2832/</loc>
+    <lastmod>2013-01-19T04:46:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-01-06-rtlsdr-hf-up-converter-design-for-rtl2832u-dongle/</loc>
+    <lastmod>2013-01-06T13:53:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2013-01-02-r820t-rtl2832u-dongle-and-up-converter-sensitibity/</loc>
+    <lastmod>2013-01-02T11:55:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-12-25-rtl-sdr-hf-up-converter-for-rtl2832u-dongle/</loc>
+    <lastmod>2012-12-25T23:21:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-12-16-listening-airband-and-viewing-flightradar24-on-same-brow/</loc>
+    <lastmod>2012-12-16T00:19:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-12-15-receiving-amature-radio-using-rtl2832u-and-browser/</loc>
+    <lastmod>2012-12-15T23:11:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-12-13-raspberry-pi-remote-rtl2832u-sdr-server-and-rtl-tcp/</loc>
+    <lastmod>2012-12-13T15:27:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-11-28-raspberry-pi-remote-rtlsdr-server/</loc>
+    <lastmod>2012-11-28T16:29:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-11-22-rtlsdr-mods-for-7mhz-reception-with-gqrx/</loc>
+    <lastmod>2012-11-22T14:52:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-11-21-rtl2832u-e4k-mini-dongle/</loc>
+    <lastmod>2012-11-21T15:53:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-11-15-up-converter-design-for-rtl2832u-dongle/</loc>
+    <lastmod>2012-11-15T15:32:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-11-10-attach-hf-bpf-plugin-to-rtl2832u-dongle/</loc>
+    <lastmod>2012-11-10T00:39:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-11-07-rtl-sdr-r820t-rtl2832u-usb-dongle/</loc>
+    <lastmod>2012-11-07T14:51:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-11-03-gqrx-is-easiest-way-to-op-sdr-on-macosx/</loc>
+    <lastmod>2012-11-03T08:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-11-03-using-ezcap-eztv665-rtl-dongle-with-gnuradio-macosx/</loc>
+    <lastmod>2012-11-03T03:35:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-11-02-rx-7mhz-ssb-lpf-with-gnuradio-soft66-sdr-macosx/</loc>
+    <lastmod>2012-11-02T23:49:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-11-01-receiving-am-broadcasting-with-rtl2832u-direct-sampling/</loc>
+    <lastmod>2012-11-01T23:09:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-10-30-rx-7mhz-ssb-with-gnuradio-soft66-sdr-macosx/</loc>
+    <lastmod>2012-10-30T15:01:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-10-27-rx-acars-with-gnuradio-macosx/</loc>
+    <lastmod>2012-10-27T14:06:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-10-27-become-less-sensitive-rtl2832u/</loc>
+    <lastmod>2012-10-27T06:48:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-10-27-receiving-2m-fm-amature-radio-with-rtl2832u-gnuradio-mac/</loc>
+    <lastmod>2012-10-27T05:05:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-10-25-gnuradio-on-ubuntu-linux/</loc>
+    <lastmod>2012-10-25T15:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-10-21-receiving-airband-with-gnuradio-rtl2832u-macosx/</loc>
+    <lastmod>2012-10-21T01:41:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-10-20-rtl2832u-gnuradio-macosx/</loc>
+    <lastmod>2012-10-20T04:05:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/2012-10-20-building-gnuradio-with-homebrew-macosx/</loc>
+    <lastmod>2012-10-20T01:21:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/ad9857/</loc>
+    <lastmod>2015-03-24T15:29:41+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/ad9859/</loc>
+    <lastmod>2013-03-30T08:02:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/adf4351/</loc>
+    <lastmod>2014-10-12T09:12:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/ads-b/</loc>
+    <lastmod>2017-09-18T11:12:53+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/antenna/</loc>
+    <lastmod>2015-12-27T08:17:55+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/bladerf/</loc>
+    <lastmod>2014-01-09T13:32:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/calkit/</loc>
+    <lastmod>2016-09-30T15:56:02+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/centsdr/</loc>
+    <lastmod>2018-07-27T22:19:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/chibios/</loc>
+    <lastmod>2017-10-09T03:38:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/</loc>
+    <lastmod>2018-10-28T01:38:34+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/dds/</loc>
+    <lastmod>2015-03-24T15:29:41+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/direct-sampling/</loc>
+    <lastmod>2012-11-01T23:09:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/dso-quad/</loc>
+    <lastmod>2014-02-27T03:04:05+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/filter/</loc>
+    <lastmod>2017-01-15T01:27:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/flightradar24/</loc>
+    <lastmod>2017-09-18T11:12:53+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/frisksdr/</loc>
+    <lastmod>2016-09-11T05:22:33+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/gnuplot/</loc>
+    <lastmod>2013-03-26T04:07:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/gnuradio/</loc>
+    <lastmod>2018-10-28T01:38:34+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/gps/</loc>
+    <lastmod>2016-02-04T15:58:29+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/gpsdo/</loc>
+    <lastmod>2016-02-04T15:58:29+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/gqrx/</loc>
+    <lastmod>2017-02-09T18:54:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/hfconv/</loc>
+    <lastmod>2014-11-16T05:16:12+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/instruments/</loc>
+    <lastmod>2013-01-19T04:46:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/kit/</loc>
+    <lastmod>2013-05-11T05:01:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/kit/</loc>
+    <lastmod>2018-02-11T13:32:38+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/limesdr/</loc>
+    <lastmod>2017-02-19T11:51:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/lpc-link2/</loc>
+    <lastmod>2016-07-31T02:02:33+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/luaradio/</loc>
+    <lastmod>2016-12-03T03:00:14+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/makelsi/</loc>
+    <lastmod>2015-07-28T22:45:13+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/makerfaire/</loc>
+    <lastmod>2018-07-01T01:58:01+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/microchip/</loc>
+    <lastmod>2014-10-22T14:16:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/nanovna/</loc>
+    <lastmod>2017-01-15T01:27:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/noise-source/</loc>
+    <lastmod>2016-01-15T11:32:47+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/ocxo/</loc>
+    <lastmod>2016-02-04T15:58:29+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/pcb/</loc>
+    <lastmod>2017-08-04T14:53:44+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/posts/</loc>
+    <lastmod>2018-10-28T01:38:34+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/python/</loc>
+    <lastmod>2017-09-18T11:12:53+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/raspberry-pi/</loc>
+    <lastmod>2015-08-18T11:34:36+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/raspbian/</loc>
+    <lastmod>2013-08-09T17:28:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/rf-world/</loc>
+    <lastmod>2018-10-28T01:38:34+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/rotary-encoder/</loc>
+    <lastmod>2017-02-05T14:59:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/rtlsdr/</loc>
+    <lastmod>2017-09-18T11:12:53+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/ruby/</loc>
+    <lastmod>2013-01-24T15:59:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/sdr/</loc>
+    <lastmod>2018-02-04T15:06:08+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/shenzhen/</loc>
+    <lastmod>2014-12-24T03:25:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/si5351/</loc>
+    <lastmod>2016-11-08T12:20:51+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/soft66/</loc>
+    <lastmod>2012-11-02T23:49:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/spectrum-analyzer/</loc>
+    <lastmod>2017-11-04T19:00:03+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/stm32/</loc>
+    <lastmod>2018-02-04T15:06:08+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/</loc>
+    <lastmod>2015-03-24T15:29:41+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/talk/</loc>
+    <lastmod>2018-01-20T01:29:33+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/vna/</loc>
+    <lastmod>2017-01-15T01:27:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ttrf.tk/tags/%E8%A8%98%E4%BA%8B/</loc>
+    <lastmod>2018-10-28T01:38:34+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

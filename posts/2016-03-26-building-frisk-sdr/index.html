@@ -1,0 +1,499 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>FriskSDR組み立て開始しました</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/2016-03-26-building-frisk-sdr/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Saturday, Mar 26, 2016</time>
+<h2><a href="https://ttrf.tk/posts/2016-03-26-building-frisk-sdr/" class="title">FriskSDR組み立て開始しました</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          <p>FriskSDRですが、部品が揃ってきたので組み立てを開始しました。組み立ては段階を踏んで動作確認しながら行います。実際には時間のかかる作業はソフトウェアですので、今回はその手前まで行います。</p>
+
+<p><img src="https://36.media.tumblr.com/1781a27800d7d387cd6ae15086155a3d/tumblr_inline_o4myg8kflw1r9hszk_540.jpg" alt="image" /></p>
+
+<p>まずは何はなくても電源です。USBマイクロBコネクタとレギュレータですので簡単です。マイクロBを使うのは初めてだったのですが、mini-Bに比べてちょっと扱いが難しく、機械的に弱いです。スマホ等で剥がれる事例を散見しましたが、さもありなん。位置合わせの突起があることに気付いておらず、基板側に穴を開け忘れました。とりあえず突起を削って対処します。</p>
+
+<p>続いてクロック源のSi5351Aです。今回はこれを使ってみたいがために始めたプロジェクトです。25MHzの水晶として3225サイズ(3.2x2.5mm)を使いましたが、チップが薄くてハンダ付けしにくいです。厚い水晶だと側面に金メッキされたくぼみがあり付け易いのですが、使った水晶はこれがほとんどありません。またパッドサイズもギリギリのため、ハンダゴテを当てるスペースがありません。手ハンダするならパッドをもう少し大きくしておくべきでした。裏面にハンダメッキしてから確実に取り付けます。Si5351Aやパスコン、そしてついでにジョンソンカウンタのAHC74を取り付けます。</p>
+
+<p>上の写真はこの段階でテストしたものです。Si5351Aモジュールを試したときのブレッドボードがありましたのでこれをそのまま使い、基板からI2Cと電源の4本の線を引き出して接続します。そして電源を入れてみればArduino(Pro Micro)からI2Cでコマンドが送り込まれます。無事に発振することを確認できました。</p>
+
+<p>MCUが届いていなかったので、他のチップを取り付けてしまいました。アナログスイッチTS5A23157は今回初めて使ってみます。I2SコーデックはおなじみのTLV320AIC3204です。ヘッドフォンに接続するためのキャパシタはアルミ電解だと大きくて(6mm角)サイズが厳しかったので、タンタルにしてみました。これなら3220サイズで済みます。いろいろご意見はあるかと思いますが、電源もタンタルです。あとは1:4トランスはMiniCircuitのTC4-1です。コスト的な問題と、正負のバランスがこれに依存してしまうのとで悩ましいところです。この段階が下の写真です。</p>
+
+<p><img src="https://40.media.tumblr.com/465b31996974726f4d93836908ed5c1d/tumblr_inline_o4ko9xvdxG1r9hszk_540.jpg" alt="image" /></p>
+
+<p>この段階でちょうど良いタイミングでMCUが届きました。48ピン、72MHz Cortex-M4のSTM32F303CBT6です。QFPの取り付けは簡単ですのでさくっとやってしまいます。さていよいよブートしてみます。BOOT0ピンをHにするとブートローダが起動するはずです。ジャンパワイヤを差し込んでプルアップし、USBから電源を投入します。</p>
+
+<p>ところがDFUが動作しないのです。んーと思ってデータシートを確認してみると、USBのブートローダ(DFU=Device Firmware Updateという標準です)が動作するためには、二つ足りないものがありました。</p>
+
+<p>今回のボードは、MCU用には水晶を取り付けず、Si5351Aから供給するつもりでいました。なので、パワーオン時はSTM32内のRCオシレータで起動させた後、I2Cでコマンドを送ってSi5351Aでクロック生成を開始する必要があります。DFUを動作させるためにはあらかじめHSE(High Speed External)からクロックを供給する必要があります。もう一つはD+を1.5kΩでプルアップしておく必要があります。これらのことは常識的なことなのですが、実はこのボードを設計した時、STM32F072を試用していたのですが、このチップはクロックとプルアップが無くてもDFUを動作させることが可能なのです。新しめのSTM32チップでは、だんだんと気の利いた機能が用意されるようになってきており大変便利なのですが、STM32F303もそうだと勘違いしていたのでした。</p>
+
+<p><img src="https://36.media.tumblr.com/180b37609afb8cd121af446da647a94d/tumblr_inline_o4ko9xNMwA1r9hszk_540.jpg" alt="image" /></p>
+
+<p>DFUはうまくいかないことが明らかになったので、他の作戦を考えます。ブートローダはシリアルでも使うことが可能です。ツールはWindows用が提供されています。ところがこれも試してみたのですがうまくいきません(F072では実績があります)。</p>
+
+<p>次善の策としてST-Link2というSTMのデバッグアダプタを用意してあったので、これで確認してみたところ無事動作を確認できました。こんなこともあろうかと、JTAG/SWD用の50mil 10ピンのパタンを用意してあったので、ここからSWDの信号を引き出して、ST-Link2に接続します。便利のため電源もST-Link2から供給するようにしました。下の写真ではBOOT0のジャンパを付けていますが、ST-Link2を使うだけなら不要です。ST-LINK V2と書かれているのがST-Link2アダプタで、安価に入手可能です。実はわざわざ購入しなくても、ST-Link2はNUCLEOにも搭載されてますので、これを使うことも可能です。ST-Link2/1とちょっとバージョンが違うのですが、ドライブとしてマウントし書き込むことができとても便利です。ST-Link2の左に付いているのは、電圧電流を確認できるアダプタです。動作状態がモニタできるのでこれも便利です。こちらも安価に入手可能です。</p>
+
+<p><img src="https://40.media.tumblr.com/919de5eb19398e13cc0262f0365083cc/tumblr_inline_o4ko9yxkb91r9hszk_540.jpg" alt="image" /></p>
+
+<p>ST-Link2をOSX/Linuxで使うために、st-utilというツールをインストールしておきます。OSXではbrewでインストール可能です。</p>
+
+<pre><code class="language-bash">$  brew install st-link
+</code></pre>
+
+<p>ST-Link2が接続されている状態で、st-infoコマンドを&ndash;chipidというオプションを付けて実行します。MCUへのアクセスが成功すると0x0422と表示されます。</p>
+
+<pre><code class="language-bash">$ st-info --chipid  
+0x0422
+</code></pre>
+
+<p>もし接続がうまくいっていないと何も表示されません。</p>
+
+<p>接続がうまくいったなら、今度はst-utilコマンドを実行します。</p>
+
+<pre><code class="language-bash">$ st-util
+2016-03-21T16:23:45 INFO src/stlink-common.c: Loading device parameters....
+2016-03-21T16:23:45 INFO src/stlink-common.c: Device connected is: F3 device, id 0x10036422
+2016-03-21T16:23:45 INFO src/stlink-common.c: SRAM size: 0xa000 bytes (40 KiB), Flash: 0x20000 bytes (128 KiB) in pages of 2048 bytes
+2016-03-21T16:23:45 INFO gdbserver/gdb-server.c: Chip ID is 00000422, Core ID is 2ba01477
+2016-03-21T16:23:45 INFO gdbserver/gdb-server.c: Target voltage is 3525 mV
+2016-03-21T16:23:45 INFO gdbserver/gdb-server.c: Listening at \*:4242...
+</code></pre>
+
+<p>デバッガからの待ち受け状態になりますので、ここでgdbを起動します。arm-none-eabi-というプリフィクスの付いたツール類が必要です。ARM用のGCCをインストールするか、EclipseまたはLPCxpressoに含まれているツールを使うことも可能です。パスを通っていることが確認できたら、gdbを起動します。</p>
+
+<pre><code class="language-bash">$ arm-none-eabi-gdb
+</code></pre>
+
+<p>gdbのプロンプトに下記のコマンドでst-utilに接続します。</p>
+
+<pre><code class="language-bash">(gdb) target extended-remote :4242
+</code></pre>
+
+<p>接続するとst-util側にも反応があるはずです。</p>
+
+<p>あとはメモリを確認したり、バイナリをロードしたり何でも可能です。</p>
+
+<p>ここまでできたら後はソフトウェアです。ここからが本番ですが、また記事を改めることにします。</p>
+
+<p>方針としてはRTOSとしてChibiOSを使ってみる予定です。F072で試した時はUSB-CDCを使えていたので、今回のボードもまずはこれを目指します。</p>
+
+<p>この方針で作業開始していますが、まずはChibiOSをこのボード用に最低限のポーティングしました。そして、ここからが難航したのですがI2CでSi5351Aを動作させることができています。これでUSBを動かせるはずですのえ、CDCとDFUを動かせたらあとはかなりラクになるはずです。</p>
+
+<p>リファレンス</p>
+
+<ul>
+<li>ChibiOS <a href="http://www.chibios.org/dokuwiki/doku.php" target="_blank">http://www.chibios.org/dokuwiki/doku.php</a></li>
+<li>ST-LinkをLinuxから使うためのコマンドst-link <a href="https://github.com/texane/stlink" target="_blank">https://github.com/texane/stlink</a>
+*</li>
+</ul>
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Mar 26, 2016</time>
+	<a href="https://ttrf.tk/posts/2016-03-26-building-frisk-sdr/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/stm32">stm32</a>  <a class="category" href="https://ttrf.tk/tags/sdr">sdr</a>  <a class="category" href="https://ttrf.tk/tags/si5351">si5351</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2016-03-26-building-frisk-sdr%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2016-03-26-building-frisk-sdr/" data-text="FriskSDR組み立て開始しました" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2016-03-26-building-frisk-sdr/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

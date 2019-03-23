@@ -1,0 +1,568 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>gqrxをMac OSX用にソースからビルドしてみる</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/2014-01-09-build-gqrx-from-source-code-for-macosx/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Thursday, Jan 9, 2014</time>
+<h2><a href="https://ttrf.tk/posts/2014-01-09-build-gqrx-from-source-code-for-macosx/" class="title">gqrxをMac OSX用にソースからビルドしてみる</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          <p>SDR用のソフトウェアは、WindowsプラットフォームではSDR#やHDRなど優秀なものがいくつもありますが、Windows以外のプラットフォーム、特にUnixベースで動作するものは殆ど無く、知る限りGqrxが唯一かと思います。Windowsベースのものに比べると、機能は限られていますが、比較的良い使い勝手を提供しているソフトウェアだと思います。有り難いことにGqrxはMac OSXでも動作し、バイナリも配布されています。</p>
+
+<p>今回は、bladeRFに対応させるためにソースコードからビルドします。そのために前回Gnuradioのバージョンアップを行いました。</p>
+
+<p>Gqrxのソースコードはgithubで公開されていますので、まずはこれを見て下調べをします。README.mdにビルド方法が記載されているのでこれを確認します。</p>
+
+<p>GqrxはGnuradioの他に、GUIツールキットとしてQtが必要です。Qtは、Homebrewで既に構築済のもの(Qt 4.8.5)を使用しました。Qtにはいくつかバージョンがあり、最新のQt5(これもHomebrewでインストール可能です)や、Qtの現在の所有者であるNokiaが配布しているQtSDKにも含まれています。いずれでもGqrxをビルドすることができました。若干差異があるようですので、後述します。</p>
+
+<p>ソースをgitで取得します。</p>
+
+<pre><code class="language-bash">$ git clone git@github.com:csete/gqrx.git
+</code></pre>
+
+<p>ビルドはQtの方法で行います。プロジェクトファイルは、gqrx.proですが、これの内容がMacPortsによるパッケージ管理を前提とした内容になっており、/opt/localを使用しています。これをHomebrewの流儀に修正する必要があります(/usr/localを参照するようにする)。またAlexさんのホームディレクトリを直接参照しているので、これらのパスを修正します。修正した結果は下記のようになりました。</p>
+
+<pre><code class="language-bash">macx { 
+    # macports 
+    #INCLUDEPATH += /opt/local/include 
+    # brew 
+    INCLUDEPATH += /usr/local/include 
+    LIBS += -L/usr/local/lib 
+	
+    # local stuff 
+    #INCLUDEPATH += /Users/alexc/gqrx/runtime/include 
+    #LIBS += -L/opt/local/lib -L/Users/alexc/gqrx/runtime/lib
+</code></pre>
+
+<p>プロジェクトファイルが修正できたらさっそくビルドします。ディレクトリを掘り(この例ではbuild)、qmakeでMakefileを生成して、makeします。このときに使用するqmakeを、適切なものを選ぶことによってQtのバージョンを選択することができます。この場合は、/usr/local/bin/qmakeを使用しています。</p>
+
+<pre><code class="language-bash">$ cd gqrx 
+$ mkdir build 
+$ cd build 
+$ qmake .. PREFIX=/usr/local  
+$ make
+</code></pre>
+
+<p>うまくビルドできたらbuildディレクトリ内にGqrx.appができているはずです。OSXのアプリケーションは、.appという拡張子の付いたディレクトリになっています。このままでも実行できますし、適当な場所にコピーすることでインストールすることもできます。</p>
+
+<p>さっそくダブルクリックして実行してみます。コマンドラインから起動することも可能です。</p>
+
+<pre><code class="language-bash">$ open Gqrx.app
+</code></pre>
+
+<p>Gqrxは、何か対応ハードウェアが接続されていないと、起動に失敗するようです。RTLドングルを接続して動作確認します。</p>
+
+<p>一番最初に起動した時にはこのようなデバイス設定ダイアログが表示されます。サンプルレートに注意して設定します。</p>
+
+<p><img src="https://66.media.tumblr.com/1458fc730aac9fec58a85160fc2a00f9/tumblr_inline_pk056z6AU41r9hszk_540.png" alt="image" /></p>
+
+<p>起動直後はこんな画面です。見慣れたレイアウトですが、若干ウィジェットの類いがバランス悪い感じです。</p>
+
+<p><img src="https://66.media.tumblr.com/35e3289faf54840af52c441232cb21f4/tumblr_inline_pk056z3TSf1r9hszk_540.png" alt="image" /></p>
+
+<p>QtのAboutダイアログです。4.8.5になっています。</p>
+
+<p><img src="https://66.media.tumblr.com/ddc054bd3543e6cd70bbfd445a74f909/tumblr_inline_pk0570lyCc1r9hszk_540.png" alt="image" /></p>
+
+<p>動作させてみました。HFCONVを接続して、1440kHzのAM放送を受信しています。</p>
+
+<p><img src="https://66.media.tumblr.com/c4458f58f2a0b50d61155ad90e2fb183/tumblr_inline_pk0570SC8i1r9hszk_540.png" alt="image" /></p>
+
+<p>無事Gqrxをビルドすることができました。</p>
+
+<p>続いてbladeRFで試してみます。用意してあったgr-osmocomがbladeRF対応させているので、GqrxもbladeRFで動作するはずです。RTLドングルの代わりにbladeRFをUSBで接続してから、Gqrxを起動してみます。</p>
+
+<p>接続を変更した直後、最初はなぜか起動に失敗します。</p>
+
+<p><img src="https://66.media.tumblr.com/86004ba7273c44a25f78f71d37aa1170/tumblr_inline_pk0570pkc61r9hszk_540.png" alt="image" /></p>
+
+<p>めげずにもう一度起動すると、再設定するかの確認が出て、</p>
+
+<p><img src="https://66.media.tumblr.com/e70f17b1327ef8ce1ad888af5ac36aeb/tumblr_inline_pk0570ioz01r9hszk_540.png" alt="image" /></p>
+
+<p>デバイス設定ダイアログが出てきます。ちゃんとbladeRFが選択項目に表示されています。</p>
+
+<p><img src="https://66.media.tumblr.com/f3334fde4da0010eaf3105c134958512/tumblr_inline_pk0571rbfr1r9hszk_540.png" alt="image" /></p>
+
+<p>サンプルレートに注意して、OKします。USBとCPUの能力を考慮すると1M〜2Mくらいが適切だと思います。</p>
+
+<p>ちゃんと動作しています。以下は300MHzのコンバータを通して、82.5MHzのFM放送を受信している様子です。LNAゲインを上げて、DC remのチェックを入れておくことをお勧めします。</p>
+
+<p><img src="https://66.media.tumblr.com/db476ae4b7f40bcb65ab963a0a302a0c/tumblr_inline_pk0571SxG51r9hszk_540.png" alt="image" /></p>
+
+<p>チューニング周波数をずらして、オフセットすると左右対称なスペクトルになります。IQがまったくバランスしていない状態のようです。これはGNURadioやosmocom_fftを使った場合も同様でした。何かbladeRFのどこかに間違いがあるような気がします。</p>
+
+<p><img src="https://66.media.tumblr.com/8641454dfe03eaf9349494be77f7231d/tumblr_inline_pk0571lydQ1r9hszk_540.png" alt="image" /></p>
+
+<p>以上で今回の目的である、GqrxからbladeRFを使うことができることが確認できました。</p>
+
+<p>ちょっと気になるのはQtの見かけがちょっと変なことです。バイナリで配布されているGqrxとはちょっと形が異なり、レイアウトも若干崩れています。試しに別なバージョンのQtで試してみました。まずはbrewでインストール可能なqt5を試してみます。brewでqtをunlinkしておき、qt5をinstallします。</p>
+
+<pre><code class="language-bash">$ brew unlink qt  
+$ brew install qt5
+</code></pre>
+
+<p>qt5は、/usr/local/binにインストールされず、/usr/local/opt/qt5/に入ります。qmakeするときにこのパスを直接指定するようにします。</p>
+
+<pre><code class="language-bash">$ cd gqrx 
+$ mkdir build-qt5 
+$ cd build-qt5 
+$ /usr/local/opt/qt5/bin/qmake .. PREFIX=/usr/local
+$ make
+</code></pre>
+
+<p>無事にビルドできたら起動してみます。</p>
+
+<p><img src="https://66.media.tumblr.com/8cb0dc7ece093affd607a923f2ec0187/tumblr_inline_pk0572gGba1r9hszk_540.png" alt="image" /></p>
+
+<p>今度は普通通りの見かけになりました。動作も普通通りに動いています。Aboutを開いてみると、Qtのバージョンは5.2でした。</p>
+
+<p><img src="https://66.media.tumblr.com/c0ea91f418ad77c4bbe57dd78720ac5f/tumblr_inline_pk057297pL1r9hszk_540.png" alt="image" /></p>
+
+<p>もう一つ、Qtの環境があるのでついでに試してみます。Nokiaの開発者サイトに登録すると、QtSDKがダウンロードできるのですが、ちゃんとMac OSX版も用意されています。これをインストールすると、開発環境一式がセットで使えるようになります。QtSDK-1.2.1を使用しました。</p>
+
+<p>QtSDKの場合はQt Creatorという統合環境を使うこともできます。Qt Creatorを起動して、プロジェクトとしてgqrx.proファイルを開きます。 </p>
+
+<p>設定ダイアログが表示されるので、QtSDKに含まれているQtの新しいバージョンを選択します。</p>
+
+<p><img src="https://66.media.tumblr.com/c63f68761d6440dc4537a2df4e6b06d4/tumblr_inline_pk0572j7551r9hszk_540.png" alt="image" /></p>
+
+<p>Qt Creatorのメイン画面です。</p>
+
+<p><img src="https://66.media.tumblr.com/ea1862ecb046a4a7251ae21b66830069/tumblr_inline_pk0572fPfC1r9hszk_540.png" alt="image" /></p>
+
+<p>メニューまたはボタンから、Build AllまたはRunを選ぶと、ビルドが行われ、Runを選んだ場合はアプリケーションの起動まで行われます。問題なくビルドは完了し、同様に動作させることができました。</p>
+
+<p>統合環境を使わずに、コマンドラインでqmakeを使ってビルドすることも可能です。QtSDKはホームディレクトリ~/QtSDKにインストールされているので、下記のような手順になります。</p>
+
+<pre><code class="language-bash">$ cd gqrx 
+$ mkdir build-qtsdk 
+$ cd build-qtsdk
+$ ~/QtSDK/Desktop/Qt/4.8.1/gcc/bin/qmake .. PREFIX=/usr/local
+$ make
+</code></pre>
+
+<p>QtSDK(Qt Creator)では、Qtのバージョンは4.8.1でしたが、ウィジェットは普通通りでした。先ほどちょっと見かけが変だったのはbrewで入れたqtの場合だけのようです(qt5はOK)。</p>
+
+<p>今回はGqrxのビルドが趣旨でしたが、Qtについての記載が長くなってしまいました。無事にソースからビルドできるようになったので、適宜改造ができるはずです。Qtについてはよくわかっていない点もありますので、必要に応じて調べてみたいと思います。</p>
+
+<p>リファレンス</p>
+
+<ul>
+<li>Gqrxの公式サイト <a href="http://gqrx.dk/" target="_blank">http://gqrx.dk/</a></li>
+<li>ソース <a href="https://github.com/csete/gqrx" target="_blank">https://github.com/csete/gqrx</a></li>
+<li>Homebrew向けに修正したソース <a href="https://github.com/ttrftech/gqrx" target="_blank">https://github.com/ttrftech/gqrx</a> </li>
+<li>Nokia Developper SiteのQtSDKダウンロード <a href="http://developer.nokia.com/info/sw.nokia.com/id/da8df288-e615-443d-be5c-00c8a72435f8/Qt_SDK.html" target="_blank">http://developer.nokia.com/info/sw.nokia.com/id/da8df288-e615-443d-be5c-00c8a72435f8/Qt_SDK.html</a></li>
+<li>Qtの公式サイト。Qt Creatorはこちらからもより新しいバージョンがダウンロードできるようです。 <a href="http://qt-project.org/" target="_blank">http://qt-project.org/</a></li>
+</ul>
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Jan 9, 2014</time>
+	<a href="https://ttrf.tk/posts/2014-01-09-build-gqrx-from-source-code-for-macosx/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/gqrx">gqrx</a>  <a class="category" href="https://ttrf.tk/tags/bladerf">bladerf</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2014-01-09-build-gqrx-from-source-code-for-macosx%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2014-01-09-build-gqrx-from-source-code-for-macosx/" data-text="gqrxをMac OSX用にソースからビルドしてみる" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2014-01-09-build-gqrx-from-source-code-for-macosx/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

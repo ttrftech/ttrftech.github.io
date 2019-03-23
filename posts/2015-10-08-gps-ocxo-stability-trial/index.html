@@ -1,0 +1,492 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>引き続きOCXOとGPSの安定性を試している</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/2015-10-08-gps-ocxo-stability-trial/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Thursday, Oct 8, 2015</time>
+<h2><a href="https://ttrf.tk/posts/2015-10-08-gps-ocxo-stability-trial/" class="title">引き続きOCXOとGPSの安定性を試している</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          <p>前回に引き続きGPSDOをDIYするべく、GPSやOCXOをあれこれ試しています(まだ周波数制御はしていません)。前回は手軽に5Vだけで動作させられる小さいOCXOで実験していました。手元には、さらに良好な安定度があるとされるダブルオーブンな大きいOCXOがあります。果たして安定性に違いが見られるのか試してみました。
+<img src="https://41.media.tumblr.com/96d590cd0d39fa1dd5ad5798cef90595/tumblr_inline_nvwljcbduz1r9hszk_540.png" alt="image" /><!-- more --></p>
+
+<p>2つのOCXOを同時に比較実験をするために、アンテナを共用して2台のGPSを同時に動作させられるよう、アンテナスプリッタを作ってみました。マイクロストリップラインによる簡単なウィルキンソンディバイダです。</p>
+
+<p><img src="https://41.media.tumblr.com/e63e855144692133747b051308fa9ad8/tumblr_inline_nvwlwvSgDx1r9hszk_540.png" alt="image" /></p>
+
+<p>アンテナはパッチアンテナを屋根の上に設置しています。底面がマグネットなのでトタン屋根に取り付けられます。とても簡便で良いのですが、これから冬に向けて、雪で埋もれてしまうので、レドームなど設置方法を考えたいところです。</p>
+
+<p><img src="https://40.media.tumblr.com/92e47bc81f0697e2f934ffbfe510d9c6/tumblr_inline_nvwmbqLous1r9hszk_540.png" alt="image" /></p>
+
+<p>両方をモニターするためu-centerを二つ同時に動かします。別々のCOMポートに割り当てられますので、それぞれ接続して様子を見ます(USBの接続ポートを変える度にCOMの番号が増えていきます。現在12までありますw)。測位結果のドリフトが似た動きをしていますが、まったく同一というわけではありません。
+<img src="https://41.media.tumblr.com/700c40c0c6d50c837c5ed9784c1d39af/tumblr_inline_nvwqr0T1fs1r9hszk_540.png" alt="image" /></p>
+
+<p>数日間データを取り続けるために、データを収集するホストにはRaspberry Piを使うことにしました。接続はUSBなので、複数台あっても問題ありません。
+<img src="https://40.media.tumblr.com/1ae232e655c4e0cb98c26b789d2be323/tumblr_inline_nvwvqejN1B1r9hszk_540.png" alt="" /></p>
+
+<p>Linuxの場合は、USB-CDCデバイスは、/dev/ttyACMn (nは数字)として見えます。OSXと同様に、USB-CDCからcatで読み出してファイルに記録していきます。</p>
+
+<pre><code>$ cat /dev/ttyACM0 &gt; 20150930-5v.log
+</code></pre>
+
+<p>これをグラフにします。もちろんIPython notebookを使います。Raspberry Piでも問題無く動作しますが、ちょっと遅い感じがします。一日＝86400秒分を表示してみます。</p>
+
+<p><img src="https://36.media.tumblr.com/7f7ddf6178012e50602c5b8d97fa6762/tumblr_inline_nvwq6cWWz51r9hszk_540.png" alt="image" /></p>
+
+<p>値がふらつくというよりは、明らかに下降のトレンドがあります。一日で一方的に10mHz動いてしまうのは少し残念な結果です。また、値が飛んでいるのは、途中でオシロを接続したことが原因のようです。OCXOの出力インピーダンスは50Ωなのですが、いい加減に終端しないままにしてあったのですが、当然ながら影響を受けてしまうようです。正しく終端したうえで、別途出力を取り出すためにはバッファを用意しなければなりません。次回の課題ということにします。</p>
+
+<p>つづいて、DOCXOです。上と同時に計測した結果を見てみると、なんとこちらは逆に上昇トレンドで、幅も70mHzもあります。大きなダブルオーブンが、小さなシングルオーブンよりも悪い結果なのは、さらに残念です。長期保管してあったものなので、しばらくエージングが必要なのでしょうか。</p>
+
+<p><img src="https://40.media.tumblr.com/082aabde18e6903fa7ca22db791d96ce/tumblr_inline_nvwq7iE4EL1r9hszk_540.png" alt="image" /></p>
+
+<p>二つのOCXOが、まったく逆のトレンドを示しているので、OCXO側の要因が大きいと考えています。前回の結果では、ふらつきはあったものの限定的な範囲だったのでまぁ満足な結果だったのですが、今回は思わしくないので、もう少し継続して試してみる必要がありそうです。</p>
+
+<p>本当なら一つの基準でカウントした結果を比べたいところですが、今回は一つの同じアンテナを共用した同一機種二つのGPSのPPSでそれぞれカウントしています。二つのGPSの出力に有意な差は無いと思っているのですが、確認しているわけではありません。</p>
+
+<p>ちなにみ、DOCXOは5cm角のサイズがあり、起動時には1A程度の電流を必要とします。十分に暖まった後は200mA程度の消費のようです。消費電力も大きいため、結構熱くなります。放射温度計を向けてみたところ、55度程度ありました。ケースに入れる場合には気を使う必要がありそうです。
+<img src="https://41.media.tumblr.com/baeb96bbcc47144a28bc5bb94b47f0e6/tumblr_inline_nvwuazP9ea1r9hszk_540.png" alt="" /></p>
+
+<p>さて、GPS側にも時間や周波数に関する設定がいくつかあります。特に興味を引かれたのが、位置測位をしないで固定位置を与えた上で時間を測定するFixedモードや、先に位置測位を十分な精度が出るまで行った後、それを固定位置として以後は時間測位を行うSurveyInモードです。これを試してみました。このモードを利用するには設定変更が必要で、u-centerのConfigからTMODE2を開き、TIMEモード変更の他、位置精度のしきい値等を与えたあと、Sendボタンを押してGPSモジュールに設定します。しきい値は1mにしてみました。
+<img src="https://40.media.tumblr.com/9f2443a102fe139c5c789112d5e09d34/tumblr_inline_nvwt601Cmn1r9hszk_540.png" alt="image" /></p>
+
+<p>モードに変更した後、設定値を保存しておく必要があります。同じくu-centerでCFGの画面を開き、Save current configurationを選んで、Sendします。
+<img src="https://40.media.tumblr.com/e57cc757e6e900a49c7f9fc9ffa33cc4/tumblr_inline_nvwt830yLM1r9hszk_540.png" alt="image" /></p>
+
+<p>設定変更後、後は同じように動作させます。測位の精度が十分に得られると、HDOPが999となり、固定位置モードに入ったことがわかります。この状態でOCXOのカウントをグラフにしてみました。600秒の移動平均を2重にかけています。</p>
+
+<p><img src="https://40.media.tumblr.com/d6506cef5ea23725468f91264cc7dc6d/tumblr_inline_nvwscitamf1r9hszk_540.png" alt="image" /></p>
+
+<p>通常モード(位置測位も常時行う)の結果(下)と比較してみると、位置固定のモードの結果(上)はふらつきが激しくなっている感じがします。少なくとも改善した印象は受けません。</p>
+
+<p><img src="https://40.media.tumblr.com/f5202de8547fa17309902a1fe62e692c/tumblr_inline_nvwsjgr53T1r9hszk_540.png" alt="image" /></p>
+
+<p>こちらももう少し回数を重ねて実験してみる必要がありそうですが、少なくとも期待できるほどの効果は無さそうな感じです。</p>
+
+<p>今回はLEA-6Tというタイミング用途向けのGPSモジュールを使いましたが、しばらく試してみた感触では、GPSDOを作るという目的にはこれを使う意味は無いかもしれません。もっと安価なGPS(同社のNEOシリーズ等)がありますが、そちらで十分な気がしています。フットプリントも小さいですし、次回基板を作る時は、そちらを使ってみたいと考えています。</p>
+
+<p>最後に、GPSのPPS信号をトリガにして、OCXOの正弦波をオシロで観察してみました。この状態では、50mHzほどの誤差があるのでおよそ20秒で一周期ずれていきます。周波数誤差による一定のずれに加えて、GPSモジュールのクロックに由来するPPS信号の周期の量子誤差により時折波形が20ns程度飛ぶのがわかります。</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eQD91WP6FKI" frameborder="0"></iframe>
+
+<p>次回こそは周波数制御をしてみたいと思います。</p>
+
+<p>リファレンス</p>
+
+<ul>
+<li>小さいOCXO Morion MV85 <a href="http://www.morion.com.ru/catalog_pdf/MV85-OCXO.pdf" target="_blank">http://www.morion.com.ru/catalog_pdf/MV85-OCXO.pdf</a></li>
+<li>大きいDOCXO 同じくMorion MV89a <a href="http://www.morion.com.ru/catalog_pdf/MV89-OCXO.pdf" target="_blank">http://www.morion.com.ru/catalog_pdf/MV89-OCXO.pdf</a></li>
+<li>ublox u-center <a href="https://www2.u-blox.com/ja/evaluation-tools-a-software/u-center/u-center.html" target="_blank">https://www2.u-blox.com/ja/evaluation-tools-a-software/u-center/u-center.html</a></li>
+<li>time-nuts 周波数と時間についての同好の志の意。彼らの情報の蓄積はものすごいです。<a href="http://leapsecond.com/time-nuts.htm" target="_blank">http://leapsecond.com/time-nuts.htm</a></li>
+</ul>
+
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Oct 8, 2015</time>
+	<a href="https://ttrf.tk/posts/2015-10-08-gps-ocxo-stability-trial/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/gps">gps</a>  <a class="category" href="https://ttrf.tk/tags/gpsdo">gpsdo</a>  <a class="category" href="https://ttrf.tk/tags/ocxo">ocxo</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2015-10-08-gps-ocxo-stability-trial%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2015-10-08-gps-ocxo-stability-trial/" data-text="引き続きOCXOとGPSの安定性を試している" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2015-10-08-gps-ocxo-stability-trial/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

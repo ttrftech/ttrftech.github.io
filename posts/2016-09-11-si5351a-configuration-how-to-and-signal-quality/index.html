@@ -1,0 +1,667 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>Si5351Aの使い方と動作</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/2016-09-11-si5351a-configuration-how-to-and-signal-quality/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Sunday, Sep 11, 2016</time>
+<h2><a href="https://ttrf.tk/posts/2016-09-11-si5351a-configuration-how-to-and-signal-quality/" class="title">Si5351Aの使い方と動作</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          <p>Si5351AクロックジェネネータをFriskSDRのローカルや、NanoVNAの信号源として試用してみています。Si5351Aの仕様では、上限は200MHzまでとされていますが、実際に試してみたところ300MHzを越える周波数まで発生させられるようです。以前最初に試した様子を書きましたが、その後の知見をまとめておきます。</p>
+
+<p><img src="https://68.media.tumblr.com/43ba7bcd9b59cc7927b75ba965fc620a/tumblr_inline_odbf0lyn9M1r9hszk_540.jpg" alt="image" /></p>
+
+<p>Si5351Aは、内部にPLLを二つ、さらにそれを分周した出力を三つ取り出すせるクロックジェネレータです。水晶と合わせて10x10mm以下の面積でコンパクトに実装することができます。</p>
+
+<p>大変便利なチップなのですが、その設定は少しやっかいで、内部構成を理解していないとレジスタに与える設定値を決めることができません。最初の実験で試したように、Arduinoのライブラリは何種類かあるようですが、目的にはちょっと合いませんでしたので、参考にさせてもらいつつ、FriskSDRやNanoVNAを作るためにコードを作成してみましたので少し解説します。</p>
+
+<p><img src="https://68.media.tumblr.com/0773e9248224621d56a8e7dc6f5f117f/tumblr_inline_odapg0zkZK1r9hszk_540.png" alt="image" /></p>
+
+<p>Si5351Aは内部が二段構成になっており、前段のPLLと、後段の分周器(MultiSynth)を独立に設定しなければならなりません。PLLとMultiSynthは、それぞれフラクショナル(分数分周器)となっています。前段、後段それぞれに自由度があるので、同じ周波数を出力させるために、可能な設定は一意に決まりません。さらに、設定にあたっていくつか考慮しなければならない制約があります。</p>
+
+<p>PLLとMultiSynthは似たような分数分周器となっており、その分周比は三つの整数を使って表現できます。</p>
+
+<blockquote>
+<p>a + b / c</p>
+</blockquote>
+
+<p>設定にあたってまず押さえておかねばならないのが、PLL側で生成可能な周波数が、600〜900MHzでなければならないことです。可変範囲が1.5倍の範囲ですので案外と狭いです。</p>
+
+<p>一方、MultiSynth側にも制約があります。150MHz以上の出力を得るためには、1/4の固定分周比を使用する必要があることが明記されています(AN619 6p 4.2.2節)。では150MHz以下ならあとは自在かと思えば、実はまだ制約があり、分周比が8以下の分周比については、分数分周比が使えず、4,6,8の整数比の分周動作動作のみが可能となっています。PLLの下限が600MHzですから、150MHz以下を発生させようとすると、分周比を6を選択する必要があるのです。同様に、100MHz以下に設定したければ分周比を8以上に設定することになりますが、その範囲になるとMultiSynth側で分数分周比が使えるようになり、任意の周波数を設定する自由度がMultiSynth側に出てきます。そしてMultiSynthの分周の上限は1800ですので、600MHz/1800=333kHzで周波数の下限に達します。これ以下の周波数を設定しようとするなら今度はMultiSynthの後ろに用意されている2^Nの分周器Rを使う必要があります。Rは1/128まで設定可能ですから、下限は333kHz/128=およそ2.6kHzとなります。</p>
+
+<p>以上のように、出力したい周波数範囲によって、設定の方針が違ってきます。まとめると次の様になります。 </p>
+
+<ul>
+<li><p>150MHz &lt; Fout ：MultiSynth=4とし、PLLを分数比で使い4xFoutに設定する</p></li>
+
+<li><p>100MHz &lt; Fout &lt; 150MHz ：MultiSynth=6とし、PLLを分数比で使い6xFoutに設定する</p></li>
+
+<li><p>333kHz &lt; Fout &lt; 112.5MHz ：1) MultiSynthを8以上任意(&lt;=1800)の分数分周比で使用し、PLL側を整数比で固定する。2) MultiSynthを8以上の整数比Nで使用し、PLL側をNxFoutとなるよう設定する(PLLが600~900MHzに入るようNを決める)</p></li>
+
+<li><p>3kHz &lt; Fout &lt; 500kHz ：Rを適切に決めて、後は同じ</p></li>
+</ul>
+
+<p>RFアプリケーションであれば、Rを使用する必要は無さそうです。</p>
+
+<p>ちなみに設定可能な周波数のレゾリューションは、設定値や設定方針によって変化しますが、およそ数10Hz単位での設定可能です。分数部分のbとcは20ビットの幅を持っていますので、PLLまたはMultiSynthの片側だけ数10Hz程度。あるいは(面倒ですが)両者を任意に設定する気があるなら、もっと細かい分解能が得られます(これが適用可能な周波数領域は112.5MHz以下に限られます)。もちろん低周波数なら、Rを大きく取るとレゾリューションもその分細かくなります。実はCLK入力にも1,2,4,8の分周器があるので、PLL側の設定解像度を上げられるのですが、PLL分周器の設定範囲(15-90)から制約を受けます。実用的にはCLK分周器は使用する必要は無いと思います。</p>
+
+<p>生成する信号の質を考慮すると、可能なら整数比を使うとスプリアスが減ります。整数比の場合に適用する特別なビットがレジスタにあります。分数比を使う場合でも、できるだけ簡単な比になるようにすると良いようです。</p>
+
+<p>以上のことから、係数を決定するには次のような方法が良いと思われます。PLLとMultiSynthそれぞれについて、設定したい周波数と、水晶やその他の条件から、a,b,cを決めます。そしてb,cがなるべく簡単な比になるようユークリッドの互除法を使って分子分母の最大公約数を求め、既約分数にします。さらにもし20ビットの範囲に納まらなかった場合は、精度が犠牲になりますが数値を丸めます。</p>
+
+<p>PLLの設定は下記のようにします。MultiSynthを固定分周比(4または6)に設定して、PLLを4*freqまたは6*freqに設定します。</p>
+
+<blockquote>
+<p>void<br />
+si5351_set_frequency_fixeddiv(int channel, int pll, int freq, int div)<br />
+{<br />
+   int32_t pllfreq = freq * div;<br />
+   int32_t multi = pllfreq / XTALFREQ;<br />
+   int32_t num = pllfreq - multi * XTALFREQ;<br />
+   int32_t denom = XTALFREQ;<br />
+   int32_t k = gcd(num, denom);<br />
+   num /= k;<br />
+   denom /= k;<br />
+   while (denom &gt;= (1&lt;<20)) {  
+     num >&gt;= 1;<br />
+     denom &gt;&gt;= 1;<br />
+   }<br />
+   si5351_setupPLL(pll, multi, num, denom);<br />
+   si5351_setupMultisynth(channel, pll, div, 0, 1);<br />
+}</p>
+</blockquote>
+
+<p>PLLを固定し、MultiSynthを可変する場合には下記のようにします。</p>
+
+<blockquote>
+<p>void<br />
+si5351_set_frequency_fixedpll(int channel, int pll, int pllfreq, int freq)<br />
+{<br />
+   int32_t div = pllfreq / freq; // range: 8 ~ 1800<br />
+   int32_t num = pllfreq - freq * div;<br />
+   int32_t denom = freq;<br />
+   int32_t k = gcd(num, denom);<br />
+   num /= k;<br />
+   denom /= k;<br />
+   while (denom &gt;= (1&lt;<20)) {  
+     num >&gt;= 1;<br />
+     denom &gt;&gt;= 1;<br />
+   }<br />
+   si5351_setupMultisynth(channel, pll, div, num, denom);<br />
+}</p>
+</blockquote>
+
+<p>a,b,c(下記の式ではmulti,num,denom)を決めることができたら、下記の式に従ってP1,P2,P3を求め、それを8つのレジスタ(各8ビット)に配置します。</p>
+
+<blockquote>
+<p>P1[17:0] = 128 * mult + floor(128*(num/denom)) - 512<br />
+P2[19:0] = 128 * num - denom * floor(128*(num/denom))<br />
+P3[19:0] = denom</p>
+</blockquote>
+
+<p>それからレジスタ設定には順序があり、これに従わないと周波数切り替えの際にうまく設定されないことがありました(実際にハマった)。 データシート17pにある下記フローのようにします。</p>
+
+<p><img src="https://68.media.tumblr.com/6b37ce2e4b6b241aa4cdfe7994ea07d7/tumblr_inline_odbqgby5e81r9hszk_540.png" alt="image" /></p>
+
+<p>これらを合わせて、周波数の範囲により、設定方針を切り替えるため、例えば下記の様にします。</p>
+
+<blockquote>
+<p>void<br />
+si5351_set_frequency(int channel, int pll, int freq)<br />
+{<br />
+ si5351_disable_output();<br />
+ if (freq &lt;= 100000000) {<br />
+   si5351_setupPLL(pll, PLL_N, 0, 1);<br />
+   si5351_set_frequency_fixedpll(channel, pll, PLLFREQ, freq);<br />
+ } else if (freq &lt; 150000000) {<br />
+   si5351_set_frequency_fixeddiv(channel, pll, freq, 6);<br />
+ } else {<br />
+   si5351_set_frequency_fixeddiv(channel, pll, freq, 4);<br />
+ }<br />
+ si5351_reset_pll();<br />
+ si5351_enable_output();<br />
+}</p>
+</blockquote>
+
+<p>もし、周波数を可変する必要が無いなら、こんなコードは必要ありません。あらかじめレジスタ値を計算しておけば良いのです。Si5351AのI2Cは、自動インクリメント動作をするので、こんなデータを用意しておけば、まとめてデータを送ることができます。</p>
+
+<blockquote>
+<p>static void<br />
+si5351_bulk_write(const uint8_t *buf, int len)<br />
+{<br />
+ int addr = SI5351_I2C_ADDR&gt;&gt;1;<br />
+ i2cAcquireBus(&amp;I2CD1);<br />
+ (void)i2cMasterTransmitTimeout(&amp;I2CD1, addr, buf, len, NULL, 0, 1000);<br />
+ i2cReleaseBus(&amp;I2CD1);<br />
+}</p>
+
+<p>// register addr, length, data, &hellip;<br />
+const uint8_t si5351_configs[] = {<br />
+ 2, SI5351_REG_3_OUTPUT_ENABLE_CONTROL, 0xff,<br />
+ 4, SI5351_REG_16_CLK0_CONTROL, SI5351_CLK_POWERDOWN, SI5351_CLK_POWERDOWN, SI5351_CLK_POWERDOWN,<br />
+ 2, SI5351_REG_183_CRYSTAL_LOAD, SI5351_CRYSTAL_LOAD_8PF,<br />
+ // setup PLL (26MHz * 32 = 832MHz, 32/2-2=14)<br />
+ 9, SI5351_REG_26_PLL_A, /*P3*/0, 1, /*P1*/0, 14, 0, /*P3/P2*/0, 0, 0,<br />
+ // RESET PLL<br />
+ 2, SI5351_REG_177_PLL_RESET, SI5351_PLL_RESET_A | SI5351_PLL_RESET_B,<br />
+ // setup multisynth (832MHz / 104 = 8MHz, 104/2-2=50)<br />
+ 9, SI5351_REG_58_MULTISYNTH2, /*P3*/0, 1, /*P1*/0, 50, 0, /*P2|P3*/0, 0, 0,<br />
+ 2, SI5351_REG_18_CLK2_CONTROL, SI5351_CLK_DRIVE_STRENGTH_2MA | SI5351_CLK_INPUT_MULTISYNTH_N | SI5351_CLK_INTEGER_MODE,<br />
+ 2, SI5351_REG_3_OUTPUT_ENABLE_CONTROL, 0,<br />
+ 0 // sentinel<br />
+};</p>
+
+<p>void<br />
+si5351_init(void)<br />
+{<br />
+ const uint8_t *p = si5351_configs;<br />
+ while (*p) {<br />
+   uint8_t len = *p++;<br />
+   si5351_bulk_write(p, len);<br />
+   p += len;<br />
+ }<br />
+}</p>
+</blockquote>
+
+<p>上記を含めコードをgistに載せておきます。</p>
+
+<p><a href="https://gist.github.com/edy555/f1ee7ef44fe4f5c6f7618ac4cbbe66fb" target="_blank">https://gist.github.com/edy555/f1ee7ef44fe4f5c6f7618ac4cbbe66fb</a></p>
+
+<p>ところで、以前スペクトラムはかなり綺麗と書きましたが、発生させる周波数によってかなり違いがあります。20MHz以下であればかなり綺麗ですが、周波数を上げるに従ってスプリアスが増えてきます。いくつかデータを取ってみましたので、参考に上げておきます。使っているのはNanoVNAで、ブリッジを通った出力なので、-10dBm程度となっています。水晶は26MHzのVCTCXOです。グラフの縦軸はdBと書いてありますがdBmです。</p>
+
+<p>まずは以前も試した13MHz。Spanは6MHz、RBW10kHzです。2MHz上下に小さいSpurが見えてます。-70dBcくらいで、この周波数なら綺麗です。近傍の裾は測定系の位相ノイズです。</p>
+
+<p><img src="https://68.media.tumblr.com/b0e15d708b7b05c1214a5423ed580c21/tumblr_inline_odbnbqOXtD1r9hszk_540.png" alt="image" /></p>
+
+<p>周波数をちょっと上げて20MHz。Spanは10MHz、RBWは10kHz。Spurのレベルがちょっと増えます。-4MHzにも出てきます。-62dBcくらい。</p>
+
+<p><img src="https://68.media.tumblr.com/abad685994dd944ad08eb853d614c700/tumblr_inline_odbnhfol2V1r9hszk_540.png" alt="image" /></p>
+
+<p>さらに上げて30MHz。かなりSpurが増えてきます。-60dBcくらい。</p>
+
+<p><img src="https://68.media.tumblr.com/8eec3a01127687820caec641e76f4acf/tumblr_inline_odbnj5UY681r9hszk_540.png" alt="image" /></p>
+
+<p>50MHz。あまり変りません。</p>
+
+<p><img src="https://68.media.tumblr.com/9f5cb2868558109db6d1a32b41b0e1d8/tumblr_inline_odbnpe3b5n1r9hszk_540.png" alt="image" /></p>
+
+<p>100MHz。かなり増えてきます。-52dBcくらい。</p>
+
+<p><img src="https://68.media.tumblr.com/2f95834e07b96f40f374a4c4f98ab43e/tumblr_inline_odbnq6XfuU1r9hszk_540.png" alt="image" /></p>
+
+<p>100MHzからはSpan 50MHzを示します。RBWは500kHz。広くSpurが分布しています。</p>
+
+<p><img src="https://68.media.tumblr.com/df89aecb379183eb168f8aba55c7b04e/tumblr_inline_odbntjeoHB1r9hszk_540.png" alt="image" /></p>
+
+<p>150MHz。Spurが-40dBcくらいですから、結構強くなってきました。Spurの位置は分数分周器の剰余の位置に来ますので、設定周波数によって大きく変化します。</p>
+
+<p><img src="https://68.media.tumblr.com/db72030f390ec3d8a20a18205eb3f559/tumblr_inline_odbnvhVY0I1r9hszk_540.png" alt="image" /></p>
+
+<p>200MHz。</p>
+
+<p><img src="https://68.media.tumblr.com/fd16f073b63065b9c111d5051deb5941/tumblr_inline_odbny4ySbl1r9hszk_540.png" alt="image" /></p>
+
+<p>300MHz。逆にSpurが減りました。</p>
+
+<p><img src="https://68.media.tumblr.com/49bac0c5477915036afa88b7106f0d5e/tumblr_inline_odbnytjeCm1r9hszk_540.png" alt="image" /></p>
+
+<p>ちなみに260MHzだともっと綺麗になります。水晶から丁度10倍の周波数で、整数比の動作となっているからです。</p>
+
+<p><img src="https://68.media.tumblr.com/9960e5f28b34f1f34caf01b92b89e3b1/tumblr_inline_odbo3s3ywJ1r9hszk_540.png" alt="image" /></p>
+
+<p>ちなみに近傍の様子です。それぞれSpan 5MHz、RBW 10kHzです。</p>
+
+<p>20MHz</p>
+
+<p><img src="https://68.media.tumblr.com/306c135f3a7a277988cade2ef6b09a85/tumblr_inline_odbo8cC0GM1r9hszk_540.png" alt="image" /></p>
+
+<p>100MHz</p>
+
+<p><img src="https://68.media.tumblr.com/b6f5edcc9468cf7a1fde27e3936f6d87/tumblr_inline_odbo9d0tID1r9hszk_540.png" alt="image" /></p>
+
+<p>200MHz。ここまでは、近傍はほとんど差がありません(測定系の位相雑音程度)。</p>
+
+<p><img src="https://68.media.tumblr.com/ccc4df40f3116afa7d7962e9d6b96a0f/tumblr_inline_odboa4h4n21r9hszk_540.png" alt="image" /></p>
+
+<p>300MHz。近傍の位相ノイズが増えてきます。さすがに仕様範囲外ですので。</p>
+
+<p><img src="https://68.media.tumblr.com/0cb886af925b288fbe42755b5086c5a1/tumblr_inline_odboampgRT1r9hszk_540.png" alt="image" /></p>
+
+<p>312MHz。このあたりが限界でした。位相ノイズが相当多くなっています。無理をしている様子がわかります。一方Spurのほうは逆にレベルが下がっています。</p>
+
+<p><img src="https://68.media.tumblr.com/7f93e0f1ebf7f37612e5087d87598513/tumblr_inline_odbodd2oUi1r9hszk_540.png" alt="image" /></p>
+
+<p>ここまではキャリア周辺を示しましたが、方形波ですからハーモニクスが大量に出ています。100MHzに設定し、1GHzまで見た場合こんな感じになります。もちろん奇数次が主ですが、偶数次もある程度存在します。</p>
+
+<p><img src="https://68.media.tumblr.com/3654cddefcf4be8c7948cb5b18c4f6e7/tumblr_inline_odbq35aFDT1r9hszk_540.png" alt="image" /></p>
+
+<p>以上、Si5351Aの設定方法と、信号の質について紹介しました。設定方法は他にも選択肢があるので、合わせて信号の質は変化すると思いますが、傾向は参考になると思います。</p>
+
+<p>低い周波数での出力は比較的綺麗ですが、高い周波数では注意が必要でしょう。もちろん基板レイアウトによって差が出てくるはずです。特に多出力を活用する場合は注意が必要です。販売されているいわゆるブレイクアウトボードの類では、RF的には駄目そうなものもありますので注意が必要です。</p>
+
+<p>驚いたのは300MHz超まで出力可能なことでした。さすがに信号の品質的にはイマイチなので注意が必要ですが、例えばVNAが目的であれば問題になりませんし、せっかくのこの能力を活用したいと思っています。</p>
+
+<p>リファレンス</p>
+
+<ul>
+<li><a href="../2016-01-29-si5351a-spectrum-with-arduino-pro-micro">前回の実験</a></li>
+<li><a href="../2016-03-06-frisksdr-tiny-standalone-sdr-receiver">Si5351Aを使ったFriskSDR</a></li>
+<li><a href="../2016-09-03-nanovna-mini-vector-network-analyzer-in-development">Si5351Aを使ったNanoVNA(実験中)</a></li>
+<li>Si5351Aデータシート <a href="https://www.silabs.com/Support%20Documents/TechnicalDocs/Si5351-B.pdf" target="_blank">https://www.silabs.com/Support%20Documents/TechnicalDocs/Si5351-B.pdf</a></li>
+<li>Sillicon Laboratories Application Note 619: Manually Generating an Si5351 Register Map <a href="https://www.silabs.com/Support%20Documents/TechnicalDocs/AN619.pdf" target="_blank">https://www.silabs.com/Support%20Documents/TechnicalDocs/AN619.pdf</a><br /></li>
+<li>設定コードの例 <a href="https://gist.github.com/edy555/f1ee7ef44fe4f5c6f7618ac4cbbe66fb" target="_blank">https://gist.github.com/edy555/f1ee7ef44fe4f5c6f7618ac4cbbe66fb</a></li>
+<li>Adafruitsのチュートリアル <a href="https://learn.adafruit.com/adafruit-si5351-clock-generator-breakout" target="_blank">https://learn.adafruit.com/adafruit-si5351-clock-generator-breakout</a></li>
+<li>Adafruitsのライブラリ <a href="https://github.com/adafruit/Adafruit_Si5351_Library" target="_blank">https://github.com/adafruit/Adafruit_Si5351_Library</a></li>
+<li>EtherkitのArduino向けライブラリ。これには任意周波数設定のためのコードが含まれている。 <a href="https://github.com/etherkit/Si5351Arduino" target="_blank">https://github.com/etherkit/Si5351Arduino</a></li>
+</ul>
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Sep 11, 2016</time>
+	<a href="https://ttrf.tk/posts/2016-09-11-si5351a-configuration-how-to-and-signal-quality/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/si5351">si5351</a>  <a class="category" href="https://ttrf.tk/tags/frisksdr">frisksdr</a>  <a class="category" href="https://ttrf.tk/tags/nanovna">nanovna</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2016-09-11-si5351a-configuration-how-to-and-signal-quality%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2016-09-11-si5351a-configuration-how-to-and-signal-quality/" data-text="Si5351Aの使い方と動作" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2016-09-11-si5351a-configuration-how-to-and-signal-quality/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

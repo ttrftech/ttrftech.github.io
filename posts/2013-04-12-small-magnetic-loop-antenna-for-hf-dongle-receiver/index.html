@@ -1,0 +1,474 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>フラフープ・ループアンテナと直下用小型アンプを作ってみる</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/2013-04-12-small-magnetic-loop-antenna-for-hf-dongle-receiver/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Friday, Apr 12, 2013</time>
+<h2><a href="https://ttrf.tk/posts/2013-04-12-small-magnetic-loop-antenna-for-hf-dongle-receiver/" class="title">フラフープ・ループアンテナと直下用小型アンプを作ってみる</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          <p>ちょっとVNAはお休みして、アンテナの実験をしてみました。WebでHF帯の事例を見ているとループアンテナを使われている方が多いようです。良く名前を目にするΔ(デルタ)ループやWSML(wideband small magnetic loop)等いくつかの設計例が公開されています。</p>
+
+<p>原理を見てみるとインピーダンスの低い非共振のループエレメントを、インピーダンス変換と同相信号を除去する働きをする差動アンプで受けることにより、電界性の信号(ノイズ)を除き、磁界成分の信号のみを取り出すように動作するようです。</p>
+
+<p>動作も面白く、回路としてはシンプルですし、部品をチップ化すると小さなキットとしてちょうど良い規模になりそうです。HFコンバータの資材調達に合わせて、基板化して作ってみることにしました。ベースの設計はWSMLとして、調達可能な部品を念頭に若干アレンジしました。</p>
+
+<p>Trは原典通りにPN2222を使います。特性比較をした資料がありましたが、他の品種に比べて直線性に優れているようです。小さく作るためにSMDのSC-59パッケージを選んでしまったため、Pcが150mW程度しかありません。そのためIcを減らすよう各定数を変更しています。直線性が若干犠牲になるかもしれませんが、送信機の真横で使う訳ではないので良いことにしました。電源も任意の電圧で使えるようにレギュレータを省き、代わりにTrによるリップルフィルタを入れました。トロイダルコアは、どうしても必要な一つだけにとどめ、他はチップFBとLに変更しています。</p>
+
+<p><a href="http://i.minus.com/ibaQSQfLFtLe2h.png" target="_blank"><img src="http://media.tumblr.com/5f3ae4827c1a24c7dda6449606de8d3d/tumblr_inline_ml5e72hL5e1qz4rgp.png" alt="image" /></a></p>
+
+<p>レイアウトで部品は原則として片面のみに配置します。差動のバランスと、入出力のアイソレーションに注意して回路とレイアウト、GNDパターンを作りました。コネクタはSMAも使えるようにしましたが、原典では、ケーブルとしてイーサネット用のツイストペアケーブルを用いています。これだと電源線にも使えますし安価に済みますので、RJ-45コネクタも使えるようにしておきました。イーサネットケーブルのインピーダンスは100Ωですが、電力伝送するわけでもないですしアンプの後なので問題にはならないということにして気にしないことにします。基板サイズは40x45mm程度になりました。基板の製造はFusionPCBです。</p>
+
+<p><img src="http://media.tumblr.com/839f4750af72090e8b6b7ca424b74da2/tumblr_inline_ml5b9o7Zug1qz4rgp.jpg" alt="image" /></p>
+
+<p>基板が到着したあと、なんやかんやでひと月程放置していましたが、先週ようやく作り始めました。試作なので動作を確認しながら進めます。まず電源から実装して動作OKなら、次いでバイアス抵抗を付けて電圧を測って、Trを付けてIcを確認してと順に進めます。DC動作がOKなら最後にトランスを巻いて取り付けます。コアはFT50-75、大きめのコアなので巻線にはフラットケーブルの細い線を３本割いて５回巻きのトリファイラとしました。<img src="http://media.tumblr.com/055ece73d64432705296e31fe4aacafb/tumblr_inline_ml5bwiWY6M1qz4rgp.jpg" alt="image" /></p>
+
+<p>トランスを基板上のパターンに取り付けます。コネクタを付けて完成です。SMAコネクタを切らしていたのでピンヘッダを付けてあります。最近同軸コネクタの代わりにピンヘッダを使っていますが付け外しが簡単で思いのほか便利です。アンテナ側はネジ端子にしています。手持ちの関係で写真では２端子ですが、シールドループにもできるようにGNDも合わせて３端子のパターンにしています。</p>
+
+<p>12V動作の時には全体で60mA程の消費電流になりました。Trが100mW程度消費しているので若干暖まります。</p>
+
+<p><img src="http://media.tumblr.com/cfe5c3c8d54daedca348562d9331cf67/tumblr_inline_ml5ap7LJ9e1qz4rgp.jpg" alt="image" /></p>
+
+<p>ループですが、検討のすえ組立式のフラフープにアルミテープを巻いてみることにしました(いずれも100円ショップ=ダイソーで買うことができます)。これなら軽量でかつ安価です。ループはインダクタンスが低いことが低ノイズということで、エレメントは太いほうが良いのですが、フラフープは太さが3cm弱なのでその点でも好都合です。直径は66cmほどです。アルミテープの巻き始めと巻き終わりは離しておき、ここに電線を接続します。テープの幅が足りないので全体をカバーしきれず地のプラスチックの派手な色が若干見えてしまっていますが、2/3はカバーしているので電気的磁気的な影響はほとんどないはずです。導通を確認したところ、思いのほか抵抗が僅少です。テープながらさすがアルミです。ただし屋外で使うには、耐候性の点で期待できないかもしれません。</p>
+
+<p><img src="http://media.tumblr.com/6f076b08b6cd89c535875edc41ec7e36/tumblr_inline_ml5ai4Dnht1qz4rgp.jpg" alt="image" /></p>
+
+<p>インダクタンスメータで計ってみると、1.15uHでした。</p>
+
+<p><img src="http://media.tumblr.com/33ed03ba8498fd4e246d6b8fd4b56d56/tumblr_inline_ml5cbkgXMU1qz4rgp.jpg" alt="image" /></p>
+
+<p>まずは実験ということで、室内で試してみます。HFコンバータにRTL2832Uドングルをつなぎます。ループとアンプは、本来は直接繋ぐ想定ですが、近くにあると実験の邪魔なのでとりあえず平行電線でつないでおきます。</p>
+
+<p><img src="http://media.tumblr.com/db5438651a411e6b75eb925072bf6d38/tumblr_inline_ml5ao04rU91qz4rgp.jpg" alt="image" /></p>
+
+<p>なんと室内の壁に立てかけたループアンテナで、ちゃんと7MHzを聞くことができました。</p>
+
+<p><img src="http://media.tumblr.com/2209f337b8df1b406b4830775ff7d0eb/tumblr_inline_ml5cw99pb91qz4rgp.png" alt="image" /></p>
+
+<p>ループの向きで感度がかなり変わります。指向性というよりヌルが明瞭にあることがよくわかります。資料に書かれていたようにループアンテナの特性が実感できました。</p>
+
+<p>本当なら屋外に設置して実験してみたいところです。ようやく屋根の雪も融けて無くなり、長いイーサネットケーブルも買ってきましたので、近日中に試してみたいと考えています。</p>
+
+<p>アンプの能力ですが、戯れにSGから信号を入れて、同相信号がどの程度除去されるか、また歪みがどの程度出るか試してみました。結果を記録していませんが、いずれも予想以上に少ない感じでした。また、電源電圧を下げてどこまで使えるか試してみましたが、4V以上で動作を始めるようです。簡便に済むUSBの5Vでも一応大丈夫なようです。</p>
+
+<p>トランスにトロイダルコアを使いましたが、ちょっと不格好です。どうせRJ-45コネクタを使うのであればパルストランスが入ったものを使えば一石二鳥と考えて、入手可能なもので探してみたのですが、ちょうど良いものが見つかりませんでした。引き続き探してみたいと思っています。他のトランスについても検討しています。とはいえ、トランスを巻くのは自作らしさもあるので正直捨てがたいのですが。</p>
+
+<p>リファレンス</p>
+
+<ul>
+<li>WSML by LZ1AQ <a href="http://www.lz1aq.signacor.com/docs/wsml/wideband-active-sm-loop-antenna.htm" target="_blank">http://www.lz1aq.signacor.com/docs/wsml/wideband-active-sm-loop-antenna.htm</a></li>
+<li>日本語訳(翻訳:福永氏) <a href="http://www5a.biglobe.ne.jp/~mitu/wsml_eng_jpn.pdf" target="_blank">http://www5a.biglobe.ne.jp/~mitu/wsml_eng_jpn.pdf</a></li>
+<li>国内の設計例Δ(デルタ)ループ9。製作されている方が多いです。 <a href="http://home.earthlink.net/~christrask/Bipolar%20Transistor%20Evaluation.pdf" target="_blank">http://www.kit.hi-ho.ne.jp/akage/DLOOP9D.html</a></li>
+<li>バイポーラトランジスタ直線番長実測比較 <a href="http://home.earthlink.net/~christrask/Bipolar%20Transistor%20Evaluation.pdf" target="_blank">http://home.earthlink.net/~christrask/Bipolar%20Transistor%20Evaluation.pdf</a></li>
+</ul>
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Apr 12, 2013</time>
+	<a href="https://ttrf.tk/posts/2013-04-12-small-magnetic-loop-antenna-for-hf-dongle-receiver/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/antenna">antenna</a>  <a class="category" href="https://ttrf.tk/tags/pcb">pcb</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2013-04-12-small-magnetic-loop-antenna-for-hf-dongle-receiver%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2013-04-12-small-magnetic-loop-antenna-for-hf-dongle-receiver/" data-text="フラフープ・ループアンテナと直下用小型アンプを作ってみる" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2013-04-12-small-magnetic-loop-antenna-for-hf-dongle-receiver/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

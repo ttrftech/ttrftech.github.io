@@ -1,0 +1,546 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>VNA製作(6):matplotlibとSciKit-RFによる校正とスミスチャートのプロット</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/2013-03-30-vna-plot-smith-chart-and-calibrate-with-scikit-rf/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Saturday, Mar 30, 2013</time>
+<h2><a href="https://ttrf.tk/posts/2013-03-30-vna-plot-smith-chart-and-calibrate-with-scikit-rf/" class="title">VNA製作(6):matplotlibとSciKit-RFによる校正とスミスチャートのプロット</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          <p>VNAにはスミスチャートは欠かせません。このあたりを実現したいと調べていたところ、素晴らしいツールに出会いました。matplotlibとSciKit-RFです。これらを使って、スミスチャートの描画と、キャリブレーションが一気に片付きそうです。まだ試行中ですが、現時点でできているところまでを整理のために書いておきます。</p>
+
+<p>matplotlibは、pythonで実装された種々多様なグラフを作成できるツールキットです。その実力については公式サイトにある作例をご覧頂きたいと思いますが、驚くほど柔軟で、様々な種類のグラフを任意のフォーマットで出力できます。PDFやSVGの他、GUIツールキットに埋め込んで使うことも可能です。以前紹介したRTLSDR-Scannerもmatplotlibを使用していました。matplotlibは、そのときにhomebrewでインストール済でしたが、Mac OSXの場合、若干の修正が必要でした。これについては<a href="../2013-02-05-viewing-widespan-spectrum-with-rtl2832u-rtlsdr-scanner">その記事</a>を参照してください。</p>
+
+<p>さっそく、matplotlibを使ってVNAの測定結果の生数値をプロットしてみました。データの読み込みもとても簡単です。</p>
+
+<p><img src="http://media.tumblr.com/4680c07e35d7546b7d53a20036b4b45f/tumblr_inline_mkgpblqDiN1qz4rgp.png" alt="image" /></p>
+
+<p>極座標表示もちょっと変えるだけでできます。</p>
+
+<p>3D表示も可能です。周波数対極座標表示を合わせて3Dにしてみました。</p>
+
+<p>3Dのグラフはマウスで回転させることができますので、回路の挙動をカーブを回転させながら任意の方向から眺めることができます。</p>
+
+<p>matplotlibには射影変換にも対応しており、スミスチャートのような直交射影のグラフも実装できそうです。</p>
+
+<p>さて、グラフ化は方法が見えてきたので、続いてデータの入出力形式をちゃんとしたものにしておきたいと思います。この世界の標準としてtouchstoneフォーマットというものがあり、本物のVNAやシミュレータなどのツールはこの形式を読み書きできるようになっています。デバイス等の特性もこのフォーマットで提供されていることが多いです。これに合わせておけば、結果を確認したりするのにいろいろ便利です。</p>
+
+<p>touchstone形式は、シンプルなテキストでそれほど難しいものではなく、今使っている適当な中間ファイルを若干修正すればOKそうです。とはいえ、ファイルフォーマット系の実装はいい加減に作ると、のちのち残念なことになりがちですので、先人の成果を利用させて頂くのが定石です。探してみると案の定pythonのライブラリがいくつか見つかりました。一つはnportというもので、touchstoneの読み書きができるようです。しかもスミスチャートの描画機能も持っているようですが、enthoughtという商用のディストリビューションの存在が前提となっているようです。</p>
+
+<p>もう一つ見つけたのは、こちらもpythonのライブラリでSciKit-RF、通称skrfです。こちらはミリ波などを対象にして回路網をコードで記述してシミュレーションすることが主眼のツールキットのようです。Sパラメータを含むZ,Yなど任意のパラメータファイルの入出力機能や、スミスチャートの他mag, db, ang, re/imなど様々なグラフを生成できるようです。SciKit-RFのグラフ描画の中身には、matplotlibが使われています。</p>
+
+<p>なんと驚いたことに、SciKit-RFにはキャリブレーションの機能もありました。たとえばSOL法で、short, open, loadの終端について、実機での計測結果と理想状態を組にしてCalibrationオブジェクトに与えると校正値を得ることができ、これをDUTの測定結果に適用すると校正された測定結果が得られるという仕組みです。サイトにはサンプルコードまで載っており、校正が殆ど手間いらずで実装できてしまいそうです。</p>
+
+<p>手っ取り早くこれらの機能を利用してみるには、自作VNAの測定結果をtouchstone形式にしてしまえば、あとはそれを加工したり、校正したり、チャート描画することができそうです。さっそく試してみました。</p>
+
+<p>まずはSciKit-RFをインストールしておきます。pipコマンドを使えばすぐにインストールすることができます。</p>
+
+<pre><code class="language-bash">$ pip install scikit-rf
+</code></pre>
+
+<p>前回gnuplotで描画するために、gnuradioにより計測値の取得、ならびにdBと位相角(ラジアン)への変換をして、テキストファイルに書き出していました。これをtouchstone形式にしたいわけです。そのため内部で一度skrfのNetworkオブジェクトを作ることにしました。skrfのAPIを確認すると、測定値を複素数で扱うのが最も簡単です。位相角と振幅から計算しても良いですが、gnuradioで直接、複素数値が得られるようにスクリプト(フローグラフ)を改造しました。各周波数で計測を行い、得られた複素数値と周波数をそれぞれ配列に入れてNetworkオブジェクトを作り、write_touchstone関数でファイルに書き出すだけです。コマンドのオプション引数で、ファイル名を指定できるようにしました。</p>
+
+<p>こうして生の測定値をtouchstoneファイルで得ることができるようになりました。</p>
+
+<p>続いて校正です。ポートをshort, open, loadの各状態で測定した結果を保存しておきます。各終端状態の実現ですが、load状態は50Ωのターミネータを使い、open状態は端子解放のままとします。short状態は、SMAプラグを加工してショートプラグを作っておきました(首が折れて破損したSMAコネクタを利用しました)。</p>
+
+<p><img src="http://media.tumblr.com/85e42b9a8470fa57308a1676f9b347af/tumblr_inline_mkgptjEqi11qz4rgp.jpg" alt="image" /></p>
+
+<p>測定は500MHzまでの範囲として、下記のようにコマンドで行います。</p>
+
+<pre><code class="language-bash">$ mkdir 500
+$ ./vna\_probe.py -s 1e6 -e 500e6 -o 500/open
+$ ./vna\_probe.py -s 1e6 -e 500e6 -o 500/short
+$ ./vna\_probe.py -s 1e6 -e 500e6 -o 500/load
+</code></pre>
+
+<p>こうすると、500というディレクトリに、open.s1p, short.s1p, load.s1pファイルが得られます。これがこの周波数範囲用の校正データとなります。またそれぞれの状態における理想値もtouchstoneファイルに用意しておく必要があるので、ideal.pyスクリプトで作成しました。これらのデータを使って、何かDUTの測定を行い校正してみます。</p>
+
+<p>まずシンプルな測定例として、DUTとして15cm程度の同軸ケーブルの先に100Ωの抵抗を付けたものをポートに接続してみました。</p>
+
+<p><img src="http://media.tumblr.com/d832a64762a10195babb5c44556be931/tumblr_inline_mkgpv8E4Ej1qz4rgp.jpg" alt="image" /></p>
+
+<p>測定はコマンドで行います。校正作業をやった同じ周波数範囲で測定を行います。</p>
+
+<pre><code class="language-bash">$ ./vna\_probe.py -s 1e6 -e 500e6 -o measured
+</code></pre>
+
+<p>measured.s1pファイルに生の測定値が得られます。これをさきほどの校正値で校正します。コマンドラインは以下です。結果はcalibrated.s1pに得られます。</p>
+
+<pre><code class="language-bash">$ ./calibrate.py -c 500 measured.s1p calibrated.s1p
+</code></pre>
+
+<p>校正された結果をプロットしますが、これもSciKit-RFの機能を使います。Networkオブジェクトにはplot_s_smithという関数があり、一発でチャートを描くことができます。</p>
+
+<pre><code class="language-bash">$ ./plot.py calibrated.s1p
+</code></pre>
+
+<p><img src="http://media.tumblr.com/34b65ec22a83619ab6739798739f4ee9/tumblr_inline_mkgn7bz4TJ1qz4rgp.png" alt="image" /></p>
+
+<p>それらしいチャートが得られました。右の100Ωの点(2+0j)から開始し、周波数が上がると同軸の長さ分ぐるっと回転している様子がわかります。校正面はコネクタ部分ですので、同軸が測定対象に含まれています。はて、回転方向が逆な気もします。どこかで符号を間違っているようです。また回転につれて膨らんでいっています。まぁまずはご愛嬌ということで。</p>
+
+<p>このウインドウは拡大等マウスで操作することも可能です。残念ながらスミスチャート上に周波数やマーカを表示することができないので、周波数がわかりません。実現したいところですが、もうすこし調べてみる必要があります。</p>
+
+<p>次に、何かそれなりに面白いDUTとして、144MHzと430MHzデュアルバンドトランシーバ用のホイップアンテナを接続してみました。</p>
+
+<p><img src="http://media.tumblr.com/8d10a21114da7ebd22a45cdc4bdc53ca/tumblr_inline_mkgpx69biO1qz4rgp.jpg" alt="image" /></p>
+
+<p>同じように計測、校正、プロットを行います。</p>
+
+<pre><code class="language-bash">$ ./vna\_probe.py -s 1e6 -e 500e6 -o measured
+$ ./calibrate.py -c 500 measured.s1p calibrated.s1p
+$ ./plot.py calibrated.s1p
+</code></pre>
+
+<p>するとこのようなチャートになりました。</p>
+
+<p><img src="http://media.tumblr.com/bb6f741b948bc78fcb574b761049e538/tumblr_inline_mkgld7Qgjl1qz4rgp.png" alt="image" /></p>
+
+<p>インピーダンスが中央に近づいて離れるのを2回転しているのがわかります。</p>
+
+<p>plot_it_allという関数もあり、これを使うとこのように複数のチャートを並べて表示することができます。振幅、位相、スミスチャート、複素数値の４つのグラフが表示されます。まるでどこかのVNAで見るような画面です。</p>
+
+<p><img src="http://media.tumblr.com/5c706dfeed8547c58ed969e46c17c1fa/tumblr_inline_mkgljdYwRq1qz4rgp.png" alt="image" /></p>
+
+<p>上の二つのグラフは横軸が周波数です。144MHz付近と450MHz付近で極があり、位相のほうはぐるっとまわっているのがわかります。たしかにデュアルバンド用のアンテナとして納得できる特性です。430MHz帯の中心がちょっと上(460MHz付近)にずれている様子もわかります。</p>
+
+<p>上記の測定は500MHzまでとしましたが、これは上の周波数の挙動が暴れて、全く納得できるものにならなかったためです。これはもう少し実験してみたいと思います。</p>
+
+<p>本当は、原典の論文でやっていたように、本物のVNAと比べてみたいところですが、残念ながら身近にそのような環境はありませんので、それらしい結果が得られたことで良しとしたいと思います。</p>
+
+<p>今回感じたのは、pythonによる理工系のツールの豊富さです。touchstone形式の読み書きなども、複数の実装がすぐ見つかり、コマンド1行で即座にインストールが完了し即座に使えてしまいます。いつものようにOSXで試していますが、基本的にプラットフォームに依存しませんので、LinuxやWindowsでも動作するはずです。今更ながらこの強力さには驚きを隠せません。</p>
+
+<p>SciKit-RFには他にバーチャルインスツルメントという機能もあるようです。これは本物のベクトルネットワークアナライザをGPIBで制御してパラメータの設定や自動測定を行い、測定結果を取り込んだうえで処理することができるようです。作っているVNAもこれと同じインターフェースで使えるようにできると面白いかもしれません。</p>
+
+<p>今回は反射特性(s11)のみを対象としましたが、スルー(s21)のほうも引き続き試してみたいと思います。</p>
+
+<p>リファレンス</p>
+
+<ul>
+<li>原典 <a href="http://sdr-kits.net/DG8SAQ/VNWA/Baier_VNWA2_QEX.pdf" target="_blank">http://sdr-kits.net/DG8SAQ/VNWA/Baier_VNWA2_QEX.pdf</a></li>
+<li>matplotlib <a href="http://matplotlib.org/" target="_blank">http://matplotlib.org/</a></li>
+<li><a href="../2013-02-05-viewing-widespan-spectrum-with-rtl2832u-rtlsdr-scanner">OSXへmatplotlibをhomebrewでインストールする</a></li>
+<li>touchstone形式の解説 <a href="http://ena.tm.agilent.com/e5071c/manuals/webhelp/jpn/index.htm#measurement/data_output/saving_trace_data_to_a_file.htm" target="_blank">http://ena.tm.agilent.com/e5071c/manuals/webhelp/jpn/index.htm#measurement/data_output/saving_trace_data_to_a_file.htm</a></li>
+<li><a href="http://www.vhdl.org/pub/ibis/connector/touchstone_spec11.pdf" target="_blank">http://www.vhdl.org/pub/ibis/connector/touchstone_spec11.pdf</a></li>
+<li>nport <a href="https://github.com/bmachiel/python-nport" target="_blank">https://github.com/bmachiel/python-nport</a></li>
+<li>SciKit-RF <a href="http://scikit-rf.org/" target="_blank">http://scikit-rf.org/</a></li>
+<li>作者による校正操作@YouTube(旧mwavepy) <a href="http://www.youtube.com/watch?v=oeTsGYP91go" target="_blank">http://www.youtube.com/watch?v=oeTsGYP91go</a></li>
+<li>pylab-plot.py <a href="https://gist.github.com/edy555/5274996" target="_blank">https://gist.github.com/edy555/5274996</a></li>
+<li>pylab-polar.py <a href="https://gist.github.com/edy555/5275009" target="_blank">https://gist.github.com/edy555/5275009</a></li>
+<li>pylab-plot3d.py <a href="https://gist.github.com/edy555/5275017" target="_blank">https://gist.github.com/edy555/5275017</a></li>
+<li>vna_probe.py <a href="https://gist.github.com/edy555/5275763" target="_blank">https://gist.github.com/edy555/5275763</a></li>
+<li>ideal.py <a href="https://gist.github.com/edy555/5275768" target="_blank">https://gist.github.com/edy555/5275768</a></li>
+<li>calibrate.py <a href="https://gist.github.com/edy555/5275771" target="_blank">https://gist.github.com/edy555/5275771</a></li>
+<li>plot.py <a href="https://gist.github.com/edy555/5275775" target="_blank">https://gist.github.com/edy555/5275775</a></li>
+</ul>
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Mar 30, 2013</time>
+	<a href="https://ttrf.tk/posts/2013-03-30-vna-plot-smith-chart-and-calibrate-with-scikit-rf/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/vna">vna</a>  <a class="category" href="https://ttrf.tk/tags/python">python</a>  <a class="category" href="https://ttrf.tk/tags/ad9859">ad9859</a>  <a class="category" href="https://ttrf.tk/tags/dds">dds</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2013-03-30-vna-plot-smith-chart-and-calibrate-with-scikit-rf%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2013-03-30-vna-plot-smith-chart-and-calibrate-with-scikit-rf/" data-text="VNA製作(6):matplotlibとSciKit-RFによる校正とスミスチャートのプロット" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2013-03-30-vna-plot-smith-chart-and-calibrate-with-scikit-rf/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

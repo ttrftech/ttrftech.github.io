@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Antenna on Computer &amp; RF Technology</title>
+    <link>https://ttrf.tk/tags/antenna/</link>
+    <description>Recent content in Antenna on Computer &amp; RF Technology</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Sun, 27 Dec 2015 08:17:55 +0000</lastBuildDate>
+    
+	<atom:link href="https://ttrf.tk/tags/antenna/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GPSパッチアンテナをカラーコーンでかさ上げする</title>
+      <link>https://ttrf.tk/posts/2015-12-27-liftup-gps-antenna-to-keep-on-snow-pile/</link>
+      <pubDate>Sun, 27 Dec 2015 08:17:55 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2015-12-27-liftup-gps-antenna-to-keep-on-snow-pile/</guid>
+      <description>&lt;p&gt;実験用にGPSアンテナを屋上に置いているのですが、これまでは安価なパッチアンテナをトタン屋根に磁石で張り付けていただけでした。北海道は雪の季節、これからのハイシーズンにかけて屋根は1m近くの雪に埋もれてしまいます。このままではアンテナが埋もれて使えなくなってしまいますので、積雪対策をしてみました。写真は(今年は雪が遅いのでまだ埋もれていない)対策前のパッチアンテナです。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>フラフープアンテナでHFを受信してみる</title>
+      <link>https://ttrf.tk/posts/2013-05-18-receiving-hf-with-wideband-magnetic-loop-for-rtl-sdr/</link>
+      <pubDate>Sat, 18 May 2013 09:07:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-05-18-receiving-hf-with-wideband-magnetic-loop-for-rtl-sdr/</guid>
+      <description>&lt;p&gt;さてアップするのが遅くなりましたが、フラフープアンテナを外に上げてみました。&lt;/p&gt;
+
+&lt;p&gt;まずループに直結するアンプをケースに入れます。とりあえず100均で密閉容器(いわゆるタッパー)を買ってきました。3個で105円と格安です。材質はポリプロピレンとポリエチレンなので耐候性は期待できませんが、とりあえずの実験なので気にしません。ループを通すための大穴を空けますが、ステップドリルを使います。簡単に大きい穴を綺麗に空けられるので、ちょっと高価ですが買って良かった工具です。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>フラフープ・ループアンテナと直下用小型アンプを作ってみる</title>
+      <link>https://ttrf.tk/posts/2013-04-12-small-magnetic-loop-antenna-for-hf-dongle-receiver/</link>
+      <pubDate>Fri, 12 Apr 2013 15:25:00 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-04-12-small-magnetic-loop-antenna-for-hf-dongle-receiver/</guid>
+      <description>&lt;p&gt;ちょっとVNAはお休みして、アンテナの実験をしてみました。WebでHF帯の事例を見ているとループアンテナを使われている方が多いようです。良く名前を目にするΔ(デルタ)ループやWSML(wideband small magnetic loop)等いくつかの設計例が公開されています。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

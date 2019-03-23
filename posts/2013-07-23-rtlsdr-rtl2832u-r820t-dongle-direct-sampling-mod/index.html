@@ -1,0 +1,480 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>RTL-SDR(RTL2832U/R820T)ドングルをダイレクトサンプリング改造してみる</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/2013-07-23-rtlsdr-rtl2832u-r820t-dongle-direct-sampling-mod/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Tuesday, Jul 23, 2013</time>
+<h2><a href="https://ttrf.tk/posts/2013-07-23-rtlsdr-rtl2832u-r820t-dongle-direct-sampling-mod/" class="title">RTL-SDR(RTL2832U/R820T)ドングルをダイレクトサンプリング改造してみる</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          <p>(2014/5/12訂正) </p>
+
+<p>RTL2832UドングルでHF帯を受信する方法として、ダイレクトサンプリングと呼ばれる方法があります。ドングルを改造することにより、R820TやE4000といったチューナチップをバイパスして、直接RTL2832UにRF信号を入力します。</p>
+
+<p>以前E4000を使ったドングルを改造した件について書きましたが、最近R820Tチップを使ったドングルの入手が容易になってきたこともありますので、こちらのドングルでダイレクトサンプリングを試してみることにしました。</p>
+
+<p>通常のダイレクトサンプリング改造では、チューナチップとRTL2832Uの間の接続をカットして、直接信号を入力する方法が報告されています。以前のメモでもそのように改造していました。実はR820TチューナチップはLow-IF方式を使っており、RTL2832UのI信号入力(1,2pin)のみが使用されており、Q入力(3,4pin)が空いたままになっています。この空いているQ入力を使用することで、ドングルの機能を損なうことなくダイレクトサンプリング化することが可能です。</p>
+
+<p>今回の改造写真です。</p>
+
+<p><img src="https://66.media.tumblr.com/64d60aea1344d1e0346a0946cf71081a/tumblr_inline_paggphwYlh1r9hszk_540.jpg" alt="image" /></p>
+
+<p>このドングルの実装パターンでは、RTL2832UチップのQ入力4,5pinは外部に信号が引き出されていません。そのため、MLFパッケージのICの脇にわずかに見える0.5mm間隔で並んでいるピンに信号を接続する必要があります。</p>
+
+<p>前回の改造ではチップとアンテナを接続には手巻きのトランス(バラン)を使用していました。今回は既製品の表面実装用トランスを使用してみました。大変小型(4x4mm)なため、基板の上に直接載せてしまうことが可能です。</p>
+
+<p>基板上にはアンテナ用の同軸コネクタを追加するスペースがありません。代わりにピンヘッダを横倒しに置くことにしました。この設置方法であれば、ダイレクトサンプリングを使用しないときはケースに納めてしまうことができます。</p>
+
+<p>拡大写真です。配線は0.2mmのウレタン線を使用しています。ピン間は狭いですが、なんとか接続することができました。ルーペでも詳細は見えません。ほんとうは実体顕微鏡が欲しいところです。見えないので、テスターで接続を確認しておきます。ピンヘッダとトランスはホットボンドで仮固定していますが、ドングルはかなりの熱を発生しますので、ボンドが柔らかくなってしまい、ちゃんとした固定になっていませんが、とりあえずこのまましのぎます。</p>
+
+<p><img src="https://66.media.tumblr.com/0fd007e2bfae5a789f6867ad77f370eb/tumblr_inline_paggphiy321r9hszk_540.jpg" alt="image" /></p>
+
+<p>さて、改造ができたら、次は使い方です。いつものようにSDR用のソフトウェアとしてgqrxを使用します。ダイレクトサンプリングをQ入力で使うように設定しなければなりません。ソースコードを確認したところ、オプションパラメータとして&rdquo;direct_samp&rdquo;に2以上の値を設定することでQ入力を使う指定になるようです。これまでは&rdquo;direct_samp&rdquo;に1を指定していましたが、これはI入力を使用するという意味だったようです。gqrxの設定画面でパラメータを下記のように設定します。このへんのパラメータはrtl_sdrコマンドのオプションやgnuradioのgr-osmosdrブロックのパラメータと共通のはずです。</p>
+
+<p><img src="https://66.media.tumblr.com/64f9664b38b1d2fee0dbec88dd84a92f/tumblr_inline_paggphD06F1r9hszk_540.png" alt="image" /></p>
+
+<p>さて、さっそく受信してみます。アンテナとして屋外に設定してあるループアンテナを使用します。ピンヘッダにアンテナからの信号を接続します。</p>
+
+<p><img src="https://66.media.tumblr.com/0a203c4d1a0210308589c3c65b958561/tumblr_inline_paggpi4clu1r9hszk_540.jpg" alt="image" /></p>
+
+<p>実際に受信してみたところ、ループアンテナを使うとAM放送の混信が著しいことがわかりました。ループアンテナのアンプの電圧を下げ、ゲインを落としてちょうど良いところを探ったところ、受信に成功しました。</p>
+
+<p><img src="https://66.media.tumblr.com/1f6bf57cea73de6ededce434c2e80b47/tumblr_inline_paggpixPXx1r9hszk_540.png" alt="image" /></p>
+
+<p>動いた証拠に動画です。</p>
+
+<p><a href="http://youtu.be/ob3crOo_meI" target="_blank">http://youtu.be/ob3crOo_meI</a></p>
+
+<p>ちなみにループアンテナがフルゲインの時はこんな感じになります。放送波の混信が等間隔に並んで帯域を埋め尽くします。中波放送の大振幅の信号でADCの入力が飽和し、クリップされているのだと思います。</p>
+
+<p><img src="https://66.media.tumblr.com/e22ab377e2a487de11b8c2710909c904/tumblr_inline_paggpjcu3I1r9hszk_540.png" alt="image" /></p>
+
+<p>印象として、ダイレクトサンプリングは、放送波の混信に弱いです。AM放送だけではなく、FM放送も入ってきてしまいます。ループアンテナのような広帯域のアンテナを使用するのであれば、AM放送波をカットするフィルタは必要だと思います。もしくは目的のバンド専用のアンテナを使用して妨害波の強度が落ちるような環境であれば大丈夫だと思います。</p>
+
+<p>R820Tドングルのダイレクトサンプリング改造は、チューナの機能を殺してしまわずにできそうだということは思いついていたのですが、今回実際に確かめることができました。また小型のトランスを使うことでコンパクトに納めることができました。一方弱点としてIMが出る、そして感度の低さがあります。コンバータに比べて感度は20dB程度低いようです。とはいってもそれなりに受信することは可能なのが面白いところです。</p>
+
+<p>以上、改造の一例としてご参考になれば幸いです。</p>
+
+<p>ドングルの改造ネタとしては、懸案の水晶発振子の安定性改善があります。これもアイデアがありますので、近いうちに実験してみたいと考えています。</p>
+
+<p>(2014/5/12訂正) Q入力のピンが4,5pinとすべきところを、当初3,4pinと誤っておりました。改造当初勘違いしていたのを、記事をアップ直後にモノは修正していたのですが、記事を直し忘れていました。写真と文を訂正しました。ゆうぱぱさんに早い段階で指摘いただいていたのですが、記事の訂正が遅れてしまいました。申し訳ありません。</p>
+
+<ul>
+<li><a href="../2012-11-22-rtlsdr-mods-for-7mhz-reception-with-gqrx">前回のダイレクトサンプリング改造</a></li>
+<li>ダイレクトサンプリング改造の原典YU3MA <a href="http://mikikg.wordpress.com/2012/08/22/prepravka-dvb-t-usb-prijemnika-sa-rtl2832u-za-hf-0-28mhz/" target="_blank">http://mikikg.wordpress.com/2012/08/22/prepravka-dvb-t-usb-prijemnika-sa-rtl2832u-za-hf-0-28mhz/</a></li>
+<li>今回使用したトランスTC4-1TG+ <a href="http://www.minicircuits.com/pdfs/TC4-1T+.pdf" target="_blank">http://www.minicircuits.com/pdfs/TC4-1T+.pdf</a></li>
+<li>国内のドングル販売 aitendo: <a href="http://www.aitendo.com/product/7025" target="_blank">http://www.aitendo.com/product/7025</a> amazon:　<a href="http://www.amazon.co.jp/dp/B00DUKWIXE" target="_blank">http://www.amazon.co.jp/dp/B00DUKWIXE</a></li>
+<li>参考ソース gr-osmosdr: <a href="http://cgit.osmocom.org/gr-osmosdr/tree/lib/rtl/rtl_source_c.cc#n211" target="_blank">http://cgit.osmocom.org/gr-osmosdr/tree/lib/rtl/rtl_source_c.cc#n211</a></li>
+<li>librtlsdr: <a href="http://cgit.osmocom.org/rtl-sdr/tree/src/librtlsdr.c#n1067" target="_blank">http://cgit.osmocom.org/rtl-sdr/tree/src/librtlsdr.c#n1067</a></li>
+</ul>
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Jul 23, 2013</time>
+	<a href="https://ttrf.tk/posts/2013-07-23-rtlsdr-rtl2832u-r820t-dongle-direct-sampling-mod/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/rtlsdr">rtlsdr</a>  <a class="category" href="https://ttrf.tk/tags/sdr">sdr</a>  <a class="category" href="https://ttrf.tk/tags/gqrx">gqrx</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2013-07-23-rtlsdr-rtl2832u-r820t-dongle-direct-sampling-mod%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2013-07-23-rtlsdr-rtl2832u-r820t-dongle-direct-sampling-mod/" data-text="RTL-SDR(RTL2832U/R820T)ドングルをダイレクトサンプリング改造してみる" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2013-07-23-rtlsdr-rtl2832u-r820t-dongle-direct-sampling-mod/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

@@ -1,0 +1,488 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>FriskSDRが動き始めました</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/2016-04-29-frisksdr-nanosdr-project/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Friday, Apr 29, 2016</time>
+<h2><a href="https://ttrf.tk/posts/2016-04-29-frisksdr-nanosdr-project/" class="title">FriskSDRが動き始めました</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          <p>FriskSDRプロジェクトはオシレータSi5351Aが動作するようになったところで中断していましたが、ようやく時間が取れるようになったので作業再開しています。I2Sが全二重で動作するようになったので、音が出るようになりました。アンテナを繋げばちゃんとAM放送が聞こえてきます。</p>
+
+<p><img src="https://67.media.tumblr.com/373f44dcfdb46a14ff13a02425eff40d/tumblr_inline_o6djxtS6ul1r9hszk_540.jpg" alt="" /></p>
+
+<p>今回のプロジェクトではChibiOSを使ってみています。STM32のチップのサポートが充実、USB対応、シェルがある、ペリフェラルの抽象化が適度、等々が魅力です。</p>
+
+<p>ところで、STM32F303でUSBを使うためにはクロックを供給する必須です(HSI:内部RCクロックでは動作しない)。通常はクリスタルを付けるのですが、今回はSi5351Aを載せたので、MCUのクロックとして8MHzをSi5351Aから生成し、MCUに供給するという構成にしています。ところがSi5351Aを初期化するためにI2CでMCUからコマンドを送る必要があります。</p>
+
+<p>このため、起動シーケンスとして、リセット直後RCオシレータ(HSI)で動作している間に、I2Cの初期化とコマンド送信し、クロックが起動したら外部クロック(HSE)に切り替えるという動作をしています。ChibiOSが起動する前に行う必要がありますので、この初期化はレジスタを直接操作して自前でおこないます。一方、起動後はI2Cの制御はChibiOS経由で行います。</p>
+
+<p>F303でUSBを使うため、USBのDPをプルアップ必要があるのですが、基板に入れ忘れた(F072では不要だった)のでリワーク。これでUSBが使えるようになるはずだったのですが、なぜか動作させることができませんでした。果たしてChibiOSのUSBがF303で動作するのか確信が持てなかったので、原因究明のためSTM32F3-Discoveryボードで試してみることにしました。Discoveryボードの良いところは、MCUに直結したUSBコネクタが用意されているので、ハードウェアのミスに悩まなくて済むことと、ChibiOSにDiscoveryボード用の基本的なサンプルがあることです。このサンプルにUSBとCDCを追加して動作確認したところこちらはあっさり動作OKでした。</p>
+
+<p>F303での実績ができたので、もう一度FriskSDRに戻って、いろいろ確認していると、プローブでチェックを繰り返した際に押しつぶされたハンダが延びてQFPの足の間でショートしているのを発見、これを直し、そしてChibiOSを最新にしてみたところ動作OKになりました。</p>
+
+<p><img src="https://41.media.tumblr.com/42606aed01ec6260c1e0827933c00083/tumblr_inline_o6djyg0kBg1r9hszk_540.jpg" alt="" /></p>
+
+<p>コマンドを追加できるようになれば、試行錯誤が容易になります。まずは、Si5351Aの周波数を設定するコマンドを追加してみます。周波数から分周器の係数を求めるところはちょっと悩みましたが、できてしまえば簡単です。波形をオシロで確認して自在に周波数を設定できていることが確認できました。続いてTLV320AIC3204コーデックを初期化するコードを、mbedでやっていたIQDDSからコピーしてきてクロック設定のみの修正して入れてみたところ、あっさりI2Sの波形が出てくるようになりました。あとはChibiOSのI2Sを調べて、コードで正弦波を発生させてI2Sで送るようにしてみたところ、ちゃんとトーンが出てきました。ここまでは作業が速かったです。自作のボードから最初に音が出るとやはり感動です。</p>
+
+<p>さて、SDRとして動作させるためには、ミキサした信号を取り込みつつ、音を再生する必要がありますから、I2Sを全二重で動作させる必要があります。全二重動作は、STM32F401ではIQDDSで実績があったのですが、あちらはmbedで、しかもSTM32のHALを直接操作して実現していました。</p>
+
+<p>ところがChibiOSを調べてみたところ、残念ながらI2SのFull Duplexには対応していないようなのです。シンボルは定義されているのですが、それを指定するとエラーになるようわざわざプリプロセッサ指定がしてあります。ここで困って、少し方針を考えたのですが、STM32のHALのコードを参考に、ChibiOSを全二重対応させてみることにしました。STM32のI2S Full Duplexはちょっと変なので、できればこのレイヤのコードは触りたくないのですが、仕方ありません。なるべく変更が少なくて済むよう、なんとかコードを追加しました。ちょっと重複が出てしまいましたが、動作させることが最優先にして目を瞑ります。少しデバッグして、無事Full Duplexが動作するようにできました。</p>
+
+<p>まずはループバックのテストとして、キャプチャバッファと再生バッファを共有する構成にして、ADCでキャプチャしたデータを、そのままDACに送り返されるようにします。そうしてスマホ用のマイクを接続して、音が通ることを確認します。</p>
+
+<p>これが確認できたら、ADCのルーティングを変更して、QSDミキサの出力を取り込むようにします。アンテナ代わりにリード線を接続して、Si5351Aの周波数をAM放送の周波数の4倍に設定(ジョンソンカウンタで分周されるため。NHK第一567kHzなら2268kHzに設定する)してみると、これだけであっさりと放送が聞こえてきます。AMの復調をしているわけではないので、音は少しおかしい(周波数シフトしているだけなので、Loの周波数のわずかなずれで、両サイドの側波帯から再生される音が上下逆方向にずれる)のですが、聞き取ることは十分可能です。</p>
+
+<p>Si5351Aの周波数には、ずれがわずかにあります。30ppm程度で十分許容範囲といえばそうなのですが、クリスタルの負荷Cの設定で合わせられるかなと試したところ、6pFの設定だと20ppmほど高い。8pFの設定だと30ppm強低いと、どっちもどっちでした。結局する設定する周波数に係数を乗じて合わせるようにしました。調整量は-20750ppb(part per billion)としました。</p>
+
+<p>PGAのゲイン設定や再生音量の設定コマンドを追加していろいろ試しています。screen /dev/cu.usbmodem401でシリアルターミナルを開くとChibiOSのプロンプトが現れます。helpで追加したコマンドも表示されます。引数を付けてコマンドにいろいろ試せます。強いて不満があるとすると、コマンドヒストリが欲しいところです。</p>
+
+<p><img src="https://40.media.tumblr.com/5736a1d44c0acee37e38b22fd3c8f1e8/tumblr_inline_o6cykeu4h21r9hszk_540.png" alt="image" /></p>
+
+<p>動画です。画面に見えているのはST-Link2ですが、USBも接続されています。コネクタで接続されたスピーカで音が再生されています。</p>
+
+<p>今のところ判明した課題は、</p>
+
+<ul>
+<li><p>TLC320AIC3204にはDCオフセットがあるようで、QSDミキサとの間にカップリングコンデンサを省略したのは拙かった。PGAのゲインを上げるとオフセットが飽和してしまう。DCを通しくてCを略してみたのだが、さすがに無理だったようだ。</p></li>
+
+<li><p>全体のゲインは少し不足を感じる。AM放送なら大丈夫だが、他は少し厳しいかも。</p></li>
+
+<li><p>アンテナ端子に僅かにLoが漏れる。この意味でもRFアンプは欲しいところ。</p></li>
+
+<li><p>消費電流は70mAと多め。100mAのLiPoだと1時間ちょいで空になってしまう。</p></li>
+</ul>
+
+<p>ミスもいくつかありましたので、改めて修正した基板を作る必要があると考えています。</p>
+
+<p>引き続き、</p>
+
+<ul>
+<li>I2C LCDディスプレイの追加</li>
+<li>レバースイッチの追加</li>
+<li>USB複合デバイスとしてUSB Audioを追加し、キャプチャデータを取り込んでSDRソフトウェアから使えるようにする</li>
+<li>同じくUSB複合デバイスとしてUSB HIDを追加し、HIDで制御可能とする</li>
+<li>電源管理(消費電流削減とオフ状態の実装)。クロックを下げる、スリープを入れてみるなど。</li>
+</ul>
+
+<p>等々を進めたいと思います。</p>
+
+<p>実はプロジェクト名はNanoSDRにしてあるのですが、FriskSDRという名称も含めて再検討中です。</p>
+
+<p>リファレンス</p>
+
+<ul>
+<li>I2S FullDuplex対応を追加したChibiOS <a href="https://github.com/edy555/ChibiOS/tree/I2SFULLDUPLEX" target="_blank">https://github.com/edy555/ChibiOS/tree/I2SFULLDUPLEX</a></li>
+<li>作業中のリポジトリnanosdr  (githubに載せる予定)</li>
+</ul>
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Apr 29, 2016</time>
+	<a href="https://ttrf.tk/posts/2016-04-29-frisksdr-nanosdr-project/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/sdr">sdr</a>  <a class="category" href="https://ttrf.tk/tags/stm32">stm32</a>  <a class="category" href="https://ttrf.tk/tags/si5351">si5351</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2016-04-29-frisksdr-nanosdr-project%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2016-04-29-frisksdr-nanosdr-project/" data-text="FriskSDRが動き始めました" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2016-04-29-frisksdr-nanosdr-project/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

@@ -1,0 +1,509 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>マイクロストリップラインでADS-B用の1090MHz BPFフィルタを作ってみる</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/2015-05-03-microstripline-ads-b-filter/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Sunday, May 3, 2015</time>
+<h2><a href="https://ttrf.tk/posts/2015-05-03-microstripline-ads-b-filter/" class="title">マイクロストリップラインでADS-B用の1090MHz BPFフィルタを作ってみる</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          <p>マイクロストリップラインでADS-B用のフィルタを作ってみました。思いがけず良い感じで仕上がりました。PCBプロトタイピングサービスを使ったマイクロストリップライン製作の一例として紹介します。</p>
+
+<p><img src="https://40.media.tumblr.com/839e8678b17ad9e10c1ada1354826e75/tumblr_inline_nnr4buPsPq1r9hszk_540.jpg" alt="image" /></p>
+
+<p>基板をCADで自由に作れるようになってから、やってみたかったことの一つが、マイクロストリップラインによる回路の製作でした。昔は、生基板にトナー転写や感光剤を塗布してのエッチングなど苦心惨憺して製作し、でも結局精度が出なくて切り貼りで調整したものでした。</p>
+
+<p>現在利用可能なプロトタイピング向けのPCBサービスでは、手作業とは比較にならない精度が出ます。おそらくマイクロストリップラインも作れるだろうと思っていました。ただ、基板の正確な定数(誘電率とか厚み)や精度はわからない部分があります。マイクロストリップライン回路の設計はシミュレーションで比較的容易に可能ですので、一度製作してみて仕上がってきた実物を測定し、シミュレーションと比較することで、今後の参考になるだろうと考えました。</p>
+
+<p>そのための題材として、ADS-Bのフィルタはちょうど良さそうです。周波数は1090MHzと高すぎず低すぎず、シビアな精度も要求されないサイズですし、しかもプリアンプの経験もあるので、うまくいけば実用にもなる、良いネタだと思います。</p>
+
+<p>マイクロストリップラインの設計で必要なパラメータとして、基板材料の諸定数があります。PCBプロトタイピングサービスで提供されている基板材料はFR-4とされていますが、仕様書で比誘電率を確認するとεr=4.5程度のようです。他の資料でもガラエポ材料は比誘電率4.4〜4.8程度のことが多いようですので、このあたりの範囲で幅があったとしても大丈夫なように設計してみます。</p>
+
+<p>フィルタの形式はまずはシンプルに、特性は追わずロスが少ないことを念頭に、3段のインターディジタルにしてみました。ロスが減るよう特性を広帯域にして、また、もしシミュレーションとずれても、1090MHzを外すことのないように検討しました。</p>
+
+<p>シミュレーションは以前もご紹介したAnsoft Designer SVです。</p>
+
+<p><img src="https://40.media.tumblr.com/6e13efd679e97e8aaafc9a8e98b1a025/tumblr_inline_nnr52arvkZ1r9hszk_540.png" alt="image" /></p>
+
+<p>ツールでフィルターの形式を選び、回路を生成し、パラメータを微調整していきます。</p>
+
+<p><img src="https://41.media.tumblr.com/8667125629e1a988cb6746afeb974e0c/tumblr_inline_nnr553Edc61r9hszk_540.png" alt="image" /></p>
+
+<p>PCBの材料のパラメータも設定しますが、パラメータを振って再設定し、シミュレーション結果の特性が目標に収まるようにしています。この例ではεr=4.8としています。</p>
+
+<p><img src="https://40.media.tumblr.com/8e8212e55d4f83bb6d3d9821c4e5ace8/tumblr_inline_nnr57eWgcz1r9hszk_540.png" alt="image" /></p>
+
+<p>シミュレーションではこんな特性が得られました。BW=150MHzで、ロスが-4dB程度です。ちょっと結合を強めにしているのでフラットトップではなく双峰になっています。できれば左の山に1090MHzが来るようにと期待しています。</p>
+
+<p>このADS-Bフィルタに期待しているのは、邪魔な他の信号の削減ですが、主に強力なのは900MHzの携帯電話と、500MHz付近の地上デジタルTV放送です。アンプを通した際に、900MHz付近からは相互変調歪(IM)が、地デジからは545MHzの2倍が妨害になりそうです。狭い帯域のフィルタを作ろうと欲張ると、ロスも大きくなってしまいます。1090MHzをロス無く通すように帯域は欲張らず、その上で500MHzはもちろん、少しでも900MHzが減衰するようエッジを近づけたいのです。こんなことを考えながらシミュレーションの検討をしました。</p>
+
+<p><img src="https://40.media.tumblr.com/082c3bb92fd63cf9f1563a1f2a4fa980/tumblr_inline_nnr58rMhwi1r9hszk_540.png" alt="image" /></p>
+
+<p>通過域の拡大です。意図がお分かりいただけますでしょうか。</p>
+
+<p><img src="https://40.media.tumblr.com/accd0c2e1c8a7dba436d08606d906cf5/tumblr_inline_nnr5kh4KlW1r9hszk_540.png" alt="image" /></p>
+
+<p>マイクロストリップラインのサイズを決めたらそれをEagleで部品にしました。</p>
+
+<p><img src="https://41.media.tumblr.com/f9536ae2093b6efcc06d54d330760c5f/tumblr_inline_nnr5q5Yfdz1r9hszk_540.png" alt="image" /></p>
+
+<p>これを組み込んだプリアンプの基板を設計します。アンプはSAW版と同じ、BGA2748です。アンテナの入力をフィルタして、アンプするという順序です。</p>
+
+<p>本来ですと、マイクロストリップラインの部分は、ソルダーレジストが無い方が良いのかもしれません。また仕上げはHASLの方が適切かもしれません。でも今回は試してみたかったので、ソルダーレジスト付きで製作してみました。基板厚は1.2mm厚です。</p>
+
+<p><img src="https://41.media.tumblr.com/883a6ae686764f619811d542bc9f1a8a/tumblr_inline_nnr5qwvcCT1r9hszk_540.png" alt="image" /></p>
+
+<p>他の注文のついでにこの基板もオーダーし、注文から2週間程で到着しました。</p>
+
+<p>まずはフィルタ単体で測定してみます。フィルタの前後にSMAコネクタと、同軸を接続します。</p>
+
+<p><img src="https://36.media.tumblr.com/a1549e302a403ffcd8f447bf779263f5/tumblr_inline_nnr5vtrx7i1r9hszk_540.jpg" alt="image" /></p>
+
+<p>周波数特性を取ってみました。無事1090MHzが通過域に入っています。1.5G付近の落ち込みも出ています。</p>
+
+<p><img src="https://40.media.tumblr.com/38d946f51e081d72449b70cf45582fae/tumblr_inline_nnr5y12Vzu1r9hszk_540.png" alt="image" /></p>
+
+<p>通過域の拡大です。</p>
+
+<p><img src="https://40.media.tumblr.com/35d1936fa029a94528bf13402204e1da/tumblr_inline_nnr5ykISvQ1r9hszk_540.png" alt="image" /></p>
+
+<p>1090MHzが少しピークからは外れましたが、十分許容範囲です。通過域のロスはシミュレーションよりも少なめで、特性のカーブ形状はシミュレーションととても良く似ており、少し左にずれているだけです。この一致は素晴らしい。これなら十分PCBサービスで作るマイクロストリップラインは使える気がします。</p>
+
+<p>周波数特性の測定結果から、再度シミュレーションで検討してみたところ、εr=4.95とすると、ほぼ周波数特性も一致します。ソルダーレジストが銅箔の上に被さっている影響もあるかもしれませんが、仕様書よりも比誘電率は高め、誘電正接は低めとして考えて良さそうです。</p>
+
+<p><img src="https://40.media.tumblr.com/25846e1d05281d3b74adf59a278b094b/tumblr_inline_nnr64tgt4d1r9hszk_540.png" alt="image" /></p>
+
+<p><img src="https://40.media.tumblr.com/ac1eedca8ca6057f9d0013c0e242cd6b/tumblr_inline_nnr655qnD21r9hszk_540.png" alt="image" /></p>
+
+<p>何度か製作をしてみないと、どの程度結果がばらつくのかまだわかりませんが、初回にしては良い特性のフィルタができたと思います。SAWフィルタにくらべて帯域は広く、基板サイズも大きくなりますが、ESD(静電破壊)の心配が無いですし、コストも安価です。実際にプリアンプとして仕上げて、SAWフィルタバージョンと比較してみたいところです。</p>
+
+<p>追記</p>
+
+<p>TOSHIさんのレポート <a href="http://ggtoshi.at.webry.info/201505/article_1.html" target="_blank">http://ggtoshi.at.webry.info/201505/article_1.html</a></p>
+
+<p>改造の続報 <a href="http://ggtoshi.at.webry.info/201505/article_2.html" target="_blank">http://ggtoshi.at.webry.info/201505/article_2.html</a></p>
+
+<p>やはり改良の余地があるようです(汗)。</p>
+
+<ul>
+<li><p> 今回使用したPCBサービスElecrowのFR-4基板仕様書 <a href="http://www.elecrow.com/wiki/images/3/34/PCB_material_FR-4_info.pdf" target="_blank">http://www.elecrow.com/wiki/images/3/34/PCB_material_FR-4_info.pdf</a></p></li>
+
+<li><p>Ansoft Designer SVのトラ技での紹介記事 <a href="http://toragi.cqpub.co.jp/Portals/0/backnumber/2010/01/p189.pdf" target="_blank">http://toragi.cqpub.co.jp/Portals/0/backnumber/2010/01/p189.pdf</a></p></li>
+
+<li><p><a href="../2014-08-12-building-preamp-for-ads-b-receiver">SAWフィルタのADS-Bプリアンプの記事</a></p></li>
+
+<li><p><a href="../2014-10-03-saw-filter-preamplifier-for-ads-b">SAWフィルタADS-Bプリアンプキット化の記事</a></p></li>
+
+<li><p><a href="/kit/adsbamp">SAWフィルタADS-Bプリアンプのキットご案内</a></p></li>
+</ul>
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>May 3, 2015</time>
+	<a href="https://ttrf.tk/posts/2015-05-03-microstripline-ads-b-filter/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/ads-b">ads-b</a>  <a class="category" href="https://ttrf.tk/tags/pcb">pcb</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2015-05-03-microstripline-ads-b-filter%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2015-05-03-microstripline-ads-b-filter/" data-text="マイクロストリップラインでADS-B用の1090MHz BPFフィルタを作ってみる" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2015-05-03-microstripline-ads-b-filter/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

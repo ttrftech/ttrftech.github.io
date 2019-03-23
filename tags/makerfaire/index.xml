@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Makerfaire on Computer &amp; RF Technology</title>
+    <link>https://ttrf.tk/tags/makerfaire/</link>
+    <description>Recent content in Makerfaire on Computer &amp; RF Technology</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Sun, 01 Jul 2018 01:58:01 +0000</lastBuildDate>
+    
+	<atom:link href="https://ttrf.tk/tags/makerfaire/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CentSDR 2nd lotをキット頒布します</title>
+      <link>https://ttrf.tk/posts/2018-07-01-centsdr-kit-2nd-lot/</link>
+      <pubDate>Sun, 01 Jul 2018 01:58:01 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2018-07-01-centsdr-kit-2nd-lot/</guid>
+      <description>&lt;p&gt;CentSDRのキット頒布(２回目)を用意しました。&lt;a href=&#34;https://ttrf.tk/kit/centsdr&#34;&gt;こちら&lt;/a&gt;(もしくは左のリンク)から頒布案内を参照してください。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>深圳のMakerFaire Shenzhen 2017に行ってきました</title>
+      <link>https://ttrf.tk/posts/2017-11-19-makerfaireshenzhen2017/</link>
+      <pubDate>Sun, 19 Nov 2017 03:37:24 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2017-11-19-makerfaireshenzhen2017/</guid>
+      <description>&lt;p&gt;初めての海外のメイカーフェアということで、中国は深圳市で2017/11/10-12に開催されたMaker Faire Shenzhenに行ってきました。こちらではRF関連のみ紹介します。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ワンボードSDR CentSDRを試作中です</title>
+      <link>https://ttrf.tk/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/</link>
+      <pubDate>Fri, 04 Aug 2017 14:53:44 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/</guid>
+      <description>&lt;p&gt;昨年旧フリスクケースサイズの超小型SDR受信機FriskSDRを試作しました。少々無謀なプランでしたが、当初の目論見通り無事に動作させることができました。ただ、さすがに小さすぎで、製作していただいたりするにはハードルが高過ぎでした。もうすこし常識的なサイズの設計も欲しいと思っていたので、今回あらたに基板を作ってみることにしました。Nanoより大きいので、CentSDR(仮称)としています。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Maker Faire Tokyo 2016に展示します</title>
+      <link>https://ttrf.tk/posts/2016-07-31-seeyou-at-mft2016-exhibition/</link>
+      <pubDate>Sun, 31 Jul 2016 02:02:33 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2016-07-31-seeyou-at-mft2016-exhibition/</guid>
+      <description>&lt;p&gt;告知を出すのが遅くなってしまいましたが、8/6と8/7のMaker Faire Tokyo 2016に出展します。今回の展示内容のメインはこれまで試作してきたマイコンベースのSDR受信機です。LPC-Link2を使ったSDRの実験を雑誌記事として紹介してきましたが、なかなか実物をご覧いただく機会がありません。実はこれまでMaker Faireに数回出展したときに、さりげなく置いてあったのですが、今年はソフトウェア受信機をメインに出展の申込をしてみました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MakeLSIで回路を載せてもらいました: リングオシレータVCO</title>
+      <link>https://ttrf.tk/posts/2015-07-28-makelsi-ring-oscillator-vco/</link>
+      <pubDate>Tue, 28 Jul 2015 22:45:13 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2015-07-28-makelsi-ring-oscillator-vco/</guid>
+      <description>&lt;p&gt;普通回路と言えば部品を組み合わせて作るものですが、それと比べてマイクロストリップなどパターンそのものが回路になってしまうのはなんとも不思議な感じがします。その究極は半導体チップのレイアウトではないでしょうか。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Maker Faire Tokyo 2013に参加します #mft2013</title>
+      <link>https://ttrf.tk/posts/2013-11-01-join-mft2013-maker-faire-tokyo-laser-projector/</link>
+      <pubDate>Fri, 01 Nov 2013 00:18:30 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2013-11-01-join-mft2013-maker-faire-tokyo-laser-projector/</guid>
+      <description>&lt;p&gt;宣伝告知です。&lt;/p&gt;
+
+&lt;p&gt;11/3~4に Maker Faire Tokyo 2013に出展してきます。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

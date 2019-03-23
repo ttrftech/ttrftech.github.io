@@ -1,0 +1,498 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>AD8302&#43;抵抗ブリッジ&#43;ADF4351でADS-Bアンテナを観測しipython notebookでグラフにする</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/2014-10-12-plot-impedance-chart-using-adf4351-ad8302-and-ipython-no/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Sunday, Oct 12, 2014</time>
+<h2><a href="https://ttrf.tk/posts/2014-10-12-plot-impedance-chart-using-adf4351-ad8302-and-ipython-no/" class="title">AD8302&#43;抵抗ブリッジ&#43;ADF4351でADS-Bアンテナを観測しipython notebookでグラフにする</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          <p>ADS-Bアンテナを自作する場合、たとえ設計通りのサイズに作ったとしても、適切に製作調整できているかどうかよくわかりません。全体のサイズが小さいので、ごく僅かな数ミリのズレでも大きく影響しそうです。ネットワークアナライザがあれば一発で挙動を観察できますが、普通はそんなモノがあるわけもなく、例の自作品は現状では1090MHzをまともに観測できる状態ではありません。</p>
+
+<p>そこで先日製作したADF4351によるPLLシンセサイザを信号源として、抵抗ブリッジを使って挙動をグラフ化してみました。ブリッジは以前実験用にAD8302で試作しましたが、設計の勘違いからまったくダメで放置してあったものを、強引に改造して使ってみました。</p>
+
+<p>改造の様子です。一部の不要な部品を取り除き、バランを追加しブリッジからの平衡信号を不平衡にしてAD8302に入力するようにしました。こんな強引な改造でも意外と使えるものです。ブリッジ部分は1005サイズの小さな0.1%精度のチップを使っています。</p>
+
+<p><img src="https://78.media.tumblr.com/c2e72f11acfc914203a41de8e0808375/tumblr_inline_p8uv1npQ4c1r9hszk_540.jpg" alt="image" /></p>
+
+<p>AD8302が出力するレベル差と位相差の電圧を、USB PLLボード上のPIC18F14K50の10 bit ADCで変換します。AD8302からはVref = 1.8Vが出ているので、これもPICに入力しADCのリファレンスとして使います。こうすることで10bit分全体をダイナミックレンジとして有効に利用できます。ADCの入力と電源を合わせて、USB PLLボードの拡張ポートと接続します。PCと接続するのはUSB一本のみですので簡便です。</p>
+
+<p><img src="https://78.media.tumblr.com/188a9c558702c68c3c52b7e8e30367a2/tumblr_inline_p8uv1rZXGo1r9hszk_540.jpg" alt="image" /></p>
+
+<p>さて、データの取得とグラフ化ですがいつものようにPythonスクリプトを使います。指定した範囲の周波数をステップで変化させるようPLLにコマンドを送り、その時の位相差、レベル差の電圧値ADCの読みを取得し、それを単純にmatplotlibでグラフ化します。</p>
+
+<p>まずは最初に、妥当な動作をしているかどうかを、オープン、ショート、ターミネートの順で見てみます。周波数は800MHz〜1200MHzを100分割でスイープさせています。緑がリターンロス、青が位相差です。AD8302は振幅差が30mV/dB, 位相差が10mV/度の感度を持ち、縦軸のスケールはADCそのままの10ビット1024=1.8Vですので、それぞれおよそ17/dB, 5.7/度となります。</p>
+
+<p>オープン</p>
+
+<p><img src="https://78.media.tumblr.com/776fb714fce8f59804f490dadf307ec3/tumblr_inline_p8uv1rj0AM1r9hszk_540.png" alt="image" /></p>
+
+<p>ショート</p>
+
+<p><img src="https://78.media.tumblr.com/257b4bfcddc7d515d9e7e2ecedc2d574/tumblr_inline_p8uv1rjR3k1r9hszk_540.png" alt="image" /></p>
+
+<p>ターミネート(50Ω)</p>
+
+<p><img src="https://78.media.tumblr.com/21e6553985ea0ec4f7a2c486a1c5e178/tumblr_inline_p8uv1scZii1r9hszk_540.png" alt="image" /></p>
+
+<p>ターミネートの場合と、オープン／ショートの場合とでそこそこレベル差がある(ちょっともの足りないですが..)ようですので、同調周波数を確認したりするくらいなら実用になりそうです。</p>
+
+<p>位相について試すため、遅延の例として同軸ケーブルを接続して他端をオープンにした場合です。残念ながらAD8302は位相差の正負の区別が付きませんので、波形が鋸状ではなく三角になってしまいます。この曖昧性がある状態でキャリブレーションをする方法はちょっとすぐには思いつかないので、とりあえずこのまま使います。</p>
+
+<p><img src="https://78.media.tumblr.com/62e3fe80c0ce618fbdaab5e07d8c1f0e/tumblr_inline_p8uv1s6y7o1r9hszk_540.png" alt="image" /></p>
+
+<p>さて、本題であるADS-Bのアンテナですがいくつか作ってみました。まずはコーリニア。アルミ線3mmを曲げて作ります。ハンダが付かないので給電点は銅線を巻き付け、調整後にかしめて固定します。コネクタはSMAです。エレメントはそれぞれ100mmで、平行部分は70mm、10mmで給電です。</p>
+
+<p>平衡部分の間隙をかなり狭め(1~2mm程度)にしないと同調しませんでした。わずかに動かしただけでも大きくズレます。(緑線がリターンロス)</p>
+
+<p><img src="https://78.media.tumblr.com/d7c22c283b1f7d26cb32bbbfef8c0d66/tumblr_inline_p8uv1sc7Kb1r9hszk_540.jpg" alt="image" /></p>
+
+<p><img src="https://78.media.tumblr.com/778989b52fbaf6d1d4c08aec5bcfa412/tumblr_inline_p8uv1tYVuS1r9hszk_540.png" alt="image" /></p>
+
+<p>コーリニアは固定に苦労するので、いっそポールをエレメントにしてしまえとこんなのも作ってみました。材料は農業資材のグラスファイバーポールにアルミテープを巻き付けているだけです。この作りは丈夫で良いのですが、結果は良くなく、1090MHzに追い込むことができませんでした。やはり電圧の上がるエレメント付近に誘電体があるとダメなようです。うまくいけば多段コーリニアも簡単に作れると目論んだのですが、残念ながら失敗です。</p>
+
+<p><img src="https://78.media.tumblr.com/95a47c19d87b3b8bc81bc5d54fc0d930/tumblr_inline_p8uv1tXfJN1r9hszk_540.jpg" alt="image" /></p>
+
+<p>ツインデルタループも試してみました。これもアルミ線を曲げて作ります。アルミ線を継いでループにするのに、電工用のリングスリーブを使いました。両端からアルミ線を突き合わに入れ、かしめて固定します。</p>
+
+<p><img src="https://78.media.tumblr.com/25cfae93c77033441277d090d9892a8b/tumblr_inline_p8uv1uED011r9hszk_540.jpg" alt="image" /></p>
+
+<p>いくつか作り直しした結果、三角形の辺の長さを105mmにすると同調点を1090MHz付近にすることができました。ただしこれも作りっぱなしでは難しいようです。</p>
+
+<p><img src="https://78.media.tumblr.com/1e417665a68f3b61de00dd7095a534d7/tumblr_inline_p8uv1uOdXe1r9hszk_540.png" alt="image" /></p>
+
+<p>同調点が大きくずれている場合には、エレメントをカットしたりしますが、修正だけでは追い込めないと判断したら、大きさを変えて作り替えました。材料が安価で工作も簡単なので何度も作り直しをしましたので、死屍累々です。</p>
+
+<p><img src="https://78.media.tumblr.com/a0afb7dbbb4ba06c04c358e07dc6a405/tumblr_inline_p8uv1vUyBZ1r9hszk_540.jpg" alt="image" /></p>
+
+<p>おそらくきちっと同調を追い込まなくてもそこそこ受信はできるのだと思うのですが、動作状態が判らないのは釈然としないので、可能な範囲で計測してみました。大きさや形を変えたときに、どこがどう影響するかはなんとなく判った気がします。こんな計測とアンテナの性能はまた別の話だとは思いますが、より理解が深めるためにはアンテナシミュレーションには手を付けるべきかもしれません。</p>
+
+<p>ちなみにPythonの実行には例によってIPython notebookを使っています。少しコードを書ける必要がありますが、ブラウザ上で条件を変えたり、結果を並べたりが自由にでき、さらにEvernote等にコピペが簡単にできるので大変便利です。</p>
+
+<p>一回のスキャンには15秒ほどかかっていますが、これがリアルタイムにできるようになると一層便利だろうと思います。現状ではPICのファームウェアを適当に作り、HIDデバイスとしているのですが、これをちゃんとすれば数倍程度に高速化することは可能だと思います。</p>
+
+<p><img src="https://78.media.tumblr.com/b4ac2fe3195d34b10209a7737d5c343b/tumblr_inline_p8uv1vH3dQ1r9hszk_540.png" alt="image" /></p>
+
+<p>リファレンス</p>
+
+<ul>
+<li><a href="../2014-06-17-designed-colorful-pcbs-and-its-plan">以前のAD8302の失敗の件(末尾)</a></li>
+<li><a href="../2014-05-25-measuring-frequency-response-using-adf4351-and-ad8307-on">AD8307での最初の実験</a></li>
+<li>AD8302のデータシート<a href="http://www.analog.com/jp/rfif-components/detectors/ad8302/products/product.html" target="_blank"> http://www.analog.com/jp/rfif-components/detectors/ad8302/products/product.html</a></li>
+<li>AD8302によるVNAの先行例。TAPRによるQEXの記事。<a href="http://www.tapr.org/~n5eg/index_files/final_QEX_mcdermott.pdf" target="_blank">http://www.tapr.org/~n5eg/index_files/final_QEX_mcdermott.pdf</a></li>
+<li>ADS-Bアンテナの色々な製作例 <a href="http://www.qsl.net/py4zbz/adsb.htm" target="_blank">http://www.qsl.net/py4zbz/adsb.htm</a></li>
+<li>ツインデルタループ <a href="http://ggtoshi.at.webry.info/201408/article_7.html" target="_blank">http://ggtoshi.at.webry.info/201408/article_7.html</a></li>
+<li><a href="../2014-08-12-building-preamp-for-ads-b-receiver">ADS-Bのプリアンプ</a></li>
+<li><a href="/kit/adsbamp">キット</a></li>
+</ul>
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Oct 12, 2014</time>
+	<a href="https://ttrf.tk/posts/2014-10-12-plot-impedance-chart-using-adf4351-ad8302-and-ipython-no/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/adf4351">adf4351</a>  <a class="category" href="https://ttrf.tk/tags/vna">vna</a>  <a class="category" href="https://ttrf.tk/tags/python">python</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2014-10-12-plot-impedance-chart-using-adf4351-ad8302-and-ipython-no%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2014-10-12-plot-impedance-chart-using-adf4351-ad8302-and-ipython-no/" data-text="AD8302&#43;抵抗ブリッジ&#43;ADF4351でADS-Bアンテナを観測しipython notebookでグラフにする" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2014-10-12-plot-impedance-chart-using-adf4351-ad8302-and-ipython-no/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

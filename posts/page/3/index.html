@@ -1,0 +1,926 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>Computer &amp; RF Technology</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+  <div id="content">
+    <div>
+      <article role="article">
+        <div id="blog-archives" class="category">
+		  
+          <article role="article">
+  <div id="blog-archives" class="category">
+    <header><time class="date">Tuesday, Nov 8, 2016</time>
+<h2><a href="https://ttrf.tk/posts/2016-11-08-calibration-process-in-python-for-nanovna/" class="title">NanoVNAの校正処理をPythonで試してみる</a></h2>
+</header>
+	<div class="content">
+	  今回はネットワークアナライザに付きものの校正の中身を紹介します。動作の確認の意味も含めて、実際にNanoVNAで観測した結果を、Pythonによる校正処理を試してみます。
+
+	  
+
+
+<img src="https://67.media.tumblr.com/3e2a136fb7c51dc08c205ac076130458/tumblr_inline_og9sfvmUCE1r9hszk_540.jpg" alt="image" />
+
+
+	  
+	  <a href="https://ttrf.tk/posts/2016-11-08-calibration-process-in-python-for-nanovna/">Read more &hellip;</a>
+	  
+	</div>
+    <footer>
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Nov 8, 2016</time>
+	<a href="https://ttrf.tk/posts/2016-11-08-calibration-process-in-python-for-nanovna/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/nanovna">nanovna</a>  <a class="category" href="https://ttrf.tk/tags/stm32">stm32</a>  <a class="category" href="https://ttrf.tk/tags/si5351">si5351</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2016-11-08-calibration-process-in-python-for-nanovna%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2016-11-08-calibration-process-in-python-for-nanovna/" data-text="NanoVNAの校正処理をPythonで試してみる" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2016-11-08-calibration-process-in-python-for-nanovna/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+</footer>
+  </div>
+</article>
+
+          
+          <article role="article">
+  <div id="blog-archives" class="category">
+    <header><time class="date">Friday, Sep 30, 2016</time>
+<h2><a href="https://ttrf.tk/posts/2016-09-30-dir-calkit-for-vector-network-analyzer/" class="title">校正用キャリブレーションキットCALKITを自作する</a></h2>
+</header>
+	<div class="content">
+	  ネットワークアナライザを活用するためには、インピーダンスの基準となる校正用のアダプタ＝キャリブレーションキットが必要になります。測定器用のアクセサリとして市販されているものは高価ですが、低い周波数向けでしたら自作でも充分実用になりますので、Webで見つけた先例を参考に、今回新たに作成してみました。
+
+	  
+
+
+<img src="https://66.media.tumblr.com/59325434f3328d405744fcf89409aafa/tumblr_inline_oebfn0pzoI1r9hszk_540.jpg" alt="image" />
+
+
+	  
+	  <a href="https://ttrf.tk/posts/2016-09-30-dir-calkit-for-vector-network-analyzer/">Read more &hellip;</a>
+	  
+	</div>
+    <footer>
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Sep 30, 2016</time>
+	<a href="https://ttrf.tk/posts/2016-09-30-dir-calkit-for-vector-network-analyzer/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/calkit">calkit</a>  <a class="category" href="https://ttrf.tk/tags/vna">vna</a>  <a class="category" href="https://ttrf.tk/tags/nanovna">nanovna</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2016-09-30-dir-calkit-for-vector-network-analyzer%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2016-09-30-dir-calkit-for-vector-network-analyzer/" data-text="校正用キャリブレーションキットCALKITを自作する" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2016-09-30-dir-calkit-for-vector-network-analyzer/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+</footer>
+  </div>
+</article>
+
+          
+          <article role="article">
+  <div id="blog-archives" class="category">
+    <header><time class="date">Friday, Sep 16, 2016</time>
+<h2><a href="https://ttrf.tk/posts/2016-09-16-nanovna-calculating-reflection-coefficient-and-plot/" class="title">NanoVNAの信号から反射係数を計算し周波数特性をプロットする</a></h2>
+</header>
+	<div class="content">
+	  ベクトルネットワークアナライザNanoVNAの実験の続きです。ネットワークアナライザでは、発生したRF信号に対する被測定物(DUT)の応答を、振幅と位相で計測するのですが、結果は反射係数として複素数で得られます。反射係数を波形の信号から求めるのが今回の目的です。反射係数が得られるようになったら、周波数をスキャンさせながらこれを実行することで、周波数特性が得られることになります。プロットすると見慣れたグラフが得られるはずです。
+
+	  
+
+
+<img src="https://66.media.tumblr.com/0936d358cbcec42e56efd278d0f98f3e/tumblr_inline_odlk929t6I1r9hszk_540.jpg" alt="image" />
+
+
+	  
+	  <a href="https://ttrf.tk/posts/2016-09-16-nanovna-calculating-reflection-coefficient-and-plot/">Read more &hellip;</a>
+	  
+	</div>
+    <footer>
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Sep 16, 2016</time>
+	<a href="https://ttrf.tk/posts/2016-09-16-nanovna-calculating-reflection-coefficient-and-plot/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/nanovna">nanovna</a>  <a class="category" href="https://ttrf.tk/tags/vna">vna</a>  <a class="category" href="https://ttrf.tk/tags/python">python</a>  <a class="category" href="https://ttrf.tk/tags/si5351">si5351</a>  <a class="category" href="https://ttrf.tk/tags/stm32">stm32</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2016-09-16-nanovna-calculating-reflection-coefficient-and-plot%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2016-09-16-nanovna-calculating-reflection-coefficient-and-plot/" data-text="NanoVNAの信号から反射係数を計算し周波数特性をプロットする" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2016-09-16-nanovna-calculating-reflection-coefficient-and-plot/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+</footer>
+  </div>
+</article>
+
+          
+          <article role="article">
+  <div id="blog-archives" class="category">
+    <header><time class="date">Sunday, Sep 11, 2016</time>
+<h2><a href="https://ttrf.tk/posts/2016-09-11-si5351a-configuration-how-to-and-signal-quality/" class="title">Si5351Aの使い方と動作</a></h2>
+</header>
+	<div class="content">
+	  Si5351AクロックジェネネータをFriskSDRのローカルや、NanoVNAの信号源として試用してみています。Si5351Aの仕様では、上限は200MHzまでとされていますが、実際に試してみたところ300MHzを越える周波数まで発生させられるようです。以前最初に試した様子を書きましたが、その後の知見をまとめておきます。
+
+	  
+
+
+<img src="https://68.media.tumblr.com/43ba7bcd9b59cc7927b75ba965fc620a/tumblr_inline_odbf0lyn9M1r9hszk_540.jpg" alt="image" />
+
+
+	  
+	  <a href="https://ttrf.tk/posts/2016-09-11-si5351a-configuration-how-to-and-signal-quality/">Read more &hellip;</a>
+	  
+	</div>
+    <footer>
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Sep 11, 2016</time>
+	<a href="https://ttrf.tk/posts/2016-09-11-si5351a-configuration-how-to-and-signal-quality/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/si5351">si5351</a>  <a class="category" href="https://ttrf.tk/tags/frisksdr">frisksdr</a>  <a class="category" href="https://ttrf.tk/tags/nanovna">nanovna</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2016-09-11-si5351a-configuration-how-to-and-signal-quality%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2016-09-11-si5351a-configuration-how-to-and-signal-quality/" data-text="Si5351Aの使い方と動作" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2016-09-11-si5351a-configuration-how-to-and-signal-quality/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+</footer>
+  </div>
+</article>
+
+          
+          <article role="article">
+  <div id="blog-archives" class="category">
+    <header><time class="date">Saturday, Sep 3, 2016</time>
+<h2><a href="https://ttrf.tk/posts/2016-09-03-nanovna-mini-vector-network-analyzer-in-development/" class="title">小型ネットワークアナライザNanoVNAを実験中です</a></h2>
+</header>
+	<div class="content">
+	  ちょっと間が空いてしまいましたが、試作中の手のひらサイズの小型ネットワークアナライザNanoVNAを試しています。基板に部品を実装して、動作を少しずつ確認していますが、その状況についてです。
+
+	  
+
+
+<img src="https://66.media.tumblr.com/3ad9f0bb3ebca47c1c8c398ef17a4590/tumblr_inline_ocwn83j2LK1r9hszk_540.jpg" alt="image" />
+
+
+	  
+	  <a href="https://ttrf.tk/posts/2016-09-03-nanovna-mini-vector-network-analyzer-in-development/">Read more &hellip;</a>
+	  
+	</div>
+    <footer>
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Sep 3, 2016</time>
+	<a href="https://ttrf.tk/posts/2016-09-03-nanovna-mini-vector-network-analyzer-in-development/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/vna">vna</a>  <a class="category" href="https://ttrf.tk/tags/stm32">stm32</a>  <a class="category" href="https://ttrf.tk/tags/si5351">si5351</a>  <a class="category" href="https://ttrf.tk/tags/python">python</a>  <a class="category" href="https://ttrf.tk/tags/nanovna">nanovna</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2016-09-03-nanovna-mini-vector-network-analyzer-in-development%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2016-09-03-nanovna-mini-vector-network-analyzer-in-development/" data-text="小型ネットワークアナライザNanoVNAを実験中です" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2016-09-03-nanovna-mini-vector-network-analyzer-in-development/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+</footer>
+  </div>
+</article>
+
+          
+          <article role="article">
+  <div id="blog-archives" class="category">
+    <header><time class="date">Sunday, Jul 31, 2016</time>
+<h2><a href="https://ttrf.tk/posts/2016-07-31-seeyou-at-mft2016-exhibition/" class="title">Maker Faire Tokyo 2016に展示します</a></h2>
+</header>
+	<div class="content">
+	  告知を出すのが遅くなってしまいましたが、8/6と8/7のMaker Faire Tokyo 2016に出展します。今回の展示内容のメインはこれまで試作してきたマイコンベースのSDR受信機です。LPC-Link2を使ったSDRの実験を雑誌記事として紹介してきましたが、なかなか実物をご覧いただく機会がありません。実はこれまでMaker Faireに数回出展したときに、さりげなく置いてあったのですが、今年はソフトウェア受信機をメインに出展の申込をしてみました。
+
+	  
+
+
+<img src="https://66.media.tumblr.com/86558cdbdb820bb13f7367dd2f638710/tumblr_inline_ob5kciWOS01r9hszk_540.jpg" alt="image" />
+
+
+	  
+	  <a href="https://ttrf.tk/posts/2016-07-31-seeyou-at-mft2016-exhibition/">Read more &hellip;</a>
+	  
+	</div>
+    <footer>
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Jul 31, 2016</time>
+	<a href="https://ttrf.tk/posts/2016-07-31-seeyou-at-mft2016-exhibition/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/makerfaire">makerfaire</a>  <a class="category" href="https://ttrf.tk/tags/sdr">sdr</a>  <a class="category" href="https://ttrf.tk/tags/frisksdr">frisksdr</a>  <a class="category" href="https://ttrf.tk/tags/lpc-link2">lpc-link2</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2016-07-31-seeyou-at-mft2016-exhibition%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2016-07-31-seeyou-at-mft2016-exhibition/" data-text="Maker Faire Tokyo 2016に展示します" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2016-07-31-seeyou-at-mft2016-exhibition/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+</footer>
+  </div>
+</article>
+
+          
+          <article role="article">
+  <div id="blog-archives" class="category">
+    <header><time class="date">Saturday, Jul 23, 2016</time>
+<h2><a href="https://ttrf.tk/posts/2016-07-23-frisksdr-using-si5351a-stm32-sdr/" class="title">Si5351Aを使った超小型SDR: FriskSDR</a></h2>
+</header>
+	<div class="content">
+	  FriskSDRは、主要なパーツに汎用MCUのSTM32F303、コーデックにTLV320AIC3204、ローカル発振器にSi5351Aを使った0-50MHz程度までカバーするダイレクトコンバージョンな広帯域受信機です。復調はソフトウェアにより信号処理。ミキサにアナログスイッチを使っているので歪みも少ないという特徴があります。
+
+	  
+
+
+<img src="https://66.media.tumblr.com/c795f37e09f45245f4c1cf81da467bfb/tumblr_inline_oard0zdu8R1r9hszk_540.jpg" alt="" />
+
+
+	  
+	  <a href="https://ttrf.tk/posts/2016-07-23-frisksdr-using-si5351a-stm32-sdr/">Read more &hellip;</a>
+	  
+	</div>
+    <footer>
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Jul 23, 2016</time>
+	<a href="https://ttrf.tk/posts/2016-07-23-frisksdr-using-si5351a-stm32-sdr/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/sdr">sdr</a>  <a class="category" href="https://ttrf.tk/tags/frisksdr">frisksdr</a>  <a class="category" href="https://ttrf.tk/tags/si5351">si5351</a>  <a class="category" href="https://ttrf.tk/tags/stm32">stm32</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2016-07-23-frisksdr-using-si5351a-stm32-sdr%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2016-07-23-frisksdr-using-si5351a-stm32-sdr/" data-text="Si5351Aを使った超小型SDR: FriskSDR" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2016-07-23-frisksdr-using-si5351a-stm32-sdr/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+</footer>
+  </div>
+</article>
+
+          
+          <article role="article">
+  <div id="blog-archives" class="category">
+    <header><time class="date">Friday, Jun 10, 2016</time>
+<h2><a href="https://ttrf.tk/posts/2016-06-10-nanovna-with-si5351a-and-stm32-in-design/" class="title">NanoVNA(仮称)を製作予定です</a></h2>
+</header>
+	<div class="content">
+	  先日クロックジェネレータチップSi5351Aを試していましたが、ふとこれを使ってVNA (ベクトルネットワークアナライザ)を作れるんじゃね、と思いついてしまいました。以前試したVNWAのクローンではDDSチップを二つ使っていましたが、Si5351Aなら個別に周波数を設定できる出力が3つもあります。
+
+	  
+
+
+<img src="https://66.media.tumblr.com/93f70400ef74784ff127cbf3fa0fc81b/tumblr_inline_o8i6uqzGgz1r9hszk_540.jpg" alt="image" />
+
+
+	  
+	  <a href="https://ttrf.tk/posts/2016-06-10-nanovna-with-si5351a-and-stm32-in-design/">Read more &hellip;</a>
+	  
+	</div>
+    <footer>
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Jun 10, 2016</time>
+	<a href="https://ttrf.tk/posts/2016-06-10-nanovna-with-si5351a-and-stm32-in-design/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/vna">vna</a>  <a class="category" href="https://ttrf.tk/tags/si5351">si5351</a>  <a class="category" href="https://ttrf.tk/tags/stm32">stm32</a>  <a class="category" href="https://ttrf.tk/tags/sdr">sdr</a>  <a class="category" href="https://ttrf.tk/tags/nanovna">nanovna</a>  <a class="category" href="https://ttrf.tk/tags/pcb">pcb</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2016-06-10-nanovna-with-si5351a-and-stm32-in-design%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2016-06-10-nanovna-with-si5351a-and-stm32-in-design/" data-text="NanoVNA(仮称)を製作予定です" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2016-06-10-nanovna-with-si5351a-and-stm32-in-design/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+</footer>
+  </div>
+</article>
+
+          
+          <article role="article">
+  <div id="blog-archives" class="category">
+    <header><time class="date">Monday, May 30, 2016</time>
+<h2><a href="https://ttrf.tk/posts/2016-05-30-frisksdr-user-interface/" class="title">FriskSDRにUIを実装してみました</a></h2>
+</header>
+	<div class="content">
+	  製作していたFriskSDRですが、当初の予定通りLCDとレバースイッチを付けて操作できるようにしてみました。
+
+	  
+
+
+<img src="https://67.media.tumblr.com/3c60b80f08ffb4fea8513052a9f1dfc2/tumblr_inline_o7zpe7xlKl1r9hszk_540.jpg" alt="image" />
+
+
+	  
+	  <a href="https://ttrf.tk/posts/2016-05-30-frisksdr-user-interface/">Read more &hellip;</a>
+	  
+	</div>
+    <footer>
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>May 30, 2016</time>
+	<a href="https://ttrf.tk/posts/2016-05-30-frisksdr-user-interface/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/sdr">sdr</a>  <a class="category" href="https://ttrf.tk/tags/frisksdr">frisksdr</a>  <a class="category" href="https://ttrf.tk/tags/stm32">stm32</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2016-05-30-frisksdr-user-interface%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2016-05-30-frisksdr-user-interface/" data-text="FriskSDRにUIを実装してみました" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2016-05-30-frisksdr-user-interface/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+</footer>
+  </div>
+</article>
+
+          
+          <article role="article">
+  <div id="blog-archives" class="category">
+    <header><time class="date">Friday, Apr 29, 2016</time>
+<h2><a href="https://ttrf.tk/posts/2016-04-29-frisksdr-nanosdr-project/" class="title">FriskSDRが動き始めました</a></h2>
+</header>
+	<div class="content">
+	  FriskSDRプロジェクトはオシレータSi5351Aが動作するようになったところで中断していましたが、ようやく時間が取れるようになったので作業再開しています。I2Sが全二重で動作するようになったので、音が出るようになりました。アンテナを繋げばちゃんとAM放送が聞こえてきます。
+
+	  
+
+
+<img src="https://67.media.tumblr.com/373f44dcfdb46a14ff13a02425eff40d/tumblr_inline_o6djxtS6ul1r9hszk_540.jpg" alt="" />
+
+
+	  
+	  <a href="https://ttrf.tk/posts/2016-04-29-frisksdr-nanosdr-project/">Read more &hellip;</a>
+	  
+	</div>
+    <footer>
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Apr 29, 2016</time>
+	<a href="https://ttrf.tk/posts/2016-04-29-frisksdr-nanosdr-project/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/sdr">sdr</a>  <a class="category" href="https://ttrf.tk/tags/stm32">stm32</a>  <a class="category" href="https://ttrf.tk/tags/si5351">si5351</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2016-04-29-frisksdr-nanosdr-project%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2016-04-29-frisksdr-nanosdr-project/" data-text="FriskSDRが動き始めました" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2016-04-29-frisksdr-nanosdr-project/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+</footer>
+  </div>
+</article>
+
+          
+          <article role="article">
+  <div id="blog-archives" class="category">
+    <header><time class="date">Wednesday, Apr 27, 2016</time>
+<h2><a href="https://ttrf.tk/posts/2016-04-27-interface-magazine-software-radio-article/" class="title">インターフェース誌ソフトウェア無線記事のまとめ</a></h2>
+</header>
+	<div class="content">
+	  昨年、CQ出版社の雑誌インターフェースの7月号に特集、そして10月号以後連載を寄稿してきました。こちらではほとんど紹介してこなかったのですが、作ろうと思っていたものがなんとか動作するようになったので、ここらでまとめておきたいと思います。
+
+	  
+
+
+<img src="https://78.media.tumblr.com/193ed161ee200c3008f7201ac9feb32d/tumblr_inline_p7qqabrh8C1r9hszk_540.jpg" alt="" />
+
+
+	  
+	  <a href="https://ttrf.tk/posts/2016-04-27-interface-magazine-software-radio-article/">Read more &hellip;</a>
+	  
+	</div>
+    <footer>
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Apr 27, 2016</time>
+	<a href="https://ttrf.tk/posts/2016-04-27-interface-magazine-software-radio-article/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/sdr">sdr</a>  <a class="category" href="https://ttrf.tk/tags/lpc-link2">lpc-link2</a>  <a class="category" href="https://ttrf.tk/tags/%e8%a8%98%e4%ba%8b">記事</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2016-04-27-interface-magazine-software-radio-article%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2016-04-27-interface-magazine-software-radio-article/" data-text="インターフェース誌ソフトウェア無線記事のまとめ" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2016-04-27-interface-magazine-software-radio-article/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+</footer>
+  </div>
+</article>
+
+          
+          <article role="article">
+  <div id="blog-archives" class="category">
+    <header><time class="date">Saturday, Mar 26, 2016</time>
+<h2><a href="https://ttrf.tk/posts/2016-03-26-building-frisk-sdr/" class="title">FriskSDR組み立て開始しました</a></h2>
+</header>
+	<div class="content">
+	  FriskSDRですが、部品が揃ってきたので組み立てを開始しました。組み立ては段階を踏んで動作確認しながら行います。実際には時間のかかる作業はソフトウェアですので、今回はその手前まで行います。
+
+	  
+
+
+<img src="https://36.media.tumblr.com/1781a27800d7d387cd6ae15086155a3d/tumblr_inline_o4myg8kflw1r9hszk_540.jpg" alt="image" />
+
+
+	  
+	  <a href="https://ttrf.tk/posts/2016-03-26-building-frisk-sdr/">Read more &hellip;</a>
+	  
+	</div>
+    <footer>
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Mar 26, 2016</time>
+	<a href="https://ttrf.tk/posts/2016-03-26-building-frisk-sdr/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/stm32">stm32</a>  <a class="category" href="https://ttrf.tk/tags/sdr">sdr</a>  <a class="category" href="https://ttrf.tk/tags/si5351">si5351</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2016-03-26-building-frisk-sdr%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2016-03-26-building-frisk-sdr/" data-text="FriskSDR組み立て開始しました" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2016-03-26-building-frisk-sdr/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+</footer>
+  </div>
+</article>
+
+          
+        </div>
+      </article>
+      <nav class="pagination">
+  
+  <a class="pagination-previous" href="/posts/page/2/">← Newer Posts</a>
+  
+  3 / 13
+  
+  <a class="pagination-next" href="/posts/page/4/">Older Posts →</a>
+  
+</nav>
+
+    </div>
+  </div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

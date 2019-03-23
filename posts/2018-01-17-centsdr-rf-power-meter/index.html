@@ -1,0 +1,474 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>CentSDRにパワーメータを付けてみました</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/2018-01-17-centsdr-rf-power-meter/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Wednesday, Jan 17, 2018</time>
+<h2><a href="https://ttrf.tk/posts/2018-01-17-centsdr-rf-power-meter/" class="title">CentSDRにパワーメータを付けてみました</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          <p>試作しているCentSDRですが、受信電力を測定する機能を付けてみました。小さな電力から感度があり、-110dBm ~ -30dBm程度の範囲では直線性が得られており、意外と使い物になりそうな感じです。</p>
+
+<p>写真は中波放送のNHK第一 567kHzを受信している様子です。7MHz用のフルサイズダイポールに接続しているのですが、-40dBm程度の入力電力があるようです。</p>
+
+<p><img src="https://78.media.tumblr.com/f1a3353f8e61015acb8f05cbf2890981/tumblr_inline_p2qgf1QFdf1r9hszk_540.jpg" alt="image" /></p>
+
+<p>背景として、CentSDRにSメータを付けていないことが無いことが気になっていました。どうせならと、代わりにパワーメータとしてみたわけです。値付をしたのでちゃんと電力の表示となっています。測定の種類としては、全電力ではなく、帯域内の電力、すなわち選択レベル計となっているわけです。</p>
+
+<p>測定原理ですが、1フレーム1ms分のサンプル列の波形からRMS (Root Mean Square)を計算しており、これが電力に相当します。ADCで取得したサンプルから計算しますので、対象となるのは帯域内の成分だけです。48kHzでサンプリングしていますので、中心周波数から前後24kHzの内側にある成分のみが測定対象です。帯域外の成分は、ADC内のフィルタで除去されています。</p>
+
+<p>ADCの前にPGAでアンプされているのですが、このゲインはAGCで制御されており、そのゲインはチップから取得することができます。フロントエンドにもアンプが入っていますがこれはゲイン24dB固定です。</p>
+
+<p>計算で得たRMSは真数(リニア)なので、対数(ログ)を取ってdBに変換します。そこから、手前のゲイン分だけ差し引けば受信機に入力された電力となるわけです。</p>
+
+<p>実際には校正として、レベルがわかっているSGの信号を入れて値付をしています。あとは直線性の範囲内で、それなりに正確な計測値が得られているようです(今度グラフを出してみます)。試した範囲だと、-110dBmから-30dBmを超えるところまで直線性が得られているようです。</p>
+
+<p>計測値は、ディスプレイの2段目にdBm単位で計測値を表示するようにしてみました。フォントを用意していないので、画面ではmの無いdBの表示ですが、実際にはdBmです。AGCを有効とした場合だけ、入力電力を表示するようにしています。AGCが無効の場合はゲインをマニュアル設定しますので、ゲイン表示を優先し、電力表示されません。</p>
+
+<p>さきほどの写真と同じシチュエーションで、NHK第二 747kHzを受信してみます。こちらは-32dBm程度となっています。なんと1µWもの入力電力があります。</p>
+
+<p><img src="https://78.media.tumblr.com/694a5ff95fbf15d38a3ee9f500ac7351/tumblr_inline_p2pa3hIFYf1r9hszk_540.jpg" alt="image" /></p>
+
+<p>現在地から北東方向11キロほどに、NHKの中波送信所があって、NHK第一は100kW、そしてNHK第二は500kWの出力(東日本をカバーする中波放送で最大出力の送信所)です。第一と第二では、5倍すなわち7dBの差がありますので、数値の差とだいたいあっています。</p>
+
+<p>7MHzでアンテナをつないだ状態だとこんな感じです。-80dBm前後を示します。なにも聞こえている局が無い状態でほとんどが外来ノイズです。</p>
+
+<p><img src="https://78.media.tumblr.com/014b68ee008ef626847745931094e7bc/tumblr_inline_p2pbjr9XK41r9hszk_540.jpg" alt="image" /></p>
+
+<p>アンテナを外してみると、ノイズが減り、AGCが効いてフルゲインになります。この状態で-120dBm前後を示します。フロントのアンプBGA2817は、NF=3.9dBなので、HF帯には必要十分です。</p>
+
+<p><img src="https://78.media.tumblr.com/6aa908b4b1bc195953f63f885903fd47/tumblr_inline_p2pbir9aaQ1r9hszk_540.jpg" alt="image" /></p>
+
+<p>測定値は画面だけではなく、USB経由で得られます。USB CDC=シリアルとして見えますので、各種コマンドを使うことができます。</p>
+
+<p>ch&gt; power<br />
+-88.8dBm</p>
+
+<p>AGCをオフにすると、受信電力の表示の代わりに、マニュアルゲインの設定のための欄になります(アンテナマークが付いて、色が黄色になります)。</p>
+
+<p><img src="https://78.media.tumblr.com/8564f43a6e731cbdf0471503e74791c0/tumblr_inline_p2pbig2Oxl1r9hszk_540.jpg" alt="image" /></p>
+
+<p>このパワーメータには欠点もありまして、第一には受信帯域内で特性がフラットではないことです。±24kHzの両端近くでは-5dB程度下がっており、また中央付近には数10Hz幅の穴があり、中心は無応答です。両端の低下はΣΔADCの弟子メーションフィルタの肩の特性が出ています。中心の穴は、ADC手前でDCカットされていることが原因です。これらのことから、正確な値付をしようとする場合には、目的の信号を、中央からのオフセット数kHzの付近にくるようチューニングする必要があります。実用上は、信号はスペクトラムでいつでも見えていますので、チューニングは容易に可能です。</p>
+
+<p>ダイナミックレンジについてですが、SGからの入力レベルを上げて-20dB付近になると、だんだん測定値が小さめに表示されるようになります。これはおそらくフロントの固定ゲインアンプの飽和などが原因かもしれません。測定範囲を拡大するには、ここも可変ゲインにするか、切り替えでアッテネータを入れるかですが、現時点ではシンプルさを選びたいと考えています。</p>
+
+<p>さて、キットの頒布を開始しましたが、ファームウェアにはもう少し手を入れようと思っています。すくなくとも、チャネルの設定と、フラッシュメモリへの保存ができるようにしようと考えています。これが一段落したら、バイナリファイルでの頒布を行う予定です。もう少々お待ちください。ソースはgithubに常時pushしていますので、こちらを利用することも可能です。</p>
+
+<p>リンク</p>
+
+<ul>
+<li><a href="/kit/centsdr">CentSDR頒布ページ</a></li>
+<li><a href="/tags/centsdr">CentSDR関連ページ</a></li>
+<li><a href="https://t.umblr.com/redirect?z=https%3A%2F%2Fgithub.com%2Fttrftech%2FCentSDR&amp;t=ZGM4YTM1NzlmMzQ2NmU1ZDA4YzA2YWFkODNhNGYwNWZiYTkzZWZlYiwwZmlPN1pIaA%3D%3D&amp;b=t%3AxZa9JqdEO7V0ODGuSRrdzw&amp;p=http%3A%2F%2Fttrftech.tumblr.com%2Fpost%2F169581564671%2Fcentsdr-parts-kit&amp;m=1" target="_blank">ソースコード(github)</a></li>
+</ul>
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Jan 17, 2018</time>
+	<a href="https://ttrf.tk/posts/2018-01-17-centsdr-rf-power-meter/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/centsdr">CentSDR</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2018-01-17-centsdr-rf-power-meter%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2018-01-17-centsdr-rf-power-meter/" data-text="CentSDRにパワーメータを付けてみました" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2018-01-17-centsdr-rf-power-meter/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

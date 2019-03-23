@@ -1,0 +1,481 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>フラフープアンテナでHFを受信してみる</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/2013-05-18-receiving-hf-with-wideband-magnetic-loop-for-rtl-sdr/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Saturday, May 18, 2013</time>
+<h2><a href="https://ttrf.tk/posts/2013-05-18-receiving-hf-with-wideband-magnetic-loop-for-rtl-sdr/" class="title">フラフープアンテナでHFを受信してみる</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          <p>さてアップするのが遅くなりましたが、フラフープアンテナを外に上げてみました。</p>
+
+<p>まずループに直結するアンプをケースに入れます。とりあえず100均で密閉容器(いわゆるタッパー)を買ってきました。3個で105円と格安です。材質はポリプロピレンとポリエチレンなので耐候性は期待できませんが、とりあえずの実験なので気にしません。ループを通すための大穴を空けますが、ステップドリルを使います。簡単に大きい穴を綺麗に空けられるので、ちょっと高価ですが買って良かった工具です。</p>
+
+<p><img src="http://media.tumblr.com/1caed68f6d986cfc59737b0f0d93e6fd/tumblr_inline_mm3d25iT1C1qz4rgp.jpg" alt="image" /></p>
+
+<p>フラフープは組立式なので、穴に簡単に通せます。22mmの穴でちょうど良い感じです。UTPケーブルを使いますが、コネクタは防水性が無いのでケース内に入れる必要が有りRJ-45は意外に長いので、サイズはギリギリでした。ケーブルを通すための切り欠きも加工しておきます。隙間は狭いのでとりあえずそのままにしておきましたが、ホットボンドなどで塞いでおくと安心だと思います。</p>
+
+<p><img src="http://media.tumblr.com/2f5cc8491c351238798919e6f5c74806/tumblr_inline_mm3d2uurG41qz4rgp.jpg" alt="image" /></p>
+
+<p>軽量なのでTV/BSアンテナのポールに居候させます。上には2m用のアンテナも同居しています。</p>
+
+<p><img src="http://media.tumblr.com/aa4eafc082375477ecd768ca4a80b48a/tumblr_inline_mmzi2cIKfy1qz4rgp.jpg" alt="image" /></p>
+
+<p>ゴムバンドで留めているいるだけです。水抜きを考えてケースは上側に設置しました。</p>
+
+<p><img src="http://media.tumblr.com/7e55b198a398cde4bae5cdbff6ea821a/tumblr_inline_mmzi1h0lPn1qz4rgp.jpg" alt="image" /></p>
+
+<p>平たいUTPケーブルを使ったので、窓から引き込んでもちゃんと窓を閉められます。室内側はケーブルは、秋月のRJ-45変換基板を使って配線を引き出し、HFコンバータに接続します。とりあえずアンプには、ちょっと低いですが5VをHFコンバータから取り出して供給しています。</p>
+
+<p><img src="http://media.tumblr.com/c2cef38fa5752bac445dec74d10504dc/tumblr_inline_mmnyj7vVTK1qz4rgp.jpg" alt="image" /></p>
+
+<p>今日はコンディションが良いのか、21MHz, 14MHzが良く聞こえました。21MHzでは鹿児島、神戸、神奈川、北陸あたり、こんなに聞こえたのは初めてでした。英語でやっている局もありましたが、相手側の局は残念ながら聞こえませんでした。7MHzがノイズで埋め尽くされていました。</p>
+
+<p>午後遅くなると21MHzはだんだん聞こえなくなってきましたが、14MHzはまだOKでした。一方7MHzが聞こえるようになってきました。</p>
+
+<p>ループアンテナをちょっと使ってみて気がついたことがあります。ノートPC(MacBook Pro)でgqrxとR820Tドングルを使って受信していますが、ACアダプタを使うとノイズが著しく増えることです。バッテリで動作させているときにはノイズが少ないのですが、ACアダプタを接続したとたんにノイズで埋め尽くされます。14MHz, 21MHzで特に顕著でした。一方7MHzではノイズにそれほど変化がありません。</p>
+
+<p>バッテリで動作させているときはこんな感じで、ウォーターフォールは比較的青いです。</p>
+
+<p><img src="http://media.tumblr.com/5f3a58f10e31ed78ea005ecc2eee3ed7/tumblr_inline_mmzi23LzFD1qz4rgp.png" alt="image" /></p>
+
+<p>ここにACアダプタを接続するとノイズが増えてしまいます。</p>
+
+<p><img src="http://media.tumblr.com/d594afb0130f49df17a10b6a4998918f/tumblr_inline_mmzi2jVASx1qz4rgp.png" alt="image" /></p>
+
+<p>動画も上げておきます。</p>
+
+<p><a href="http://youtu.be/KSyTkNDVkQ8" target="_blank">http://youtu.be/KSyTkNDVkQ8</a></p>
+
+<p>現在使っている環境で快適に受信するためにはバッテリでの運用が必要なようです。PCの機種やタイプによっても違うかもしれません。ACアダプタのスイッチングレギュレータの影響か、または商用電源との接続で接地状態の変化することが影響している可能性もあります。</p>
+
+<p>実験＆検討メモです。</p>
+
+<ul>
+<li>アンプの電源は本来12Vの設計ですが5V程度でも動作するのでUSB電源で使っていたのですが、ゲインが下がっていることがわかりました。12Vにすると明らかに感度が良くなりました。9V程度以上与えると良いようです。現在のアンプの設計では、信号はトランス結合で、アンプやループとは直流的には分離しています。PCと別電源としておいたほうが何かと安心です。</li>
+<li>ケーブルにはUTPケーブルを使いましたが、LZ1AQの原典のようにSTP(FTP)ケーブルを使ってみたいところです。それほど価格に違いは無いようなので調達してみようと思います。(10mで1300円くらいでした)</li>
+<li>ループはシールドループを試してみたいところです。インダクタンスのことを抜きにすれば、フラフープの中にループエレメントのワイヤを通し、アルミテープをシールドとして使うことができそうです。</li>
+<li>フェライトコアの効果を試したかったのですが手持ちにあったはずのものが見つからず試せませんでした。</li>
+<li>HFコンバータのレギュレータを低ノイズのNJM2863に交換してみましたが、ほとんど変化は見られませんでした。キャリア近傍も変化無しです。</li>
+<li>ダイレクトサンプリングも試してみました。ゲインが低いためかACアダプタによるノイズ増加が見られません。でもそれなりに信号は受信できます。やはり侮り難いです。</li>
+<li>ループ用アンプもキットにしたいところなのですが、まだ納得できていないのでもう少し検討したいです。</li>
+</ul>
+
+<p>リファレンス</p>
+
+<ul>
+<li>WSML by LZ1AQ <a href="http://www.lz1aq.signacor.com/docs/wsml/wideband-active-sm-loop-antenna.htm" target="_blank">http://www.lz1aq.signacor.com/docs/wsml/wideband-active-sm-loop-antenna.htm</a></li>
+<li>日本語訳(翻訳:福永氏)<a href="http://www5a.biglobe.ne.jp/~mitu/wsml_eng_jpn.pdf" target="_blank">http://www5a.biglobe.ne.jp/~mitu/wsml_eng_jpn.pdf</a></li>
+<li>EMCに関する記事ですが各種ループやシールドの形式の比較が大変参考になります: 磁界プローブの調査<a href="http://homepage3.nifty.com/tsato/emcj/0307-148-j.html" target="_blank"> http://homepage3.nifty.com/tsato/emcj/0307-148-j.html</a></li>
+</ul>
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>May 18, 2013</time>
+	<a href="https://ttrf.tk/posts/2013-05-18-receiving-hf-with-wideband-magnetic-loop-for-rtl-sdr/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/antenna">antenna</a>  <a class="category" href="https://ttrf.tk/tags/rtlsdr">rtlsdr</a>  <a class="category" href="https://ttrf.tk/tags/hfconv">hfconv</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2013-05-18-receiving-hf-with-wideband-magnetic-loop-for-rtl-sdr%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2013-05-18-receiving-hf-with-wideband-magnetic-loop-for-rtl-sdr/" data-text="フラフープアンテナでHFを受信してみる" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2013-05-18-receiving-hf-with-wideband-magnetic-loop-for-rtl-sdr/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

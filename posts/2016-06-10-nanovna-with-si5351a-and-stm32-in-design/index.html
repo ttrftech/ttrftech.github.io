@@ -1,0 +1,468 @@
+<!doctype html>
+<html ⚡ lang="ja-jp">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    
+    <title>NanoVNA(仮称)を製作予定です</title>
+
+    
+    
+
+
+
+
+  
+  <meta name="author" content="TT" />
+  <meta name="description" content="" />
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@edy555" />
+  <meta name="twitter:title" content="Computer &amp; RF Technology" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ttrf.tk/img/avatar.jpg" />
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0">
+
+
+<link rel="canonical" href="https://ttrf.tk/posts/2016-06-10-nanovna-with-si5351a-and-stm32-in-design/">
+<link rel="alternative" href="/index.xml" title="Computer &amp; RF Technology" type="application/atom+xml">
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+<link rel="icon" href="/img/favicon.ico" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/avatar.jpg">
+
+
+
+<link rel="stylesheet" href="/css/nostalgia.css">
+
+
+
+
+
+  <link rel="stylesheet" href="/css/fork-awesome.min.css">
+
+
+  </head>
+  <body>
+    
+    <div id="contain">
+	  
+
+<div id="sidebar" class="sidebar">
+  <section class="first odd">
+
+    
+      <h1><a href="https://ttrf.tk">Computer &amp; RF Technology</a></h1>
+    
+
+	  <h4>About</h4>
+      
+        SDRや測定器などソフトウェア寄りのRF実験についてのメモです。キット頒布中。
+      
+  </section>
+
+
+
+  <section class="odd">
+  
+      <a target="_blank" href="https://github.com/ttrftech" title="ttrftech"><i class="fa fa-github fa-2x"></i></a>
+      
+      
+      <a target="_blank" href="https://twitter.com/edy555" title="edy555"><i class="fa fa-twitter fa-2x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+      
+
+    
+      <a href="https://ttrf.tk/index.xml" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-2x"></i></a>
+        <ul class="sidebar-nav"></ul>
+    </section>
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Special Pages</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/adsbamp" title="ADS-Bプリアンプキット" >ADS-Bプリアンプキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/centsdr" title="CentSDRキット" >CentSDRキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/hfconv/" title="HFCONVキット" >HFCONVキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/lpclink2bb/" title="LPC-Link2ブレイクアウトボード" >LPC-Link2ブレイクアウトボード</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/kit/nanovna/" title="NanoVNAキット" >NanoVNAキット</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://ttrf.tk/tags/" title="Tags" >Tags</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+
+  
+    
+      <section id="menu" class="odd">
+        
+          <h4>Links</h4>
+        
+        <ul class="sidebar-nav">
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00M6LTKNE/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00M6LTKNE&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="HFコンバータ完成品" >HFコンバータ完成品</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://astore.amazon.co.jp/ttrftech-22" title="関連アイテム一覧" >関連アイテム一覧</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00F9COA64/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00F9COA64&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2013年11月号" >記事掲載:トラ技 2013年11月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B008CMZLQG/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B008CMZLQG&amp;linkCode=as2&amp;tag=ttrftech-22" title="記事掲載:トラ技 2014年6月号" >記事掲載:トラ技 2014年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B00VS238YY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00VS238YY&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集執筆:Interface 2015年7月号" >特集執筆:Interface 2015年7月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B010TMHK06/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010TMHK06&amp;linkCode=as2&amp;tag=fromsapporo07-22" title="連載記事:Interface 2015年10月号〜2016年8月号" >連載記事:Interface 2015年10月号〜2016年8月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://www.amazon.co.jp/gp/product/B06XN73MWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B06XN73MWK&amp;linkCode=as2&amp;tag=ttrftech-22" title="特集分担:Interface 2017年6月号" >特集分担:Interface 2017年6月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2Ss0YWr" title="特集分担:Interface 2018年9月号" >特集分担:Interface 2018年9月号</a>
+          </li>
+        
+          <li class="sidebar-nav-item">
+            <a href="https://amzn.to/2RiOqyS" title="特集執筆:RFワールドNo.44" >特集執筆:RFワールドNo.44</a>
+          </li>
+        
+        </ul>
+      </section>
+    
+  
+	  
+
+  
+  
+    
+      <section class="even">
+        <h4>Recent Posts</h4>
+        <ul id="recent_posts"  class="sidebar-nav">
+          
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-10-28-gnuradio-grc-rfworld-no44/">GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-27-centsdr-lcd-panel/">CentSDRに使えるLCDパネルのバリエーション</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-07-01-centsdr-kit-2nd-lot/">CentSDR 2nd lotをキット頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-04-23-gnuradio-osx-with-homebrew/">GNURadioをOSX&#43;Homebrewで整備してみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-11-centsdr-powermeter-frequency-response-and-linerinity/">CentSDRのパワーメータの周波数特性と直線性を測定してみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-02-04-centsdr-fm-broadcasting-reception/">CentSDRでFMラジオが受信できるようになりました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-20-rfworld-workshop-meeting-2018/">RFワールド Workshop&amp;Meeting 2018で話します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-17-centsdr-rf-power-meter/">CentSDRにパワーメータを付けてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2018-01-11-centsdr-parts-kit/">CentSDRのキットを頒布します</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-19-makerfaireshenzhen2017/">深圳のMakerFaire Shenzhen 2017に行ってきました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-11-04-centsdr-spectrum-and-waveform-display/">CentSDRでスペクトラムに加えて波形も表示するようにしてみた</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-10-09-dcoffset-rejection-from-adc-and-cmsis-dsp-library/">CentSDRの信号処理におけるDCオフセット補償</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-09-18-plotting-airrace-tracklog-with-rtl-sdr/">RTL-SDRでエアレース機のADS-Bメッセージを受信し、飛行軌跡をJupyterとpandasでGeoJSONに変換してプロットしてみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-15-centsdr-stm32-based-standalone-receiver/">CentSDRを組み立ててみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-08-04-centsdr-mcu-based-standalone-sdr-receiver/">ワンボードSDR CentSDRを試作中です</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-25-hmc472-digital-step-attenuator-and-nanosg/">HMC472ステップアッテネータチップを試してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-19-limesdr-in-the-aluminium-box/">LimeSDRをケースにいれてみました</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/">LimeSDRをGQRXで使ってみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-02-05-as5600-magnet-rotary-hall-sensor/">ロータリホールセンサAS5600を試用してみる</a>
+              </li>
+            
+          
+            
+              <li class="post sidebar-nav-item">
+                <a href="/posts/2017-01-15-measure-crystal-filter-with-nanovna/">NanoVNAでクリスタルフィルタの特性を見てみる</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+
+  
+<a class="twitter-timeline" data-height="800" href="https://twitter.com/edy555?ref_src=twsrc%5Etfw">Tweets by edy555</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+</div>
+
+	  
+<div id="contain">
+  <div id="content">
+    <div class="regular">
+      <article class="hentry" role="article">
+		<time class="date">Friday, Jun 10, 2016</time>
+<h2><a href="https://ttrf.tk/posts/2016-06-10-nanovna-with-si5351a-and-stm32-in-design/" class="title">NanoVNA(仮称)を製作予定です</a></h2>
+
+
+        
+
+        <div class="entry-content">
+          
+          
+          
+          <p>先日クロックジェネレータチップSi5351Aを試していましたが、ふとこれを使ってVNA (ベクトルネットワークアナライザ)を作れるんじゃね、と思いついてしまいました。以前試したVNWAのクローンではDDSチップを二つ使っていましたが、Si5351Aなら個別に周波数を設定できる出力が3つもあります。</p>
+
+<p>以前よりスタンドアロンなVNAを作りたいと考えていました。最近いろいろやっていたので、MCUやLCDなどの必要な要素がほぼ揃ってきています。えいやっと回路を引いたら、うまくまとまりそうなので勢いでレイアウト、基板を発注したらあっという間にできてきてしまいました。下の写真がその基板です(部品を仮置きしています)。</p>
+
+<p><img src="https://66.media.tumblr.com/93f70400ef74784ff127cbf3fa0fc81b/tumblr_inline_o8i6uqzGgz1r9hszk_540.jpg" alt="image" /></p>
+
+<p>3年程前になりますがAD9859 DDSを使ったVNAを試作していました。VNWAとして販売されている製品の原理を、QEXに掲載されていた情報を元に追試しました。その際にいろいろと課題がわかりましたので、その後改良版を作るつもりいたのですが、そのまま放置になっていました。</p>
+
+<p>信号源としてSi5351Aを使うと部品がかなり減らせます。違いとしては、DDSだと出力は正弦波ですが、Si5351Aはクロックジェネレータなので方形波です。VWNAではDDSのエイリアスを使うことでGHz前後の上の帯域をカバーしていました。ここがVNWAのすごいところだったのですが、方形波でも倍音成分を使うことで同様なことができるのではないかと期待しています。ここは実験次第です。</p>
+
+<p>ところで、最近の工作で、オーディオコーデックとしてTLV320AIC3204をよく使っていますが、実はこのチップを選定した理由の一つが、VNWAのスタンドアロン版を作ることを想定していたからなのでした。VNWAでは、観測すべき信号が三つ、これをステレオサウンド入力の2チャネルで観測するためにアナログスイッチで信号を切り替えていました。一方、TLV320AIC3204は入力が3つあり、これをチップの設定で切り替えることが可能です。しかも差動入力で使えるので、ギルバートセルミキサSA612の出力をそのまま入れることができます。さらにPGAが入っているのでアンプも不要で、とてもシンプルな構成とすることができます。</p>
+
+<p>スタンドアロン化のため、LCDディスプレイと、レバースイッチとプッシュボタンを用意しました。レバースイッチにもボタンが付いていますが、それとは別にボタンを追加したのは、スキャン開始の操作をしやすくするためです。LCDはLPC4370 SDRで実績のあるILI9431で、基板に直接実装するタイプの部品が入手可能なのでこれを使います。おまけとしてこのLCDには抵抗膜タイプのタッチパネルが装備されています。これを基板の裏に直接載せて、フレキケーブルをハンダ付けして実装する予定です。全体で10mm以下と、自作品にしては薄く仕上げられる予定です。</p>
+
+<p><img src="https://67.media.tumblr.com/0e0233e4dacaaab6b546dbac18aa5e0a/tumblr_inline_o8i6uy9f931r9hszk_540.jpg" alt="image" /></p>
+
+<p>LCDは320x240とピクセル数は多くはありませんがピクセルが細かいおかげで案外と綺麗な表示ができることがわかっています。ここに美しいスミスチャートを描きたいと思っています。色数が多いので、階調表現による滑らかな曲線を描くことができるはずです。UIと合わせてソフトウェアの工夫のしどころです。</p>
+
+<p>操作はレバースイッチとボタンで行う前提にしておいて、タッチパネルはもしうまく使えそうなら試そうと優先度は下げて考えています。</p>
+
+<p>スタンドアロンでの動作を最終的な目標にしますが、もちろんPCからUSBで接続して制御して使うことも想定しています。おそらく最初はPC前提に開発することになると思います。</p>
+
+<p>電源はUSBですが、LiPoも試してみようと用意しています。アナログ部分のSA612の電源が5Vなのですが、LiPoの場合取れる電圧が3.6V程度でミキサの仕様外になってしまうので、果たしてうまく動作するかは不明です。</p>
+
+<p>ブロック図を示します。</p>
+
+<p><img src="https://65.media.tumblr.com/3f8b3da436b6132ebe005591bf3b90de/tumblr_inline_o8i6vxO0NY1r9hszk_540.png" alt="image" /></p>
+
+<p>MCUにはSTM32F072を使うつもりです。信号処理とは言っても、SDRと違ってリアルタイムではないので、Cortex-M0で充分ではないかと考えています。小さなメモリでどこまで作り込めるかです。もし入らなかったらF303に変更します。</p>
+
+<p>原発振には26MHzのTCXOを使います。TCXOは振幅の小さいClipped sine waveを出力するタイプのモジュールが多いですが、これがSi5351Aで使えることは実験で確認済みです。さらに周波数を微調整できるVCTCXOタイプを使ってMCUのDACで調整できるようにします。本当なら外部から10MHzを入れられると良いのですが、残念ながらSi5351Aだと無理です(実はSi5351Cなら可能なのです。代わりにピン数が増えてしまいますが)。</p>
+
+<p>ブロック図には書き忘れましたが、余力があればSDカードに測定値をタッチストーン形式で記録することを検討しています。写真にあるソケットがそれです(基板から出っ張りますが面積的に仕方ありませんでした)。microSDではなくSDにしたのにはもちろん理由があります。これに関して、ちょっと面白いことができると良いなと思っています。</p>
+
+<p>と、妄想はいろいろ膨らんでいますが、まだFriskSDRの作業が終わっていないので、VNAの実験と製作に取りかかるのはもうちょっと先になりそうです。果たしてうまくいくかどうかもわかりませんが、作業に取りかかるまで構想を練っておきたいと思います。</p>
+
+<p>そういえば、CQ社RFワールド誌の次号(No.35)でVNAの製作記事が特集されると予告されていました。Windowsで制御するようですが、こちらも楽しみです。</p>
+
+<p>リファレンス</p>
+
+<ul>
+<li>VNWA <a href="http://sdr-kits.net/VNWA3_Description.html" target="_blank">http://sdr-kits.net/VNWA3_Description.html</a> (そういえばトラ技で開発者による解説の翻訳が連載されていました)</li>
+<li>以前VNWAのクローンを試作したレポート「<a href="../2013-02-12-building-vna-vnwa-using-gnuradio-and-dds-ad9859-1">DDS AD9859とGNURadioでVNAを作ってみる (1.動作原理解説)</a>」 <a href="http://ttrftech.tumblr.com/post/42922407294/" target="_blank">http://ttrftech.tumblr.com/post/42922407294/</a></li>
+<li>「<a href="../2013-02-20-building-vna-by-dds-ad9859-and-gnuradio">DDS AD9859とGNURadioでVNAを作ってみる(2.設計と実装)</a>」</li>
+<li>「<a href="../2013-02-28-building-vna-by-dds-ad9859-and-gnuradio-signal-processin">DDS AD9859とGNURadioでVNAを作ってみる(3.信号処理とプロット)</a>」</li>
+<li>「<a href="../2016-01-29-si5351a-spectrum-with-arduino-pro-micro">Si5351Aクロックジェネレータを試用してみる</a>」</li>
+<li><a href="../2016-04-27-interface-magazine-software-radio-article">ILI9431で作ったSDRのディスプレイ</a></li>
+</ul>
+        </div>
+        
+
+<footer class="post-footer">
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">TT</span></span>
+    
+    at <time>Jun 10, 2016</time>
+	<a href="https://ttrf.tk/posts/2016-06-10-nanovna-with-si5351a-and-stm32-in-design/" class="permalink">Permalink ∞</a>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://ttrf.tk/tags/vna">vna</a>  <a class="category" href="https://ttrf.tk/tags/si5351">si5351</a>  <a class="category" href="https://ttrf.tk/tags/stm32">stm32</a>  <a class="category" href="https://ttrf.tk/tags/sdr">sdr</a>  <a class="category" href="https://ttrf.tk/tags/nanovna">nanovna</a>  <a class="category" href="https://ttrf.tk/tags/pcb">pcb</a>  
+    
+    </span>
+  </p>
+
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3a%2f%2fttrf.tk%2fposts%2f2016-06-10-nanovna-with-si5351a-and-stm32-in-design%2f&amp;send=false&amp;layout=button_count&amp;width=75&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px;"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://ttrf.tk/posts/2016-06-10-nanovna-with-si5351a-and-stm32-in-design/" data-text="NanoVNA(仮称)を製作予定です" data-via="edy555">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://b.hatena.ne.jp/entry/https://ttrf.tk/posts/2016-06-10-nanovna-with-si5351a-and-stm32-in-design/" class="hatena-bookmark-button" data-hatena-bookmark-title="Computer RF Tech" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+</footer>
+
+		
+		
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'ttrftech';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+		
+		
+      </article>
+    </div>
+  </div>
+</div>
+
+	</div>
+        <div id="footer">
+      <p>Copyright &copy; 2019 TT - <a href="https://ttrf.tk/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>.
+      </p>
+    </div>
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
+  </body>
+</html>

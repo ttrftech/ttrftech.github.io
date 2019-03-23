@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gpsdo on Computer &amp; RF Technology</title>
+    <link>https://ttrf.tk/tags/gpsdo/</link>
+    <description>Recent content in Gpsdo on Computer &amp; RF Technology</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Thu, 04 Feb 2016 15:58:29 +0000</lastBuildDate>
+    
+	<atom:link href="https://ttrf.tk/tags/gpsdo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GPSDOが1/26のGPS Anomalyを観測していた(？)</title>
+      <link>https://ttrf.tk/posts/2016-02-04-diy-gpsdo-might-observe-gps-anomaly/</link>
+      <pubDate>Thu, 04 Feb 2016 15:58:29 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2016-02-04-diy-gpsdo-might-observe-gps-anomaly/</guid>
+      <description>&lt;p&gt;先月末に珍しいGPS異常が発生していたらしいのですが、調べてみたところテスト稼働中の自作GPSDOがそれらしき現象を捉えていました。せっかくなので現状わかっていることをまとめておきます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>GPSDOその後</title>
+      <link>https://ttrf.tk/posts/2015-11-01-gpsdo-experiment/</link>
+      <pubDate>Sun, 01 Nov 2015 03:53:44 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2015-11-01-gpsdo-experiment/</guid>
+      <description>&lt;p&gt;実験中のGPSDOですが、あの後しばらく稼働させたまま長期放置して様子を観察していました。やはり大きいDOCXOのほうが、長い期間だと安定なようです。簡単に状況をメモしておきます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>GPSのPPS信号でOCXOの周波数を制御してGPSDOの実験をしてみる</title>
+      <link>https://ttrf.tk/posts/2015-10-12-gpsdo-experiment-gps-ublox-6t-pps-control-oxco/</link>
+      <pubDate>Mon, 12 Oct 2015 06:12:33 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2015-10-12-gpsdo-experiment-gps-ublox-6t-pps-control-oxco/</guid>
+      <description>GPSDOの試作ですが、OCXOを触ってみて感触がわかったので、いよいよ周波数制御をしてみます。もちろん制御はMCUからソフトウェアで行いま</description>
+    </item>
+    
+    <item>
+      <title>引き続きOCXOとGPSの安定性を試している</title>
+      <link>https://ttrf.tk/posts/2015-10-08-gps-ocxo-stability-trial/</link>
+      <pubDate>Thu, 08 Oct 2015 17:34:56 +0000</pubDate>
+      
+      <guid>https://ttrf.tk/posts/2015-10-08-gps-ocxo-stability-trial/</guid>
+      <description>前回に引き続きGPSDOをDIYするべく、GPSやOCXOをあれこれ試しています(まだ周波数制御はしていません)。前回は手軽に5Vだけで動作</description>
+    </item>
+    
+  </channel>
+</rss>
