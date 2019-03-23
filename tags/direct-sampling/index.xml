@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Direct Sampling on Computer &amp; RF Technology</title>
-    <link>https://ttrf.tk/tags/direct-sampling/</link>
+    <link>https://ttrftech.github.io/tags/direct-sampling/</link>
     <description>Recent content in Direct Sampling on Computer &amp; RF Technology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Thu, 01 Nov 2012 23:09:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ttrf.tk/tags/direct-sampling/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ttrftech.github.io/tags/direct-sampling/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>RTL2832UをDirect Sampling Modeで使いGNURadioで中波AMラジオを受信する</title>
-      <link>https://ttrf.tk/posts/2012-11-01-receiving-am-broadcasting-with-rtl2832u-direct-sampling/</link>
+      <link>https://ttrftech.github.io/posts/2012-11-01-receiving-am-broadcasting-with-rtl2832u-direct-sampling/</link>
       <pubDate>Thu, 01 Nov 2012 23:09:00 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2012-11-01-receiving-am-broadcasting-with-rtl2832u-direct-sampling/</guid>
+      <guid>https://ttrftech.github.io/posts/2012-11-01-receiving-am-broadcasting-with-rtl2832u-direct-sampling/</guid>
       <description>&lt;p&gt;RTL2832Uドングルはその小ささからは信じられないほどの広帯域な受信が可能ですが、下限の周波数が30~50MHzということでHFやMFを受信することができません。ところがなんと若干の部品追加の改造することでHFやMFを受信する方法があるとのことなのでさっそく試してみました。&lt;/p&gt;</description>
     </item>
     

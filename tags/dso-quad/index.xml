@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dso Quad on Computer &amp; RF Technology</title>
-    <link>https://ttrf.tk/tags/dso-quad/</link>
+    <link>https://ttrftech.github.io/tags/dso-quad/</link>
     <description>Recent content in Dso Quad on Computer &amp; RF Technology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Thu, 27 Feb 2014 03:04:05 +0000</lastBuildDate>
     
-	<atom:link href="https://ttrf.tk/tags/dso-quad/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ttrftech.github.io/tags/dso-quad/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>DSO-QUADをアップデートして代替オシロアプリと周波数特性測定を試してみる</title>
-      <link>https://ttrf.tk/posts/2014-02-27-dso-quad-update-and-alternate-oscilloscope-and-frequency/</link>
+      <link>https://ttrftech.github.io/posts/2014-02-27-dso-quad-update-and-alternate-oscilloscope-and-frequency/</link>
       <pubDate>Thu, 27 Feb 2014 03:04:05 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2014-02-27-dso-quad-update-and-alternate-oscilloscope-and-frequency/</guid>
+      <guid>https://ttrftech.github.io/posts/2014-02-27-dso-quad-update-and-alternate-oscilloscope-and-frequency/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.seeedstudio.com/wiki/DSO_Quad&#34; target=&#34;_blank&#34;&gt;DSO QUAD&lt;/a&gt;は手のひらに乗るハンドヘルドオシロスコープです。バッテリで稼働するLCDディスプレイと、アナログ入出力が付いたスマホサイズの小型ハードウェアです。面白そうだと思って、発表された当初にSeeedStudioから購入していました。ただ、買ってはみたものの、オシロとしては使い勝手がイマイチだったのでほぼ放置になっていました。購入したのは2011年の春でしたので、既に３年も経過していましたが、その後ファームがアップデートされていたり、いろいろな追加アプリケーションが出ているようでしたので、今回久しぶりに試してみました。&lt;/p&gt;</description>
     </item>
     

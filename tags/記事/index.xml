@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>記事 on Computer &amp; RF Technology</title>
-    <link>https://ttrf.tk/tags/%E8%A8%98%E4%BA%8B/</link>
+    <link>https://ttrftech.github.io/tags/%E8%A8%98%E4%BA%8B/</link>
     <description>Recent content in 記事 on Computer &amp; RF Technology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Sun, 28 Oct 2018 01:38:34 +0000</lastBuildDate>
     
-	<atom:link href="https://ttrf.tk/tags/%E8%A8%98%E4%BA%8B/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ttrftech.github.io/tags/%E8%A8%98%E4%BA%8B/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>GNU Radioの入門に是非！解説記事をRFワールドNo44特集「GRCで広がるSDRの世界」に寄稿しました</title>
-      <link>https://ttrf.tk/posts/2018-10-28-gnuradio-grc-rfworld-no44/</link>
+      <link>https://ttrftech.github.io/posts/2018-10-28-gnuradio-grc-rfworld-no44/</link>
       <pubDate>Sun, 28 Oct 2018 01:38:34 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2018-10-28-gnuradio-grc-rfworld-no44/</guid>
+      <guid>https://ttrftech.github.io/posts/2018-10-28-gnuradio-grc-rfworld-no44/</guid>
       <description>&lt;p&gt;CQ出版社の季刊誌「RFワールド」最新刊No.44に、特集記事を寄稿させていただきました。GNU Radioの解説記事「GRCで広がるSDRの世界」です。計85ページもの分量です。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://66.media.tumblr.com/4ff8021b2c128a5a920e51b3478487e2/tumblr_inline_phabdfcUBT1r9hszk_540.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;</description>
@@ -24,28 +24,28 @@
     
     <item>
       <title>インターフェース誌ソフトウェア無線記事のまとめ</title>
-      <link>https://ttrf.tk/posts/2016-04-27-interface-magazine-software-radio-article/</link>
+      <link>https://ttrftech.github.io/posts/2016-04-27-interface-magazine-software-radio-article/</link>
       <pubDate>Wed, 27 Apr 2016 13:36:31 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2016-04-27-interface-magazine-software-radio-article/</guid>
+      <guid>https://ttrftech.github.io/posts/2016-04-27-interface-magazine-software-radio-article/</guid>
       <description>&lt;p&gt;昨年、CQ出版社の雑誌インターフェースの7月号に特集、そして10月号以後連載を寄稿してきました。こちらではほとんど紹介してこなかったのですが、作ろうと思っていたものがなんとか動作するようになったので、ここらでまとめておきたいと思います。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ソフトウェアによるFMラジオ実装についてインターフェース誌に寄稿しました</title>
-      <link>https://ttrf.tk/posts/2015-05-22-interface-magazine-article-fm-sdr-lpc4370-lpc-link2-lpcx/</link>
+      <link>https://ttrftech.github.io/posts/2015-05-22-interface-magazine-article-fm-sdr-lpc4370-lpc-link2-lpcx/</link>
       <pubDate>Fri, 22 May 2015 13:51:39 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2015-05-22-interface-magazine-article-fm-sdr-lpc4370-lpc-link2-lpcx/</guid>
+      <guid>https://ttrftech.github.io/posts/2015-05-22-interface-magazine-article-fm-sdr-lpc4370-lpc-link2-lpcx/</guid>
       <description>&lt;p&gt;ARMマイコンによるSDR実装について、CQ出版社のインターフェース誌2015年7月号に寄稿しました。昨年夏にこちらで紹介したソフトウェアだけで実装したFMラジオの仕組みを紹介しています。Cortex-M4をぎりぎりまで使ったRF信号処理の実践について解説しました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Raspberry PiからpifmでFMラジオに電波を飛ばしてみる</title>
-      <link>https://ttrf.tk/posts/2014-06-28-fm-transmitter-using-pifm-and-raspberry-pi/</link>
+      <link>https://ttrftech.github.io/posts/2014-06-28-fm-transmitter-using-pifm-and-raspberry-pi/</link>
       <pubDate>Sat, 28 Jun 2014 22:45:00 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2014-06-28-fm-transmitter-using-pifm-and-raspberry-pi/</guid>
+      <guid>https://ttrftech.github.io/posts/2014-06-28-fm-transmitter-using-pifm-and-raspberry-pi/</guid>
       <description>&lt;p&gt;Raspberry PiをFMトランスミッタとするハックについての解説をトランジスタ技術2014年7月号特集に寄稿しましたが、若干こちらで補足したいと思います。&lt;/p&gt;</description>
     </item>
     

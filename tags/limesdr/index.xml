@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Limesdr on Computer &amp; RF Technology</title>
-    <link>https://ttrf.tk/tags/limesdr/</link>
+    <link>https://ttrftech.github.io/tags/limesdr/</link>
     <description>Recent content in Limesdr on Computer &amp; RF Technology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Sun, 19 Feb 2017 11:51:18 +0000</lastBuildDate>
     
-	<atom:link href="https://ttrf.tk/tags/limesdr/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ttrftech.github.io/tags/limesdr/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>LimeSDRをケースにいれてみました</title>
-      <link>https://ttrf.tk/posts/2017-02-19-limesdr-in-the-aluminium-box/</link>
+      <link>https://ttrftech.github.io/posts/2017-02-19-limesdr-in-the-aluminium-box/</link>
       <pubDate>Sun, 19 Feb 2017 11:51:18 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2017-02-19-limesdr-in-the-aluminium-box/</guid>
+      <guid>https://ttrftech.github.io/posts/2017-02-19-limesdr-in-the-aluminium-box/</guid>
       <description>&lt;p&gt;LimeSDRをケースに入れてみました。使ったケースはタカチのEXH8-3-12です。U.FLとSMAの変換ケーブルを用意してパネルに出しました。SMAコネクタが沢山並ぶと、何だかスゴそうな感じになりました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>LimeSDRをGQRXで使ってみる</title>
-      <link>https://ttrf.tk/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/</link>
+      <link>https://ttrftech.github.io/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/</link>
       <pubDate>Thu, 09 Feb 2017 18:54:10 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/</guid>
+      <guid>https://ttrftech.github.io/posts/2017-02-09-limesdr-unboxing-and-using-with-gqrx/</guid>
       <description>昨年クラウドファンディングCloudSupplyでキャンペーンをしていたLimeSDRをBackしていましたが、1月末に出荷されました。よう</description>
     </item>
     

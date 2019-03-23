@@ -2,84 +2,84 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ad9859 on Computer &amp; RF Technology</title>
-    <link>https://ttrf.tk/tags/ad9859/</link>
+    <link>https://ttrftech.github.io/tags/ad9859/</link>
     <description>Recent content in Ad9859 on Computer &amp; RF Technology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Sat, 30 Mar 2013 08:02:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ttrf.tk/tags/ad9859/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ttrftech.github.io/tags/ad9859/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>VNA製作(6):matplotlibとSciKit-RFによる校正とスミスチャートのプロット</title>
-      <link>https://ttrf.tk/posts/2013-03-30-vna-plot-smith-chart-and-calibrate-with-scikit-rf/</link>
+      <link>https://ttrftech.github.io/posts/2013-03-30-vna-plot-smith-chart-and-calibrate-with-scikit-rf/</link>
       <pubDate>Sat, 30 Mar 2013 08:02:00 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2013-03-30-vna-plot-smith-chart-and-calibrate-with-scikit-rf/</guid>
+      <guid>https://ttrftech.github.io/posts/2013-03-30-vna-plot-smith-chart-and-calibrate-with-scikit-rf/</guid>
       <description>&lt;p&gt;VNAにはスミスチャートは欠かせません。このあたりを実現したいと調べていたところ、素晴らしいツールに出会いました。matplotlibとSciKit-RFです。これらを使って、スミスチャートの描画と、キャリブレーションが一気に片付きそうです。まだ試行中ですが、現時点でできているところまでを整理のために書いておきます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>DDS AD9859とGNURadioでVNAを作ってみる(5.周波数レンジ拡大2GHz編)</title>
-      <link>https://ttrf.tk/posts/2013-03-26-building-vna-by-dds-ad9859-and-gnuradio-subnyquist-freq/</link>
+      <link>https://ttrftech.github.io/posts/2013-03-26-building-vna-by-dds-ad9859-and-gnuradio-subnyquist-freq/</link>
       <pubDate>Tue, 26 Mar 2013 04:07:00 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2013-03-26-building-vna-by-dds-ad9859-and-gnuradio-subnyquist-freq/</guid>
+      <guid>https://ttrftech.github.io/posts/2013-03-26-building-vna-by-dds-ad9859-and-gnuradio-subnyquist-freq/</guid>
       <description>&lt;p&gt;さて、RX部が想定内の動作をしていることが確認できたので、次はサブナイキストレンジでの挙動を見てみます。サブナイキスト動作をさせる場合に、どのように二つのDDSの周波数を設定したら良いのでしょうか。実はしばらくこれで悩んでいたのですが、実際動作させながら動作を観察して考えたところ、実に簡単に済むことがわかりました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>DDS AD9859とGNURadioでVNAを作ってみる(4.RX実装とクリスタルフィルタの測定)</title>
-      <link>https://ttrf.tk/posts/2013-03-25-building-vna-by-dds-ad9859-and-gnuradio-rx/</link>
+      <link>https://ttrftech.github.io/posts/2013-03-25-building-vna-by-dds-ad9859-and-gnuradio-rx/</link>
       <pubDate>Mon, 25 Mar 2013 18:42:00 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2013-03-25-building-vna-by-dds-ad9859-and-gnuradio-rx/</guid>
+      <guid>https://ttrftech.github.io/posts/2013-03-25-building-vna-by-dds-ad9859-and-gnuradio-rx/</guid>
       <description>&lt;p&gt;さて、諸処あってVNAの作業は１月末から放置していましたがちょっと再開しました。まずは先延ばしにしていたRXの実装を完了させてしまいます。ここを先延ばしにしていたのは二つ目のDDSの出力をモニターするのに基板上のSMAコネクタを流用していたからです。動作も安定してきたので実装してしまうことにしました。DBM(SA612)とOPアンプ(TL2462)とSPDTスイッチ(ADG719)と若干のCRのみですのですぐ終わります。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>DDS AD9859とGNURadioでVNAを作ってみる(3.信号処理とプロット)</title>
-      <link>https://ttrf.tk/posts/2013-02-28-building-vna-by-dds-ad9859-and-gnuradio-signal-processin/</link>
+      <link>https://ttrftech.github.io/posts/2013-02-28-building-vna-by-dds-ad9859-and-gnuradio-signal-processin/</link>
       <pubDate>Thu, 28 Feb 2013 15:28:00 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2013-02-28-building-vna-by-dds-ad9859-and-gnuradio-signal-processin/</guid>
+      <guid>https://ttrftech.github.io/posts/2013-02-28-building-vna-by-dds-ad9859-and-gnuradio-signal-processin/</guid>
       <description>&lt;p&gt;VNA製作について、前回のハードウェア編に引き続いて、GNURadioによる信号処理編です。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>DDS AD9859とGNURadioでVNAを作ってみる(2.設計と実装)</title>
-      <link>https://ttrf.tk/posts/2013-02-20-building-vna-by-dds-ad9859-and-gnuradio/</link>
+      <link>https://ttrftech.github.io/posts/2013-02-20-building-vna-by-dds-ad9859-and-gnuradio/</link>
       <pubDate>Wed, 20 Feb 2013 03:29:00 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2013-02-20-building-vna-by-dds-ad9859-and-gnuradio/</guid>
+      <guid>https://ttrftech.github.io/posts/2013-02-20-building-vna-by-dds-ad9859-and-gnuradio/</guid>
       <description>&lt;p&gt;自作VNAについて前回からのつづき、ハードウェア(フロントエンド)の設計と製作編です。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>DDS AD9859とGNURadioでVNAを作ってみる(1.動作原理解説)</title>
-      <link>https://ttrf.tk/posts/2013-02-12-building-vna-vnwa-using-gnuradio-and-dds-ad9859-1/</link>
+      <link>https://ttrftech.github.io/posts/2013-02-12-building-vna-vnwa-using-gnuradio-and-dds-ad9859-1/</link>
       <pubDate>Tue, 12 Feb 2013 13:31:00 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2013-02-12-building-vna-vnwa-using-gnuradio-and-dds-ad9859-1/</guid>
+      <guid>https://ttrftech.github.io/posts/2013-02-12-building-vna-vnwa-using-gnuradio-and-dds-ad9859-1/</guid>
       <description>&lt;p&gt;DG8SAQによるQEX誌記事&amp;rdquo;A Small, Simple, USB-Powered  Vector Network Analyzer Covering 1 kHz to 1.3 GHz&amp;rdquo;を読み、その構成のシンプルさと強烈なアイデアにある種の感動を覚えました。この記事で取り上げられた自作のVNAは、VNWAという名称でsdr-kit.netから頒布されていました。当初はキット配布で、チャレンジしてみたいと思っていたのですが、途中から完成品の販売のみとなってしまいました。完成品ではおそらく物足りないだろうと思いましたので、いっそのこと自分で作ってみることにしました。(一応念のためですが、VNAとはQEX記事タイトルにもあるように、ベクトルネットワークアナライザのことです)&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>DDS AD9859をPythonスクリプトとBitBangモードで制御する</title>
-      <link>https://ttrf.tk/posts/2013-01-26-controling-ad9859-dds-by-python-script-and-ft232rl-bitba/</link>
+      <link>https://ttrftech.github.io/posts/2013-01-26-controling-ad9859-dds-by-python-script-and-ft232rl-bitba/</link>
       <pubDate>Sat, 26 Jan 2013 04:40:00 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2013-01-26-controling-ad9859-dds-by-python-script-and-ft232rl-bitba/</guid>
+      <guid>https://ttrftech.github.io/posts/2013-01-26-controling-ad9859-dds-by-python-script-and-ft232rl-bitba/</guid>
       <description>&lt;p&gt;今度はDDSをpythonで制御してみます。pythonからFTDIチップを制御するためにpylibftdiというライブラリが使えそうです。まずはこれをpipでインストールしておきます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>アナデバのDDS AD9859をRubyスクリプトとMacで制御する</title>
-      <link>https://ttrf.tk/posts/2013-01-24-ad9859-dds-controlled-with-ft232rl-and-ruby-on-mac-osx/</link>
+      <link>https://ttrftech.github.io/posts/2013-01-24-ad9859-dds-controlled-with-ft232rl-and-ruby-on-mac-osx/</link>
       <pubDate>Thu, 24 Jan 2013 15:59:00 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2013-01-24-ad9859-dds-controlled-with-ft232rl-and-ruby-on-mac-osx/</guid>
+      <guid>https://ttrftech.github.io/posts/2013-01-24-ad9859-dds-controlled-with-ft232rl-and-ruby-on-mac-osx/</guid>
       <description>&lt;p&gt;さて、LEDの点滅(通称Lチカ)がrubyスクリプトで直接できるようになったので、さっそくSPIデバイスを制御してみます。ターゲットは、タイトルにもあるようにアナログデバイセズのDDS(Digital Direct Synthesizer)です。これを自由に制御できるようになれば、いろいろ応用が効くはずです。&lt;/p&gt;</description>
     </item>
     

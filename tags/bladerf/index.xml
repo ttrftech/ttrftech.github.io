@@ -2,75 +2,75 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bladerf on Computer &amp; RF Technology</title>
-    <link>https://ttrf.tk/tags/bladerf/</link>
+    <link>https://ttrftech.github.io/tags/bladerf/</link>
     <description>Recent content in Bladerf on Computer &amp; RF Technology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Thu, 09 Jan 2014 13:32:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ttrf.tk/tags/bladerf/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ttrftech.github.io/tags/bladerf/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>gqrxをMac OSX用にソースからビルドしてみる</title>
-      <link>https://ttrf.tk/posts/2014-01-09-build-gqrx-from-source-code-for-macosx/</link>
+      <link>https://ttrftech.github.io/posts/2014-01-09-build-gqrx-from-source-code-for-macosx/</link>
       <pubDate>Thu, 09 Jan 2014 13:32:00 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2014-01-09-build-gqrx-from-source-code-for-macosx/</guid>
+      <guid>https://ttrftech.github.io/posts/2014-01-09-build-gqrx-from-source-code-for-macosx/</guid>
       <description>&lt;p&gt;SDR用のソフトウェアは、WindowsプラットフォームではSDR#やHDRなど優秀なものがいくつもありますが、Windows以外のプラットフォーム、特にUnixベースで動作するものは殆ど無く、知る限りGqrxが唯一かと思います。Windowsベースのものに比べると、機能は限られていますが、比較的良い使い勝手を提供しているソフトウェアだと思います。有り難いことにGqrxはMac OSXでも動作し、バイナリも配布されています。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>gnuradio 3.7をHomebrewでMac OSXにインストールする</title>
-      <link>https://ttrf.tk/posts/2014-01-08-install-gnuradio-and-bladerf-with-homebrew-on-macosx/</link>
+      <link>https://ttrftech.github.io/posts/2014-01-08-install-gnuradio-and-bladerf-with-homebrew-on-macosx/</link>
       <pubDate>Wed, 08 Jan 2014 17:12:23 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2014-01-08-install-gnuradio-and-bladerf-with-homebrew-on-macosx/</guid>
+      <guid>https://ttrftech.github.io/posts/2014-01-08-install-gnuradio-and-bladerf-with-homebrew-on-macosx/</guid>
       <description>&lt;p&gt;さて、gqrxをソースからビルドしたいのですが、gqrxは内部でgnuradioを使用しています。最初インストール済だったgnuradio 3.6でgqrxをビルドしようとしたのですが、エラーで失敗してしまいました。最新のgqrxはgnuradio 3.7が必須なようです。これを機会にgnuradioのバージョンを3.7に上げることにしました。現在の最新版gnuradio-3.7.2.1を使用することにします。せっかくなのでbrewのFormulaを修正して、gnuradio 3.7をbrewでインストールできるようにしてみます。さらにbladerfの対応も付け加えたいと思います。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>bladeRFとアップコンバータで300MHz以下の受信を試してみる</title>
-      <link>https://ttrf.tk/posts/2013-12-30-receive-low-frequency-with-bladerf/</link>
+      <link>https://ttrftech.github.io/posts/2013-12-30-receive-low-frequency-with-bladerf/</link>
       <pubDate>Mon, 30 Dec 2013 05:39:00 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2013-12-30-receive-low-frequency-with-bladerf/</guid>
+      <guid>https://ttrftech.github.io/posts/2013-12-30-receive-low-frequency-with-bladerf/</guid>
       <description>&lt;p&gt;bladeRFはカバー範囲が300M~3.8Gと広いのですが、RTLドングルでHFが受信できないのと同様に、bladeRFではVHF以下をカバーしていない弱点があります。そこでアップコンバータによる受信を試してみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>bladeRFとGNURadioをMac OSX用に構築する</title>
-      <link>https://ttrf.tk/posts/2013-09-02-setup-bladerf-and-gnuradio-on-macosx/</link>
+      <link>https://ttrftech.github.io/posts/2013-09-02-setup-bladerf-and-gnuradio-on-macosx/</link>
       <pubDate>Mon, 02 Sep 2013 14:07:00 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2013-09-02-setup-bladerf-and-gnuradio-on-macosx/</guid>
+      <guid>https://ttrftech.github.io/posts/2013-09-02-setup-bladerf-and-gnuradio-on-macosx/</guid>
       <description>&lt;p&gt;引き続きbladeRFを試していますが、Macでも使えるようになりましたのでメモしておきます。以前OSX 10.6でGNURadioをセットアップしましたが、最新のMountain Lion 10.8でもセットアップできました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>bladeRFをgnuradioとgr-osmocomで使ってみる</title>
-      <link>https://ttrf.tk/posts/2013-09-01-trying-bladerf-with-gnuradio-and-gr-osmocom/</link>
+      <link>https://ttrftech.github.io/posts/2013-09-01-trying-bladerf-with-gnuradio-and-gr-osmocom/</link>
       <pubDate>Sun, 01 Sep 2013 01:28:41 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2013-09-01-trying-bladerf-with-gnuradio-and-gr-osmocom/</guid>
+      <guid>https://ttrftech.github.io/posts/2013-09-01-trying-bladerf-with-gnuradio-and-gr-osmocom/</guid>
       <description>&lt;p&gt;先日bladeRF用のライブラリをビルドした際ソースの構成が変わっていて、gr-osmosdr側ではビルドできなくなっていましたが、8/28に入った修正により対応したようです。なのでgr-osmosdrをビルドする方法の続きです。すでにbladeRFのライブラリがインストール済であることが前提です(前の記事参照)。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>bladeRF用のツールとライブラリをLinuxでビルドする</title>
-      <link>https://ttrf.tk/posts/2013-08-26-building-bladerf-tools-on-linux/</link>
+      <link>https://ttrftech.github.io/posts/2013-08-26-building-bladerf-tools-on-linux/</link>
       <pubDate>Mon, 26 Aug 2013 17:47:00 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2013-08-26-building-bladerf-tools-on-linux/</guid>
+      <guid>https://ttrftech.github.io/posts/2013-08-26-building-bladerf-tools-on-linux/</guid>
       <description>&lt;p&gt;bladeRFのホスト用のソフトウェアはソースからビルドする必要があります。8/25に開発バージョンがマージされて若干手順が変わりました。アップデートされたバージョンではlibusbがサポートされました。デフォルトではこちらが有効になり、カーネルドライバが不要になりました。新しいバージョン向けに手順をまとめておきます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>bladeRFが到着したので早速試してみる</title>
-      <link>https://ttrf.tk/posts/2013-08-24-received-bladerf-today-try-it/</link>
+      <link>https://ttrftech.github.io/posts/2013-08-24-received-bladerf-today-try-it/</link>
       <pubDate>Sat, 24 Aug 2013 17:56:00 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2013-08-24-received-bladerf-today-try-it/</guid>
+      <guid>https://ttrftech.github.io/posts/2013-08-24-received-bladerf-today-try-it/</guid>
       <description>&lt;p&gt;2月にkickstarterで申し込んでから半年以上が経過してしまいましたが、ようやくbladeRFが到着しました。7月末から出荷開始されていたようなのですが、海外組は後回しにされたせいか、今回のbladeRFが出荷されたのは8月半ばでした。&lt;/p&gt;</description>
     </item>
     

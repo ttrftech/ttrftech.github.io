@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Frisksdr on Computer &amp; RF Technology</title>
-    <link>https://ttrf.tk/tags/frisksdr/</link>
+    <link>https://ttrftech.github.io/tags/frisksdr/</link>
     <description>Recent content in Frisksdr on Computer &amp; RF Technology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Sun, 11 Sep 2016 05:22:33 +0000</lastBuildDate>
     
-	<atom:link href="https://ttrf.tk/tags/frisksdr/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ttrftech.github.io/tags/frisksdr/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Si5351Aの使い方と動作</title>
-      <link>https://ttrf.tk/posts/2016-09-11-si5351a-configuration-how-to-and-signal-quality/</link>
+      <link>https://ttrftech.github.io/posts/2016-09-11-si5351a-configuration-how-to-and-signal-quality/</link>
       <pubDate>Sun, 11 Sep 2016 05:22:33 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2016-09-11-si5351a-configuration-how-to-and-signal-quality/</guid>
+      <guid>https://ttrftech.github.io/posts/2016-09-11-si5351a-configuration-how-to-and-signal-quality/</guid>
       <description>&lt;p&gt;Si5351AクロックジェネネータをFriskSDRのローカルや、NanoVNAの信号源として試用してみています。Si5351Aの仕様では、上限は200MHzまでとされていますが、実際に試してみたところ300MHzを越える周波数まで発生させられるようです。以前最初に試した様子を書きましたが、その後の知見をまとめておきます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Maker Faire Tokyo 2016に展示します</title>
-      <link>https://ttrf.tk/posts/2016-07-31-seeyou-at-mft2016-exhibition/</link>
+      <link>https://ttrftech.github.io/posts/2016-07-31-seeyou-at-mft2016-exhibition/</link>
       <pubDate>Sun, 31 Jul 2016 02:02:33 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2016-07-31-seeyou-at-mft2016-exhibition/</guid>
+      <guid>https://ttrftech.github.io/posts/2016-07-31-seeyou-at-mft2016-exhibition/</guid>
       <description>&lt;p&gt;告知を出すのが遅くなってしまいましたが、8/6と8/7のMaker Faire Tokyo 2016に出展します。今回の展示内容のメインはこれまで試作してきたマイコンベースのSDR受信機です。LPC-Link2を使ったSDRの実験を雑誌記事として紹介してきましたが、なかなか実物をご覧いただく機会がありません。実はこれまでMaker Faireに数回出展したときに、さりげなく置いてあったのですが、今年はソフトウェア受信機をメインに出展の申込をしてみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Si5351Aを使った超小型SDR: FriskSDR</title>
-      <link>https://ttrf.tk/posts/2016-07-23-frisksdr-using-si5351a-stm32-sdr/</link>
+      <link>https://ttrftech.github.io/posts/2016-07-23-frisksdr-using-si5351a-stm32-sdr/</link>
       <pubDate>Sat, 23 Jul 2016 09:06:38 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2016-07-23-frisksdr-using-si5351a-stm32-sdr/</guid>
+      <guid>https://ttrftech.github.io/posts/2016-07-23-frisksdr-using-si5351a-stm32-sdr/</guid>
       <description>&lt;p&gt;FriskSDRは、主要なパーツに汎用MCUのSTM32F303、コーデックにTLV320AIC3204、ローカル発振器にSi5351Aを使った0-50MHz程度までカバーするダイレクトコンバージョンな広帯域受信機です。復調はソフトウェアにより信号処理。ミキサにアナログスイッチを使っているので歪みも少ないという特徴があります。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>FriskSDRにUIを実装してみました</title>
-      <link>https://ttrf.tk/posts/2016-05-30-frisksdr-user-interface/</link>
+      <link>https://ttrftech.github.io/posts/2016-05-30-frisksdr-user-interface/</link>
       <pubDate>Mon, 30 May 2016 13:23:44 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2016-05-30-frisksdr-user-interface/</guid>
+      <guid>https://ttrftech.github.io/posts/2016-05-30-frisksdr-user-interface/</guid>
       <description>&lt;p&gt;製作していたFriskSDRですが、当初の予定通りLCDとレバースイッチを付けて操作できるようにしてみました。&lt;/p&gt;</description>
     </item>
     

@@ -2,93 +2,93 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nanovna on Computer &amp; RF Technology</title>
-    <link>https://ttrf.tk/tags/nanovna/</link>
+    <link>https://ttrftech.github.io/tags/nanovna/</link>
     <description>Recent content in Nanovna on Computer &amp; RF Technology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Sun, 15 Jan 2017 01:27:10 +0000</lastBuildDate>
     
-	<atom:link href="https://ttrf.tk/tags/nanovna/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ttrftech.github.io/tags/nanovna/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>NanoVNAでクリスタルフィルタの特性を見てみる</title>
-      <link>https://ttrf.tk/posts/2017-01-15-measure-crystal-filter-with-nanovna/</link>
+      <link>https://ttrftech.github.io/posts/2017-01-15-measure-crystal-filter-with-nanovna/</link>
       <pubDate>Sun, 15 Jan 2017 01:27:10 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2017-01-15-measure-crystal-filter-with-nanovna/</guid>
+      <guid>https://ttrftech.github.io/posts/2017-01-15-measure-crystal-filter-with-nanovna/</guid>
       <description>&lt;p&gt;NanoVNAが実用的に使えるくらいには動くようになってきましたので、実践例としてクリスタルフィルタを測定してみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>NanoVNAにタッチ操作を実装してみた</title>
-      <link>https://ttrf.tk/posts/2016-12-19-micro-vector-network-analyzer-nanovna-touch-operation/</link>
+      <link>https://ttrftech.github.io/posts/2016-12-19-micro-vector-network-analyzer-nanovna-touch-operation/</link>
       <pubDate>Mon, 19 Dec 2016 14:55:29 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2016-12-19-micro-vector-network-analyzer-nanovna-touch-operation/</guid>
+      <guid>https://ttrftech.github.io/posts/2016-12-19-micro-vector-network-analyzer-nanovna-touch-operation/</guid>
       <description>&lt;p&gt;製作中のNanoVNAですが、今回はタッチパネルを実装してみました。普段はメニューが隠れているのですが、画面に触れたり、レバーを押すとメニューが現れて、各種操作を行うことができるようになってきました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ベクトルネットワークアナライザNanoVNAの液晶画面を実装する</title>
-      <link>https://ttrf.tk/posts/2016-11-12-tiny-vector-network-analyzer-nanovna-get-work-with-lcd/</link>
+      <link>https://ttrftech.github.io/posts/2016-11-12-tiny-vector-network-analyzer-nanovna-get-work-with-lcd/</link>
       <pubDate>Sat, 12 Nov 2016 17:31:59 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2016-11-12-tiny-vector-network-analyzer-nanovna-get-work-with-lcd/</guid>
+      <guid>https://ttrftech.github.io/posts/2016-11-12-tiny-vector-network-analyzer-nanovna-get-work-with-lcd/</guid>
       <description>&lt;p&gt;前回までの実験は、NanoVNAをPCのアダプタとして使用して、USB経由でデータを取得していました。NanoVNAはスタンドアロンで動作させるため液晶ディスプレイを付けられる設計にしてあります。液晶表示と測定値のプロット、校正処理とマーカーまで作ってみましたのでポイントのみ紹介します。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>NanoVNAの校正処理をPythonで試してみる</title>
-      <link>https://ttrf.tk/posts/2016-11-08-calibration-process-in-python-for-nanovna/</link>
+      <link>https://ttrftech.github.io/posts/2016-11-08-calibration-process-in-python-for-nanovna/</link>
       <pubDate>Tue, 08 Nov 2016 12:20:51 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2016-11-08-calibration-process-in-python-for-nanovna/</guid>
+      <guid>https://ttrftech.github.io/posts/2016-11-08-calibration-process-in-python-for-nanovna/</guid>
       <description>&lt;p&gt;今回はネットワークアナライザに付きものの校正の中身を紹介します。動作の確認の意味も含めて、実際にNanoVNAで観測した結果を、Pythonによる校正処理を試してみます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>校正用キャリブレーションキットCALKITを自作する</title>
-      <link>https://ttrf.tk/posts/2016-09-30-dir-calkit-for-vector-network-analyzer/</link>
+      <link>https://ttrftech.github.io/posts/2016-09-30-dir-calkit-for-vector-network-analyzer/</link>
       <pubDate>Fri, 30 Sep 2016 15:56:02 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2016-09-30-dir-calkit-for-vector-network-analyzer/</guid>
+      <guid>https://ttrftech.github.io/posts/2016-09-30-dir-calkit-for-vector-network-analyzer/</guid>
       <description>&lt;p&gt;ネットワークアナライザを活用するためには、インピーダンスの基準となる校正用のアダプタ＝キャリブレーションキットが必要になります。測定器用のアクセサリとして市販されているものは高価ですが、低い周波数向けでしたら自作でも充分実用になりますので、Webで見つけた先例を参考に、今回新たに作成してみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>NanoVNAの信号から反射係数を計算し周波数特性をプロットする</title>
-      <link>https://ttrf.tk/posts/2016-09-16-nanovna-calculating-reflection-coefficient-and-plot/</link>
+      <link>https://ttrftech.github.io/posts/2016-09-16-nanovna-calculating-reflection-coefficient-and-plot/</link>
       <pubDate>Fri, 16 Sep 2016 13:18:10 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2016-09-16-nanovna-calculating-reflection-coefficient-and-plot/</guid>
+      <guid>https://ttrftech.github.io/posts/2016-09-16-nanovna-calculating-reflection-coefficient-and-plot/</guid>
       <description>&lt;p&gt;ベクトルネットワークアナライザNanoVNAの実験の続きです。ネットワークアナライザでは、発生したRF信号に対する被測定物(DUT)の応答を、振幅と位相で計測するのですが、結果は反射係数として複素数で得られます。反射係数を波形の信号から求めるのが今回の目的です。反射係数が得られるようになったら、周波数をスキャンさせながらこれを実行することで、周波数特性が得られることになります。プロットすると見慣れたグラフが得られるはずです。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Si5351Aの使い方と動作</title>
-      <link>https://ttrf.tk/posts/2016-09-11-si5351a-configuration-how-to-and-signal-quality/</link>
+      <link>https://ttrftech.github.io/posts/2016-09-11-si5351a-configuration-how-to-and-signal-quality/</link>
       <pubDate>Sun, 11 Sep 2016 05:22:33 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2016-09-11-si5351a-configuration-how-to-and-signal-quality/</guid>
+      <guid>https://ttrftech.github.io/posts/2016-09-11-si5351a-configuration-how-to-and-signal-quality/</guid>
       <description>&lt;p&gt;Si5351AクロックジェネネータをFriskSDRのローカルや、NanoVNAの信号源として試用してみています。Si5351Aの仕様では、上限は200MHzまでとされていますが、実際に試してみたところ300MHzを越える周波数まで発生させられるようです。以前最初に試した様子を書きましたが、その後の知見をまとめておきます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>小型ネットワークアナライザNanoVNAを実験中です</title>
-      <link>https://ttrf.tk/posts/2016-09-03-nanovna-mini-vector-network-analyzer-in-development/</link>
+      <link>https://ttrftech.github.io/posts/2016-09-03-nanovna-mini-vector-network-analyzer-in-development/</link>
       <pubDate>Sat, 03 Sep 2016 03:45:56 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2016-09-03-nanovna-mini-vector-network-analyzer-in-development/</guid>
+      <guid>https://ttrftech.github.io/posts/2016-09-03-nanovna-mini-vector-network-analyzer-in-development/</guid>
       <description>&lt;p&gt;ちょっと間が空いてしまいましたが、試作中の手のひらサイズの小型ネットワークアナライザNanoVNAを試しています。基板に部品を実装して、動作を少しずつ確認していますが、その状況についてです。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>NanoVNA(仮称)を製作予定です</title>
-      <link>https://ttrf.tk/posts/2016-06-10-nanovna-with-si5351a-and-stm32-in-design/</link>
+      <link>https://ttrftech.github.io/posts/2016-06-10-nanovna-with-si5351a-and-stm32-in-design/</link>
       <pubDate>Fri, 10 Jun 2016 14:07:42 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2016-06-10-nanovna-with-si5351a-and-stm32-in-design/</guid>
+      <guid>https://ttrftech.github.io/posts/2016-06-10-nanovna-with-si5351a-and-stm32-in-design/</guid>
       <description>&lt;p&gt;先日クロックジェネレータチップSi5351Aを試していましたが、ふとこれを使ってVNA (ベクトルネットワークアナライザ)を作れるんじゃね、と思いついてしまいました。以前試したVNWAのクローンではDDSチップを二つ使っていましたが、Si5351Aなら個別に周波数を設定できる出力が3つもあります。&lt;/p&gt;</description>
     </item>
     

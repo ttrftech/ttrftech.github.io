@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Filter on Computer &amp; RF Technology</title>
-    <link>https://ttrf.tk/tags/filter/</link>
+    <link>https://ttrftech.github.io/tags/filter/</link>
     <description>Recent content in Filter on Computer &amp; RF Technology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Sun, 15 Jan 2017 01:27:10 +0000</lastBuildDate>
     
-	<atom:link href="https://ttrf.tk/tags/filter/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ttrftech.github.io/tags/filter/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>NanoVNAでクリスタルフィルタの特性を見てみる</title>
-      <link>https://ttrf.tk/posts/2017-01-15-measure-crystal-filter-with-nanovna/</link>
+      <link>https://ttrftech.github.io/posts/2017-01-15-measure-crystal-filter-with-nanovna/</link>
       <pubDate>Sun, 15 Jan 2017 01:27:10 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2017-01-15-measure-crystal-filter-with-nanovna/</guid>
+      <guid>https://ttrftech.github.io/posts/2017-01-15-measure-crystal-filter-with-nanovna/</guid>
       <description>&lt;p&gt;NanoVNAが実用的に使えるくらいには動くようになってきましたので、実践例としてクリスタルフィルタを測定してみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>HF受信機用フィルタバンクを試作してみる</title>
-      <link>https://ttrf.tk/posts/2016-02-27-hf-filter-bank-with-smd-parts/</link>
+      <link>https://ttrftech.github.io/posts/2016-02-27-hf-filter-bank-with-smd-parts/</link>
       <pubDate>Sat, 27 Feb 2016 06:09:08 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2016-02-27-hf-filter-bank-with-smd-parts/</guid>
+      <guid>https://ttrftech.github.io/posts/2016-02-27-hf-filter-bank-with-smd-parts/</guid>
       <description>&lt;p&gt;サンプリング方式のソフトウェア受信機では、エイリアスが生じるのを防ぐためにフィルタが必須です。地味にインターフェース誌に掲載しているダイレクトサンプリング受信機では、7MHzのモノバンドのフィルタを用いていました。このフィルタを複数用意して切り替えるようにすれば広帯域化が計れます。その試みとしてフィルタバンクを試作してみました。&lt;/p&gt;</description>
     </item>
     

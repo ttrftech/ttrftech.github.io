@@ -2,75 +2,75 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gps on Computer &amp; RF Technology</title>
-    <link>https://ttrf.tk/tags/gps/</link>
+    <link>https://ttrftech.github.io/tags/gps/</link>
     <description>Recent content in Gps on Computer &amp; RF Technology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Thu, 04 Feb 2016 15:58:29 +0000</lastBuildDate>
     
-	<atom:link href="https://ttrf.tk/tags/gps/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ttrftech.github.io/tags/gps/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>GPSDOが1/26のGPS Anomalyを観測していた(？)</title>
-      <link>https://ttrf.tk/posts/2016-02-04-diy-gpsdo-might-observe-gps-anomaly/</link>
+      <link>https://ttrftech.github.io/posts/2016-02-04-diy-gpsdo-might-observe-gps-anomaly/</link>
       <pubDate>Thu, 04 Feb 2016 15:58:29 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2016-02-04-diy-gpsdo-might-observe-gps-anomaly/</guid>
+      <guid>https://ttrftech.github.io/posts/2016-02-04-diy-gpsdo-might-observe-gps-anomaly/</guid>
       <description>&lt;p&gt;先月末に珍しいGPS異常が発生していたらしいのですが、調べてみたところテスト稼働中の自作GPSDOがそれらしき現象を捉えていました。せっかくなので現状わかっていることをまとめておきます。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>GPSパッチアンテナをカラーコーンでかさ上げする</title>
-      <link>https://ttrf.tk/posts/2015-12-27-liftup-gps-antenna-to-keep-on-snow-pile/</link>
+      <link>https://ttrftech.github.io/posts/2015-12-27-liftup-gps-antenna-to-keep-on-snow-pile/</link>
       <pubDate>Sun, 27 Dec 2015 08:17:55 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2015-12-27-liftup-gps-antenna-to-keep-on-snow-pile/</guid>
+      <guid>https://ttrftech.github.io/posts/2015-12-27-liftup-gps-antenna-to-keep-on-snow-pile/</guid>
       <description>&lt;p&gt;実験用にGPSアンテナを屋上に置いているのですが、これまでは安価なパッチアンテナをトタン屋根に磁石で張り付けていただけでした。北海道は雪の季節、これからのハイシーズンにかけて屋根は1m近くの雪に埋もれてしまいます。このままではアンテナが埋もれて使えなくなってしまいますので、積雪対策をしてみました。写真は(今年は雪が遅いのでまだ埋もれていない)対策前のパッチアンテナです。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>GPSのPPS信号でOCXOの周波数を制御してGPSDOの実験をしてみる</title>
-      <link>https://ttrf.tk/posts/2015-10-12-gpsdo-experiment-gps-ublox-6t-pps-control-oxco/</link>
+      <link>https://ttrftech.github.io/posts/2015-10-12-gpsdo-experiment-gps-ublox-6t-pps-control-oxco/</link>
       <pubDate>Mon, 12 Oct 2015 06:12:33 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2015-10-12-gpsdo-experiment-gps-ublox-6t-pps-control-oxco/</guid>
+      <guid>https://ttrftech.github.io/posts/2015-10-12-gpsdo-experiment-gps-ublox-6t-pps-control-oxco/</guid>
       <description>GPSDOの試作ですが、OCXOを触ってみて感触がわかったので、いよいよ周波数制御をしてみます。もちろん制御はMCUからソフトウェアで行いま</description>
     </item>
     
     <item>
       <title>引き続きOCXOとGPSの安定性を試している</title>
-      <link>https://ttrf.tk/posts/2015-10-08-gps-ocxo-stability-trial/</link>
+      <link>https://ttrftech.github.io/posts/2015-10-08-gps-ocxo-stability-trial/</link>
       <pubDate>Thu, 08 Oct 2015 17:34:56 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2015-10-08-gps-ocxo-stability-trial/</guid>
+      <guid>https://ttrftech.github.io/posts/2015-10-08-gps-ocxo-stability-trial/</guid>
       <description>前回に引き続きGPSDOをDIYするべく、GPSやOCXOをあれこれ試しています(まだ周波数制御はしていません)。前回は手軽に5Vだけで動作</description>
     </item>
     
     <item>
       <title>GPSのPPS信号を基準にOCXOの安定度を観察してみる</title>
-      <link>https://ttrf.tk/posts/2015-09-21-gps-based-ocxo-stability-measurement/</link>
+      <link>https://ttrftech.github.io/posts/2015-09-21-gps-based-ocxo-stability-measurement/</link>
       <pubDate>Mon, 21 Sep 2015 05:35:12 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2015-09-21-gps-based-ocxo-stability-measurement/</guid>
+      <guid>https://ttrftech.github.io/posts/2015-09-21-gps-based-ocxo-stability-measurement/</guid>
       <description>&lt;p&gt;以前さわりだけご紹介したGPS基板ですが、GPSを周波数源として活用したいというのがそもそもの目的でした。GPSモジュールはPPS信号＝1秒毎のパルスだけではなく設定で任意の周波数を出力可能なのですが、実はその信号は周波数源としては安定度／信号純度が後に述べる理由から全く不十分なのです。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ubloxのGPS LEA-6Tの実験ボードを作って試してみる</title>
-      <link>https://ttrf.tk/posts/2014-10-22-ublox-lea-6t-gps-breakout-board/</link>
+      <link>https://ttrftech.github.io/posts/2014-10-22-ublox-lea-6t-gps-breakout-board/</link>
       <pubDate>Wed, 22 Oct 2014 14:16:00 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2014-10-22-ublox-lea-6t-gps-breakout-board/</guid>
+      <guid>https://ttrftech.github.io/posts/2014-10-22-ublox-lea-6t-gps-breakout-board/</guid>
       <description>&lt;p&gt;GPSは携帯電話やカーナビなど実に至る所で使われています。数多く使われているだけあって、その価格も非常に安価になってきています。下の写真は先だって入手してみた、今回の主題とは別のGPSモジュールです。Droneなどの自律飛行のために、Arduinoベースのフライトコントローラに接続して使うもののようです。載っているGPSのモジュールは、ublox NEO-6Mという小型のもので、パッチアンテナも付属しており、電源5Vが2本、シリアルの入出力で2本の計4本の接続だけでこのままで使うことが可能です。ちゃんとバックアップバッテリやEEPROMも搭載されており、たとえ外部からの電源が途切れても短時間で測位を再開できるようになっています。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>RTL2832UドングルでGPS受信を試みる(失敗編)</title>
-      <link>https://ttrf.tk/posts/2013-05-24-trying-receive-gps-with-rtl2832u-and-macosx/</link>
+      <link>https://ttrftech.github.io/posts/2013-05-24-trying-receive-gps-with-rtl2832u-and-macosx/</link>
       <pubDate>Fri, 24 May 2013 15:55:00 +0000</pubDate>
       
-      <guid>https://ttrf.tk/posts/2013-05-24-trying-receive-gps-with-rtl2832u-and-macosx/</guid>
+      <guid>https://ttrftech.github.io/posts/2013-05-24-trying-receive-gps-with-rtl2832u-and-macosx/</guid>
       <description>&lt;p&gt;RTL2832UドングルでGPSを受信する試みについての記事を読み実験してみたいと思っていました。その準備として安価なアクティブアンテナをebayで購入してあったのですが放置していました。SDRによるGPS受信が盛り上がっているようだったので、まずはキャリアを受信できるかどうかを試してみました。結論からいうと失敗だったのですが、一応メモとして載せておきます。&lt;/p&gt;</description>
     </item>
     
